@@ -4,9 +4,9 @@ import path from "node:path";
 
 /** Single model everywhere — baseline, workflow agents, and judge run on the
  *  same model so the comparison isolates the workflow, not the model. */
-export const MODEL = "claude-opus-5";
+export const MODEL = "claude-opus-4-8";
 
-/** claude-opus-5 pricing, USD per million tokens (input, output). */
+/** claude-opus-4-8 pricing, USD per million tokens (input, output). */
 const PRICE_IN = 5.0;
 const PRICE_OUT = 25.0;
 
