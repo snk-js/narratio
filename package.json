@@ -1,0 +1,27 @@
+{
+  "name": "narratio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Verifiable essay-to-narration adaptation — micro1 Agentic Workflows Hackathon 2026",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "baseline": "tsx src/run-baseline.ts",
+    "adapt": "tsx src/run-workflow.ts",
+    "eval": "tsx src/eval/run-eval.ts",
+    "report": "tsx src/eval/report.ts",
+    "trajectories": "tsx src/render-trajectories.ts",
+    "fetch-corpus": "tsx src/fetch-corpus.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}
