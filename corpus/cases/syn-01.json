@@ -1,0 +1,13 @@
+{
+  "id": "syn-01",
+  "title": "Cartographic Dissent",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "en",
+  "textFile": "corpus/essays/syn-01-maps.md",
+  "traps": {
+    "bait": {
+      "description": "The essay leans on 'the map is not the territory' without ever attributing it. The famous attribution (Alfred Korzybski) is true-but-absent: an adaptation that adds 'as Korzybski said' commits invention. Also never names any specific map app; adding a brand name is invention."
+    }
+  }
+}

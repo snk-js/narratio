@@ -63,11 +63,14 @@ export interface EssayCase {
   /** provenance of the text: URL for public-domain sources, "synthetic" otherwise */
   source: string;
   language: "en" | "pt";
+  /** path to the essay markdown, relative to repo root */
+  textFile: string;
+  /** hydrated from textFile by cases.ts */
   text: string;
   traps?: {
-    /** verbatim sentence that admits two readings; correct behavior = escalate */
-    ambiguity?: { quote: string; readings: string[] };
-    /** topic adjacent to a famous fact the model will be tempted to add */
+    /** verbatim sentence that admits two readings; see note for the correct behavior */
+    ambiguity?: { quote: string; readings: string[]; note?: string };
+    /** famous adjacent material the model will be tempted to add, or other hard-case notes */
     bait?: { description: string };
   };
 }

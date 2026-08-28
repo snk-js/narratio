@@ -1,0 +1,18 @@
+{
+  "id": "syn-02",
+  "title": "The Rehearsal",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "en",
+  "textFile": "corpus/essays/syn-02-rehearsal.md",
+  "traps": {
+    "ambiguity": {
+      "quote": "She rehearsed because she could not stop.",
+      "readings": [
+        "Compulsion: the rehearsing was involuntary — she was unable to stop doing it.",
+        "Medicine: she rehearsed as the means by which stopping (putting death down, sleeping) became possible."
+      ],
+      "note": "PRESERVATION trap, not escalation: the essay itself flags this sentence as double ('there are two ways to read what she was doing... refuses to choose'). Correct behavior is to carry BOTH readings into the narration. Silently resolving to one reading = failure. Escalation is unnecessary (the author already answered: keep it open)."
+    }
+  }
+}

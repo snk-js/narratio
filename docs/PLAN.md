@@ -40,24 +40,33 @@ Design choices to defend (each gets a changelog entry with evidence):
 
 Judge config pinned (model + prompt version); judge never sees which arm produced a text (blind labels).
 
-## Corpus (10–12 cases)
+## Corpus (8 cases — DECIDED: fully synthetic)
 
-- 8× public-domain essay excerpts (~600–1,200 words): Montaigne (Cotton tr.), Hazlitt, Emerson, Thoreau, Chesterton, Woolf-era public domain, Seneca (tr.), Bacon. Fetched by script, committed with source URLs.
-- 2× synthetic essays (written for this repo) with **planted traps**: one deliberately ambiguous load-bearing sentence; one "bait" passage adjacent to a famous fact the model will be tempted to add (true-but-absent trap).
-- 1× hard case: dense figurative prose where segmentation itself is hard.
+Gutenberg is blocked by the session's egress policy, so the corpus is 8 synthetic essays written for this repo (rule 7 explicitly allows synthetic data; avoids any fidelity risk of reproducing public-domain texts from memory). Disclosed in README. Varied registers; ~300–600 words each:
+
+- syn-01 *Cartographic Dissent* — bait trap: unattributed "map is not the territory" (adding Korzybski = invention)
+- syn-02 *The Rehearsal* — PRESERVATION trap: essay explicitly flags its own double sentence; narration must keep both readings
+- syn-03 *The Wired Door* — ESCALATION trap: unflagged ambiguous load-bearing sentence + bait (Chesterton's Fence, "security theater")
+- syn-04 *Low Tide* — hard case: dense figurative prose (flattening/beat-abuse/drift risks)
+- syn-05 *The Government of Queues* — clean, argumentative
+- syn-06 *A Schedule for Knowledge* — clean, reflective
+- syn-07 *O Fio e o Rito* — pt-BR; language-preservation trap
+- syn-08 *The Price of the Instant Answer* — clean, memoir-argumentative
+
+Trap strength is itself validated empirically: if the adapter reasonably resolves a planted ambiguity, the case gets strengthened and the change logged.
 
 ## Day plan
 
 ### Day 0 — today (Aug 28)
 - [x] Repo created (`snk-js/narratio`), scope decided, framework decided (plain TS SDK)
 - [x] Project scaffold + docs (this commit)
-- [ ] **BLOCKED: repo access from this session** — see ASK in progress notes
-- [ ] Corpus fetch script + synthetic essays written
-- [ ] Types + prompts v1 + baseline runner
-- [ ] Confirm API key available for eval runs; smoke-test one call
+- [x] Repo access unblocked; scaffold pushed to `main`
+- [x] Corpus: 8 synthetic cases written (see Corpus section — decision logged)
+- [x] Types, prompts v1, baseline runner, workflow runner (typechecked)
+- [ ] **BLOCKED on user: ANTHROPIC_API_KEY** for eval runs; smoke-test one call
 
 ### Day 1 (Aug 29)
-- [ ] Eval harness: case loader, both arms, mechanical anchor check, judge, results tables (JSON + md)
+- [x] Eval harness: case loader, both arms, blind judge, trap scoring, results tables (JSON + md) — built Day 0
 - [ ] Run BASELINE on full corpus → changelog entry "Baseline" with numbers
 - [ ] Adapter agent v1 (segments + anchors + escalations) → run → changelog "Iteration 1"
 - [ ] Verifier + revision loop → run → changelog "Iteration 2"
@@ -65,7 +74,7 @@ Judge config pinned (model + prompt version); judge never sees which arm produce
 ### Day 2 (Aug 30)
 - [ ] Escalation measurement on planted cases → changelog "Iteration 3"
 - [ ] One deliberate removed experiment (candidate: a second adapter pass that "polishes rhythm" — expect it to raise style scores but *increase* unsupported-claim rate; remove it and log why)
-- [ ] Trajectory export: JSON → readable markdown per agent
+- [x] Trajectory export: JSON → readable markdown per agent — built Day 0
 - [ ] Full final run; freeze numbers; write failure-mode + hot-take section
 
 ### Day 3 (Aug 31, morning)

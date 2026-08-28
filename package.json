@@ -12,7 +12,6 @@
     "eval": "tsx src/eval/run-eval.ts",
     "report": "tsx src/eval/report.ts",
     "trajectories": "tsx src/render-trajectories.ts",
-    "fetch-corpus": "tsx src/fetch-corpus.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

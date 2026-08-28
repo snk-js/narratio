@@ -4,9 +4,14 @@ import type { EssayCase } from "./types.js";
 
 const CASES_DIR = path.join(process.cwd(), "corpus", "cases");
 
+function hydrate(raw: EssayCase): EssayCase {
+  const text = fs.readFileSync(path.join(process.cwd(), raw.textFile), "utf8").trim();
+  return { ...raw, text };
+}
+
 export function loadCase(id: string): EssayCase {
   const file = path.join(CASES_DIR, `${id}.json`);
-  return JSON.parse(fs.readFileSync(file, "utf8")) as EssayCase;
+  return hydrate(JSON.parse(fs.readFileSync(file, "utf8")) as EssayCase);
 }
 
 export function loadAllCases(): EssayCase[] {
@@ -14,7 +19,7 @@ export function loadAllCases(): EssayCase[] {
     .readdirSync(CASES_DIR)
     .filter((f) => f.endsWith(".json"))
     .sort()
-    .map((f) => JSON.parse(fs.readFileSync(path.join(CASES_DIR, f), "utf8")) as EssayCase);
+    .map((f) => hydrate(JSON.parse(fs.readFileSync(path.join(CASES_DIR, f), "utf8")) as EssayCase));
 }
 
 export function saveResult(sub: string, name: string, data: unknown): string {
