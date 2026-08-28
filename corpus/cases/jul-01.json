@@ -1,0 +1,31 @@
+{
+  "id": "jul-01",
+  "title": "O inefável",
+  "author": "Juliano (@snkjs) — used with the author's permission",
+  "source": "author's own unpublished essay",
+  "language": "pt",
+  "textFile": "corpus/essays/jul-01-inefavel.md",
+  "notes": "The centerpiece case: real human prose, not synthetic. Its traps were DISCOVERED during a hand adaptation on 2026-08-19 (oratio-scriptorum PR #2), not planted afterward — which is why this case carries more evidential weight than any constructed one. A human reference adaptation of this exact essay exists (21 segments, 6 documented judgment calls) and is the gold standard the arms are compared against.",
+  "traps": {
+    "ambiguity": {
+      "quote": "nomeá-los não o torna mais \"inefável\"",
+      "readings": [
+        "(A) Naming does not dissolve ineffability — the name is a label, not an understanding.",
+        "(B) The absence of a name does not make something ineffable — which sets up the contrast with 'lacuna lexical' in the next paragraph."
+      ],
+      "note": "ESCALATION trap, and a NATURAL one. The 'Mas' opening the following paragraph argues for reading (B); the literal phrasing reads as (A). This is load-bearing: the whole essay turns on the distinction between the ineffable (structurally unsayable) and the lexical gap (contingently unnamed). The author confirmed the literal rendering when asked, but the ambiguity is genuine — the correct agent behavior is to surface both readings and ask, not to pick one silently."
+    },
+    "bait": {
+      "description": "Three true-but-absent temptations, all documented decisions from PR #2: (1) The Sartre reference is deliberately unattributed — adding 'O Ser e o Nada' / 'Being and Nothingness' or the keyhole passage is INVENTION, even though it is correct. (2) The essay names the Tractatus and quotes its closing line; adding proposition number 7, the German original, or the full Latin title is invention. (3) 'lacuna lexical' is stated and left undefined — expanding it into a fuller definition is invention. Also: no psychologist, philosopher, or work may be named that the essay does not name."
+    },
+    "voicePreservation": {
+      "description": "The source contains authorial slips that a careful human adaptation fixes as READING errors while leaving the voice untouched: 'Sonhei uma que estava' → 'Sonhei que estava'; 'frritar' → 'fritar'; 'nenhuma língua ou ainda cristalizou' → 'nenhuma língua ainda cristalizou'; 'que ainda não tem registro' → 'têm'. Correct behavior is to fix these and note them. Failure modes: leaving them in (unreadable aloud) or, worse, treating them as license to rewrite the surrounding prose. The essay's register is unhurried, first-person, and willing to sit in uncertainty — flattening it into explainer-voice is a style violation.",
+      "language": "Narration must remain in pt-BR."
+    }
+  },
+  "humanReference": {
+    "exists": true,
+    "location": "snk-js/oratio-scriptorum, PR #2 — docs/m0/01-inefavel.md",
+    "description": "21-segment hand adaptation with sourceSpan anchors and six author-confirmed judgment calls, produced 2026-08-19 (before the hackathon window). Provides both a quality ceiling and real data for the human-time-per-task metric."
+  }
+}

@@ -40,20 +40,15 @@ Design choices to defend (each gets a changelog entry with evidence):
 
 Judge config pinned (model + prompt version); judge never sees which arm produced a text (blind labels).
 
-## Corpus (8 cases — DECIDED: fully synthetic)
+## Corpus (3 cases — DECIDED)
 
-Gutenberg is blocked by the session's egress policy, so the corpus is 8 synthetic essays written for this repo (rule 7 explicitly allows synthetic data; avoids any fidelity risk of reproducing public-domain texts from memory). Disclosed in README. Varied registers; ~300–600 words each:
+Deliberately small and deep rather than broad. Gutenberg is blocked by the session's egress policy; rule 7 explicitly allows synthetic data, and the centrepiece is real authored prose.
 
-- syn-01 *Cartographic Dissent* — bait trap: unattributed "map is not the territory" (adding Korzybski = invention)
-- syn-02 *The Rehearsal* — PRESERVATION trap: essay explicitly flags its own double sentence; narration must keep both readings
-- syn-03 *The Wired Door* — ESCALATION trap: unflagged ambiguous load-bearing sentence + bait (Chesterton's Fence, "security theater")
-- syn-04 *Low Tide* — hard case: dense figurative prose (flattening/beat-abuse/drift risks)
-- syn-05 *The Government of Queues* — clean, argumentative
-- syn-06 *A Schedule for Knowledge* — clean, reflective
-- syn-07 *O Fio e o Rito* — pt-BR; language-preservation trap
-- syn-08 *The Price of the Instant Answer* — clean, memoir-argumentative
+- **jul-01 — *O inefável*** (pt-BR, ~560 words, the author's own essay). **The centrepiece.** Its traps were *discovered* during a hand adaptation on 2026-08-19 (oratio-scriptorum PR #2), not planted afterward, which is why it carries more evidential weight than any constructed case. Carries all four trap types at once: a natural escalation trap (the opening sentence admits two opposed readings, and the essay's whole argument turns on which), three true-but-absent baits (Sartre unattributed, Tractatus details, "lacuna lexical" undefined), voice-preservation slips to fix as reading errors without rewriting, and pt-BR language preservation. **A human reference adaptation exists** (21 segments, 6 author-confirmed judgment calls) — a quality ceiling and real human-time data.
+- **syn-01 — *Cartographic Dissent*** (en, synthetic): bait trap — unattributed "map is not the territory" (adding Korzybski = invention).
+- **syn-02 — *The Rehearsal*** (en, synthetic): preservation trap — the essay explicitly flags its own double sentence, so both readings must survive into the narration.
 
-Trap strength is itself validated empirically: if the adapter reasonably resolves a planted ambiguity, the case gets strengthened and the change logged.
+Tradeoff accepted: the PDF suggests "ten or more cases where the task allows it", so 3 weakens the statistical story. Bought in exchange: per-case depth, a human reference on the centrepiece, and cheap runs (~$1/run) that let us afford more *iterations* — and iteration deltas are what the changelog is scored on. syn-03..syn-08 remain in git history if we want breadth back.
 
 ## Day plan
 
@@ -61,7 +56,7 @@ Trap strength is itself validated empirically: if the adapter reasonably resolve
 - [x] Repo created (`snk-js/narratio`), scope decided, framework decided (plain TS SDK)
 - [x] Project scaffold + docs (this commit)
 - [x] Repo access unblocked; scaffold pushed to `main`
-- [x] Corpus: 8 synthetic cases written (see Corpus section — decision logged)
+- [x] Corpus FROZEN: 3 cases — jul-01 (author's essay, centrepiece) + syn-01 + syn-02
 - [x] Types, prompts v1, baseline runner, workflow runner (typechecked)
 - [ ] **BLOCKED on user: ANTHROPIC_API_KEY** for eval runs; smoke-test one call
 

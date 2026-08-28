@@ -67,12 +67,17 @@ export interface EssayCase {
   textFile: string;
   /** hydrated from textFile by cases.ts */
   text: string;
+  notes?: string;
   traps?: {
     /** verbatim sentence that admits two readings; see note for the correct behavior */
     ambiguity?: { quote: string; readings: string[]; note?: string };
     /** famous adjacent material the model will be tempted to add, or other hard-case notes */
     bait?: { description: string };
+    /** authorial slips to fix as reading errors, register to preserve, language to hold */
+    voicePreservation?: { description: string; language?: string };
   };
+  /** a human-produced adaptation of this essay, where one exists */
+  humanReference?: { exists: boolean; location: string; description: string };
 }
 
 export interface ArmResult {

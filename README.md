@@ -34,7 +34,7 @@ Measured against a fair baseline (one well-written prompt to the same model), on
 
 ## Can another person reproduce the result?
 
-Yes — the corpus is synthetic essays committed to this repo (written for this project and disclosed as such; see corpus/README note), every metric is either mechanical or produced by a pinned judge configuration, and [`docs/REPRODUCE.md`](docs/REPRODUCE.md) walks from a clean environment to the headline comparison with exact commands, versions, expected output, runtime, and cost.
+Yes — the corpus is three essays committed to this repo (one the author's own, two synthetic and disclosed as such), every metric is either mechanical or produced by a pinned judge configuration, and [`docs/REPRODUCE.md`](docs/REPRODUCE.md) walks from a clean environment to the headline comparison with exact commands, versions, expected output, runtime, and cost.
 
 ---
 

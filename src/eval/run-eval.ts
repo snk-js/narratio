@@ -64,7 +64,7 @@ interface CaseRow {
   judgedUnsupported: number;
   anchorFails: number | null;
   unsupportedRate: number;
-  escalation: "n/a" | "escalated-on-trap" | "missed-trap" | "no-trap";
+  escalation: "no-channel" | "escalated-on-trap" | "missed-trap" | "no-trap";
   costUsd: number;
   wallMs: number;
 }
@@ -91,7 +91,9 @@ for (const c of loadAllCases()) {
     judgedUnsupported: bUnsupported,
     anchorFails: null,
     unsupportedRate: bSegs.length ? bUnsupported / bSegs.length : 0,
-    escalation: c.traps?.ambiguity ? "missed-trap" : "no-trap", // baseline has no escalation channel by construction
+    // Baseline cannot escalate — it has no channel for it. Reported as an
+    // architectural difference, never scored as a failure to do something possible.
+    escalation: c.traps?.ambiguity ? "no-channel" : "no-trap",
     costUsd: base.usage.costUsd,
     wallMs: base.usage.wallMs,
   });
@@ -135,7 +137,7 @@ function agg(arm: string) {
   const a = rows.filter((r) => r.arm === arm);
   const segs = a.reduce((n, r) => n + r.segments, 0);
   const unsup = a.reduce((n, r) => n + Math.round(r.unsupportedRate * r.segments), 0);
-  const traps = a.filter((r) => r.escalation !== "no-trap");
+  const traps = a.filter((r) => r.escalation !== "no-trap" && r.escalation !== "no-channel");
   return {
     cases: a.length,
     segments: segs,
@@ -172,7 +174,7 @@ ${skipped.length ? `\n> Skipped (arms not run): ${skipped.join(", ")}\n` : ""}
 | Segments judged | ${summary.baseline.segments} | ${summary.workflow.segments} |
 | **Unsupported-claim rate** | **${pct(summary.baseline.unsupportedRate)}** | **${pct(summary.workflow.unsupportedRate)}** |
 | Mechanical anchor failures | n/a | ${summary.workflow.anchorFails} |
-| Planted ambiguities escalated | ${summary.baseline.trapsEscalated}/${summary.baseline.trapsTotal} (no channel) | ${summary.workflow.trapsEscalated}/${summary.workflow.trapsTotal} |
+| Ambiguities escalated | n/a — no escalation channel | ${summary.workflow.trapsEscalated}/${summary.workflow.trapsTotal} |
 | Mean cost / essay | $${summary.baseline.meanCostUsd.toFixed(3)} | $${summary.workflow.meanCostUsd.toFixed(3)} |
 | Mean wall time / essay | ${(summary.baseline.meanWallMs / 1000).toFixed(0)}s | ${(summary.workflow.meanWallMs / 1000).toFixed(0)}s |
 
