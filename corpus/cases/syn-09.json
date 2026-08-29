@@ -18,6 +18,21 @@
     },
     "bait": {
       "description": "No named psychologist, no restorative-justice terminology, no 'stages of forgiveness'. Adding any framework name is invention."
+    },
+    "mechanicalCheck": {
+      "sentence": "An apology that arrives late does not make the injury larger.",
+      "faithful": [
+        "injury larger",
+        "injury any larger"
+      ],
+      "corrupt": [
+        "injury smaller",
+        "injury any smaller",
+        "wound smaller",
+        "injury less",
+        "make it smaller"
+      ],
+      "note": "Polarity of the comparative. 'smaller' inverts the essay's argument."
     }
   },
   "caseClass": "adversarial"

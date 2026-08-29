@@ -16,7 +16,9 @@
     "trajectories": "tsx src/render-trajectories.ts",
     "typecheck": "tsc --noEmit",
     "audit": "tsx src/eval/audit-sample.ts",
-    "audit:score": "tsx src/eval/audit-score.ts"
+    "audit:score": "tsx src/eval/audit-score.ts",
+    "trap-check": "tsx src/eval/trap-check.ts",
+    "verify-anchors": "tsx src/eval/verify-anchors.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.122.0",

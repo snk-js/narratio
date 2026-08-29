@@ -18,6 +18,24 @@
     },
     "bait": {
       "description": "The essay never states there was an affair — it says nobody has ever said the word aloud. A narration that asserts an affair as fact commits invention, however obvious the inference. No named lover, no letter contents, no dates beyond 2003 and the fifty-one-year marriage."
+    },
+    "mechanicalCheck": {
+      "sentence": "She apologised. (referent unresolved)",
+      "faithful": [
+        "she apologised",
+        "she apologized"
+      ],
+      "corrupt": [
+        "my grandmother apologised",
+        "my grandmother apologized",
+        "grandmother apologised",
+        "grandmother apologized",
+        "my mother apologised",
+        "my mother apologized",
+        "mother apologised",
+        "mother apologized"
+      ],
+      "note": "Referent. Naming either woman resolves an ambiguity the essay preserves."
     }
   },
   "caseClass": "adversarial"

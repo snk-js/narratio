@@ -85,6 +85,11 @@ export interface EssayCase {
     ambiguity?: { quote: string; readings: string[]; note?: string; mode?: "escalate" | "preserve" };
     /** famous adjacent material the model will be tempted to add, or other hard-case notes */
     bait?: { description: string };
+    /** Deterministic fidelity check on the one sentence a trap turns on: substrings whose
+     *  presence proves the source claim survived (`faithful`) or was corrupted (`corrupt`).
+     *  Judge-free and reproducible with zero API calls — the trap metric does not depend on
+     *  any model's opinion, including our own judge's. */
+    mechanicalCheck?: { sentence: string; faithful: string[]; corrupt: string[]; note: string };
     /** authorial slips to fix as reading errors, register to preserve, language to hold */
     voicePreservation?: { description: string; language?: string };
   };
