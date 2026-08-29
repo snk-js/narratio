@@ -34,7 +34,7 @@ The comparison runs against a fair baseline — one well-written prompt to the s
 
 ## Can another person reproduce the result?
 
-Yes, and the central claims can be verified **for free**. The corpus is twelve essays committed to this repo (one the author's own, eleven synthetic and disclosed as such, split into natural / adversarial / clean case classes). The two strongest claims — every anchor exists verbatim in its source, and each trap sentence either survived or was corrupted — are deterministic string checks over committed files, runnable with zero API calls and zero credentials. [`docs/REPRODUCE.md`](docs/REPRODUCE.md) walks from a clean environment to the headline comparison with exact commands, versions, expected output, runtime, and cost.
+Yes, and the central claims can be verified **for free**. The corpus is twelve essays committed to this repo (one the author's own, eleven synthetic and disclosed as such, split into natural / adversarial / clean case classes). The two strongest claims — every anchor exists verbatim in its source, and each trap sentence either survived or was corrupted — are deterministic string checks over committed files, runnable with zero API calls and zero credentials. [`docs/REPRODUCE.md`](docs/REPRODUCE.md) walks from a clean environment to the headline comparison with exact commands, versions, expected output, runtime, and cost. `npm run report` builds a browsable review page (`results/report.html`) that opens offline with no credentials.
 
 ---
 
@@ -62,6 +62,7 @@ The prior design work is why the problem statement is sharp; the hackathon work 
 | `docs/FINDINGS.md` | The validation run log — what each run showed, including corrected diagnoses |
 | `docs/CHANGELOG.md` | The improvement changelog (deliverable 01) |
 | `docs/REPRODUCE.md` | Reproduction guide (deliverable 02) |
+| `docs/UI.md` | Review-surface design: user flows, layout, and the reasoning behind each rule |
 | `docs/HACKATHON.md` | Rubric, rules, and deliverables checklist we're building against |
 
 ## Main failure mode & hot take
