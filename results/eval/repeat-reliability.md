@@ -1,6 +1,6 @@
 # Repeat-run reliability — judge-free
 
-Generated 2026-08-29T07:48:37.773Z. **Zero API calls.** Scores every committed sample of each
+Generated 2026-08-29T07:53:19.712Z. **Zero API calls.** Scores every committed sample of each
 trap case, using the same deterministic markers as `trap-check`.
 
 A single sample per arm shows that a corruption *can* happen. Repeat sampling shows how *reliably*
