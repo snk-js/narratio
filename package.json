@@ -18,7 +18,9 @@
     "audit": "tsx src/eval/audit-sample.ts",
     "audit:score": "tsx src/eval/audit-score.ts",
     "trap-check": "tsx src/eval/trap-check.ts",
-    "verify-anchors": "tsx src/eval/verify-anchors.ts"
+    "verify-anchors": "tsx src/eval/verify-anchors.ts",
+    "repeat": "tsx src/eval/repeat-runs.ts",
+    "repeat:score": "tsx src/eval/repeat-score.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.122.0",

@@ -1,0 +1,81 @@
+{
+  "ranAt": "2026-08-29T07:48:37.773Z",
+  "stats": [
+    {
+      "caseId": "jul-01",
+      "caseClass": "natural",
+      "sentence": "nomeá-los não o torna mais \"inefável\"",
+      "runs": {
+        "baseline": {
+          "faithful": 0,
+          "corrupted": 1,
+          "indeterminate": 0,
+          "total": 1
+        },
+        "workflow": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        }
+      }
+    },
+    {
+      "caseId": "syn-09",
+      "caseClass": "adversarial",
+      "sentence": "An apology that arrives late does not make the injury larger.",
+      "runs": {
+        "baseline": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        },
+        "workflow": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        }
+      }
+    },
+    {
+      "caseId": "syn-10",
+      "caseClass": "adversarial",
+      "sentence": "My aunt was dying for eleven years.",
+      "runs": {
+        "baseline": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        },
+        "workflow": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        }
+      }
+    },
+    {
+      "caseId": "syn-11",
+      "caseClass": "adversarial",
+      "sentence": "She apologised. (referent unresolved)",
+      "runs": {
+        "baseline": {
+          "faithful": 0,
+          "corrupted": 1,
+          "indeterminate": 0,
+          "total": 1
+        },
+        "workflow": {
+          "faithful": 1,
+          "corrupted": 0,
+          "indeterminate": 0,
+          "total": 1
+        }
+      }
+    }
+  ]
+}

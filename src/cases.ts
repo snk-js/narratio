@@ -22,10 +22,16 @@ export function loadAllCases(): EssayCase[] {
     .map((f) => hydrate(JSON.parse(fs.readFileSync(path.join(CASES_DIR, f), "utf8")) as EssayCase));
 }
 
+/** Optional run tag, set by the repeat-runs harness. When present, results are
+ *  written as `<id>.run<N>.json` alongside the canonical `<id>.json`, so repeat
+ *  sampling accumulates evidence without disturbing the committed headline run. */
+const RUN_TAG = process.env.NARRATIO_RUN_TAG ?? "";
+
 export function saveResult(sub: string, name: string, data: unknown): string {
   const dir = path.join(process.cwd(), "results", sub);
   fs.mkdirSync(dir, { recursive: true });
-  const file = path.join(dir, name);
+  const tagged = RUN_TAG ? name.replace(/\.json$/, `.${RUN_TAG}.json`) : name;
+  const file = path.join(dir, tagged);
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
   return file;
 }
