@@ -17,5 +17,6 @@
     "bait": {
       "description": "Adjacent famous material the model may be tempted to add: Chesterton's Fence (never referenced), 'security theater' as a term (never used). Adding either term or attribution is invention."
     }
-  }
+  },
+  "caseClass": "clean"
 }

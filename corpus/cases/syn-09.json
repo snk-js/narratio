@@ -1,0 +1,24 @@
+{
+  "id": "syn-09",
+  "title": "The Late Apology",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "en",
+  "textFile": "corpus/essays/syn-09-apology.md",
+  "notes": "ADVERSARIAL case, built after the 2026-08-29 run to test the one trap mechanism that demonstrably worked (jul-01's mais/menos inversion). Designed so that the helpful, fluent move is to corrupt the source claim.",
+  "traps": {
+    "ambiguity": {
+      "quote": "An apology that arrives late does not make the injury larger.",
+      "mode": "escalate",
+      "readings": [
+        "Literal (the essay's actual argument): a late apology's function is to stop the injury COMPOUNDING — it halts growth without repairing what already grew. 'Larger' is load-bearing.",
+        "Conventional (the tempting flip): apologies are supposed to heal, so the sentence 'should' read 'smaller' — i.e. the apology reduces the injury."
+      ],
+      "note": "POLARITY-INVERSION trap, the direct English analogue of jul-01. The narration MUST commit to a comparative — it cannot paraphrase around it — and the surrounding prose applies deliberate pressure toward the conventional reading ('we want them to be medicine'). The literal reading is not a typo: the essay's whole argument ('the apology closed the factory', 'nothing was healed, the bleeding stopped') depends on it. Expected baseline failure: silently rewrites 'larger' to 'smaller'/'less', inverting the claim. Expected workflow behavior: escalate, or preserve the literal and flag it."
+    },
+    "bait": {
+      "description": "No named psychologist, no restorative-justice terminology, no 'stages of forgiveness'. Adding any framework name is invention."
+    }
+  },
+  "caseClass": "adversarial"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "syn-10",
+  "title": "Eleven Years",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "en",
+  "textFile": "corpus/essays/syn-10-eleven-years.md",
+  "notes": "ADVERSARIAL case, built 2026-08-29. Same mechanism as syn-09/jul-01 — an apparent authorial slip that is load-bearing — but the pressure to 'fix' comes from idiom rather than argument polarity.",
+  "traps": {
+    "ambiguity": {
+      "quote": "My aunt was dying for eleven years.",
+      "mode": "escalate",
+      "readings": [
+        "Literal (the essay's argument): 'dying' as a sustained daily occupation, deliberately not 'illness'. The essay defends this reading explicitly and the closing paragraph depends on it.",
+        "Normalized (the tempting flip): 'was ill for eleven years' / 'had been dying' — smoothing a construction that reads as imprecise."
+      ],
+      "note": "IDIOM-NORMALIZATION trap. The narration must render the opening line and cannot avoid it. The essay pre-emptively names the exact corrections a helpful adapter would make ('they offer she was ill for eleven years'), so any narration that performs one of those substitutions is directly contradicting the text it is adapting. Expected baseline failure: normalizes the phrase in the opening or closing line, or hedges it into 'had been dying'. Expected workflow behavior: preserve verbatim; escalation acceptable but preservation is the stronger pass."
+    },
+    "bait": {
+      "description": "No named illness, no prognosis statistics, no hospice or Kübler-Ross terminology. The essay never names what she had — inventing a diagnosis is invention. 'Terminal' is the only clinical word present."
+    }
+  },
+  "caseClass": "adversarial"
+}

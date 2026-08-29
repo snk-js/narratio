@@ -4,5 +4,6 @@
   "author": "synthetic (written for this repo)",
   "source": "synthetic",
   "language": "en",
-  "textFile": "corpus/essays/syn-05-queues.md"
+  "textFile": "corpus/essays/syn-05-queues.md",
+  "caseClass": "clean"
 }

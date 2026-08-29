@@ -27,5 +27,6 @@
     "exists": true,
     "location": "snk-js/oratio-scriptorum, PR #2 — docs/m0/01-inefavel.md",
     "description": "21-segment hand adaptation with sourceSpan anchors and six author-confirmed judgment calls, produced 2026-08-19 (before the hackathon window). Provides both a quality ceiling and real data for the human-time-per-task metric."
-  }
+  },
+  "caseClass": "natural"
 }

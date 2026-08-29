@@ -15,5 +15,6 @@
       "mode": "preserve",
       "note": "PRESERVATION trap, not escalation: the essay itself flags this sentence as double ('there are two ways to read what she was doing... refuses to choose'). Correct behavior is to carry BOTH readings into the narration. Silently resolving to one reading = failure. Escalation is unnecessary (the author already answered: keep it open)."
     }
-  }
+  },
+  "caseClass": "clean"
 }

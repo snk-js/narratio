@@ -60,6 +60,7 @@ async function judgeSegments(c: EssayCase, blindLabel: string, segments: string[
 
 interface CaseRow {
   caseId: string;
+  caseClass: "natural" | "adversarial" | "clean";
   arm: string;
   segments: number;
   judgedUnsupported: number;
@@ -90,6 +91,7 @@ for (const c of loadAllCases()) {
   const bUnsupported = bVerdicts.filter((v) => !v.supported).length;
   rows.push({
     caseId: c.id,
+    caseClass: c.caseClass ?? "clean",
     arm: "baseline",
     segments: bSegs.length,
     judgedUnsupported: bUnsupported,
@@ -129,6 +131,7 @@ for (const c of loadAllCases()) {
 
   rows.push({
     caseId: c.id,
+    caseClass: c.caseClass ?? "clean",
     arm: "workflow",
     segments: wSegs.length,
     judgedUnsupported: wJudgeUnsupported,
@@ -142,8 +145,8 @@ for (const c of loadAllCases()) {
   console.log(`[eval] ${c.id} judged (baseline ${bUnsupported}/${bSegs.length}, workflow ${failIdx.size}/${wSegs.length} unsupported)`);
 }
 
-function agg(arm: string) {
-  const a = rows.filter((r) => r.arm === arm);
+function agg(arm: string, klass?: CaseRow["caseClass"]) {
+  const a = rows.filter((r) => r.arm === arm && (!klass || r.caseClass === klass));
   const segs = a.reduce((n, r) => n + r.segments, 0);
   const unsup = a.reduce((n, r) => n + Math.round(r.unsupportedRate * r.segments), 0);
   // Escalation is only scorable where escalation is the correct behavior (escalate-mode traps).
@@ -171,6 +174,11 @@ const summary = {
   judgeUsage: judgeTotals,
   baseline: agg("baseline"),
   workflow: agg("workflow"),
+  bySubset: {
+    natural: { baseline: agg("baseline", "natural"), workflow: agg("workflow", "natural") },
+    adversarial: { baseline: agg("baseline", "adversarial"), workflow: agg("workflow", "adversarial") },
+    clean: { baseline: agg("baseline", "clean"), workflow: agg("workflow", "clean") },
+  },
   rows,
   skipped,
 };
@@ -195,14 +203,24 @@ ${skipped.length ? `\n> Skipped (arms not run): ${skipped.join(", ")}\n` : ""}
 
 > Escalation is scored only on **escalate-mode** ambiguity traps (source does not flag the ambiguity). **Preserve-mode** traps — where the essay flags its own double reading and the agent must carry both — are a semantic property the mechanical layer cannot verify, so they are counted separately and deferred to human audit (the project's own escalate-to-human principle applied to its metrics).
 
+## By case class
+
+The corpus contains cases built *specifically* to break the baseline. Reporting one pooled number would let that design choice inflate the result, so each class is reported separately. **The clean row is the control: if the workflow only wins on cases written to make it win, the claim is worth little.**
+
+| Case class | What it is | Baseline unsupported | Workflow unsupported | Cases |
+|---|---|---|---|---|
+| **natural** | trap occurs in real authored prose, discovered before the hackathon | ${pct(summary.bySubset.natural.baseline.unsupportedRate)} | ${pct(summary.bySubset.natural.workflow.unsupportedRate)} | ${summary.bySubset.natural.baseline.cases} |
+| **adversarial** | built after the 2026-08-29 run to stress a known failure mechanism | ${pct(summary.bySubset.adversarial.baseline.unsupportedRate)} | ${pct(summary.bySubset.adversarial.workflow.unsupportedRate)} | ${summary.bySubset.adversarial.baseline.cases} |
+| **clean** | ordinary essays, no forced-choice trap | ${pct(summary.bySubset.clean.baseline.unsupportedRate)} | ${pct(summary.bySubset.clean.workflow.unsupportedRate)} | ${summary.bySubset.clean.baseline.cases} |
+
 ## Per-case
 
-| Case | Arm | Segments | Judged unsupported | Anchor fails | Unsupported rate | Escalation | Cost |
-|---|---|---|---|---|---|---|---|
+| Case | Class | Arm | Segments | Judged unsupported | Anchor fails | Unsupported rate | Escalation | Cost |
+|---|---|---|---|---|---|---|---|---|
 ${rows
   .map(
     (r) =>
-      `| ${r.caseId} | ${r.arm} | ${r.segments} | ${r.judgedUnsupported} | ${r.anchorFails ?? "—"} | ${pct(r.unsupportedRate)} | ${r.escalation} | $${r.costUsd.toFixed(3)} |`,
+      `| ${r.caseId} | ${r.caseClass} | ${r.arm} | ${r.segments} | ${r.judgedUnsupported} | ${r.anchorFails ?? "—"} | ${pct(r.unsupportedRate)} | ${r.escalation} | $${r.costUsd.toFixed(3)} |`,
   )
   .join("\n")}
 `;

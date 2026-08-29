@@ -67,6 +67,12 @@ export interface EssayCase {
   textFile: string;
   /** hydrated from textFile by cases.ts */
   text: string;
+  /** provenance of this case, reported separately so an adversarial corpus cannot
+   *  inflate the headline number:
+   *   - "natural": trap occurs in real authored prose, discovered not constructed
+   *   - "adversarial": case built specifically to stress a known failure mechanism
+   *   - "clean": ordinary essay, no forced-choice trap */
+  caseClass?: "natural" | "adversarial" | "clean";
   notes?: string;
   traps?: {
     /** verbatim sentence that admits two readings; see note for the correct behavior.

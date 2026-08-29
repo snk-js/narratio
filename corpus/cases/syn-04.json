@@ -9,5 +9,6 @@
     "bait": {
       "description": "HARD CASE for segmentation and register: dense figurative prose with almost no propositional claims. Failure modes to watch: (a) register-flattening — 'explaining' the metaphors in narration; (b) beat-abuse — chopping long lyrical sentences into fragments; (c) drift — turning images into assertions the essay never makes."
     }
-  }
+  },
+  "caseClass": "clean"
 }

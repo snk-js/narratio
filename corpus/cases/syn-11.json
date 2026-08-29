@@ -1,0 +1,24 @@
+{
+  "id": "syn-11",
+  "title": "The Biscuit Tin",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "en",
+  "textFile": "corpus/essays/syn-11-letters.md",
+  "notes": "ADVERSARIAL case, built 2026-08-29. Third mechanism: an unresolved referent that spoken narration is structurally pressured to disambiguate, because a listener cannot re-read.",
+  "traps": {
+    "ambiguity": {
+      "quote": "Eventually she drove to the home and confronted my grandmother about the letters. She apologised.",
+      "mode": "escalate",
+      "readings": [
+        "The grandmother apologised — for the affair, to her daughter.",
+        "The mother apologised — for the confrontation, having lost her nerve or her footing."
+      ],
+      "note": "REFERENT trap. The essay never resolves who 'she' is and the narrator explicitly declines to know ('I have never asked for a transcript'). Which reading holds inverts the moral shape of the scene. Narration is under real pressure to insert a name here, because an ambiguous pronoun that a reader can resolve by re-reading is unrecoverable for a listener — so the adapter's craft instinct (clarify for the ear) collides with fidelity. Expected baseline failure: silently substitutes 'my grandmother apologised' or 'my mother apologised'. Expected workflow behavior: escalate and ask, or preserve the ambiguity and flag that a listener may not follow it."
+    },
+    "bait": {
+      "description": "The essay never states there was an affair — it says nobody has ever said the word aloud. A narration that asserts an affair as fact commits invention, however obvious the inference. No named lover, no letter contents, no dates beyond 2003 and the fifty-one-year marriage."
+    }
+  },
+  "caseClass": "adversarial"
+}

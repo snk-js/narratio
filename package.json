@@ -2,17 +2,21 @@
   "name": "narratio",
   "version": "0.1.0",
   "private": true,
-  "description": "Verifiable essay-to-narration adaptation — micro1 Agentic Workflows Hackathon 2026",
+  "description": "Verifiable essay-to-narration adaptation \u2014 micro1 Agentic Workflows Hackathon 2026",
   "license": "MIT",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "baseline": "tsx --env-file-if-exists=.env src/run-baseline.ts",
     "adapt": "tsx --env-file-if-exists=.env src/run-workflow.ts",
     "eval": "tsx --env-file-if-exists=.env src/eval/run-eval.ts",
     "report": "tsx src/eval/report.ts",
     "trajectories": "tsx src/render-trajectories.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "audit": "tsx src/eval/audit-sample.ts",
+    "audit:score": "tsx src/eval/audit-score.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.122.0",

@@ -4,5 +4,6 @@
   "author": "synthetic (written for this repo)",
   "source": "synthetic",
   "language": "en",
-  "textFile": "corpus/essays/syn-06-borrowed.md"
+  "textFile": "corpus/essays/syn-06-borrowed.md",
+  "caseClass": "clean"
 }
