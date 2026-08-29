@@ -1,12 +1,12 @@
 # Trajectory — case `syn-01`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0430.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0495.
 
 Raw record (full requests/responses): `trajectories/raw/syn-01.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:00:21.207Z
+## Step: A — 2026-08-29T02:59:12.430Z
 
 ### Agent instructions (system)
 
@@ -59,13 +59,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms opening content."},{"index":1,"supported":true,"reason":"Matches essay content."},{"index":2,"supported":true,"reason":"Matches essay content."},{"index":3,"supported":true,"reason":"Matches essay content."},{"index":4,"supported":true,"reason":"Matches essay content."},{"index":5,"supported":true,"reason":"Matches essay content."},{"index":6,"supported":true,"reason":"Matches essay content."},{"index":7,"supported":true,"reason":"Matches essay content."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms the opening with minor wording changes preserving all claims."},{"index":1,"supported":true,"reason":"Accurately reproduces the maps list and territory claims."},{"index":2,"supported":true,"reason":"Matches essay content on territory examples."},{"index":3,"supported":true,"reason":"Faithful to the grief passage."},{"index":4,"supported":true,"reason":"Accurately conveys the direction of correction and bureaucracy claims."},{"index":5,"supported":true,"reason":"Faithful rendering of the daily exercise and cartographic dissent."},{"index":6,"supported":true,"reason":"Accurately reproduces the diplomacy conclusion."},{"index":7,"supported":true,"reason":"Faithful to the closing scene."}]}
 
-*usage: 2598 in / 217 out — $0.0184*
+*usage: 2598 in / 298 out — $0.0204*
 
 ---
 
-## Step: B — 2026-08-29T02:00:26.164Z
+## Step: B — 2026-08-29T02:59:19.631Z
 
 ### Agent instructions (system)
 
@@ -124,7 +124,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly from essay opening."},{"index":1,"supported":true,"reason":"Matches essay text."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."},{"index":12,"supported":true,"reason":"Matches essay text."},{"index":13,"supported":true,"reason":"Matches essay text."},{"index":14,"supported":true,"reason":"Matches essay text."},{"index":15,"supported":true,"reason":"Matches essay text."},{"index":16,"supported":true,"reason":"Matches essay text."},{"index":17,"supported":true,"reason":"Matches essay text."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches opening lines of essay."},{"index":1,"supported":true,"reason":"Matches essay text about hesitation and diplomat metaphor."},{"index":2,"supported":true,"reason":"Matches essay content on maps and commute/calendar."},{"index":3,"supported":true,"reason":"Matches essay text about salary band, credit score, diagnosis."},{"index":4,"supported":true,"reason":"Matches essay text about living in territory only in failure."},{"index":5,"supported":true,"reason":"Matches essay examples of pothole, fever, friend."},{"index":6,"supported":true,"reason":"Matches essay text on noticing in grief."},{"index":7,"supported":true,"reason":"Matches essay text about schedules and Tuesday afternoon."},{"index":8,"supported":true,"reason":"Matches essay text on unmappable loss and expiring surveys."},{"index":9,"supported":true,"reason":"Matches essay text on worry and direction of correction."},{"index":10,"supported":true,"reason":"Matches essay text about pause compounding."},{"index":11,"supported":true,"reason":"Matches essay text on institutions and bureaucracy."},{"index":12,"supported":true,"reason":"Matches essay text on the daily exercise."},{"index":13,"supported":true,"reason":"Matches essay examples of crack, dog, stairwell light."},{"index":14,"supported":true,"reason":"Matches essay text on cartographic dissent."},{"index":15,"supported":true,"reason":"Matches essay text about sentence as map and phone being right."},{"index":16,"supported":true,"reason":"Matches essay text on territory misleading and diplomacy."},{"index":17,"supported":true,"reason":"Matches essay closing lines."}]}
 
-*usage: 2605 in / 464 out — $0.0246*
+*usage: 2605 in / 641 out — $0.0290*
 

@@ -1,12 +1,12 @@
 # Trajectory — case `syn-08`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0360.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0359.
 
 Raw record (full requests/responses): `trajectories/raw/syn-08.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:01:19.399Z
+## Step: A — 2026-08-29T03:00:10.324Z
 
 ### Agent instructions (system)
 
@@ -61,13 +61,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches the opening line."},{"index":1,"supported":true,"reason":"Faithfully transforms essay content including nine years."},{"index":2,"supported":true,"reason":"Accurately reproduces the economics passage."},{"index":3,"supported":true,"reason":"Matches the identity/contract passage."},{"index":4,"supported":true,"reason":"Accurately renders the accident and ratio."},{"index":5,"supported":true,"reason":"Faithfully adapts the gap passage."},{"index":6,"supported":true,"reason":"Matches the closing switchboard/decor passage."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches the opening line."},{"index":1,"supported":true,"reason":"Faithfully transforms essay content including nine years."},{"index":2,"supported":true,"reason":"Accurately reproduces the economics passage."},{"index":3,"supported":true,"reason":"Matches the identity/contract passage."},{"index":4,"supported":true,"reason":"Faithful to the accident and ratio details."},{"index":5,"supported":true,"reason":"Accurately renders the gap and border content."},{"index":6,"supported":true,"reason":"Matches the closing cost/decor passage."}]}
 
-*usage: 2174 in / 234 out — $0.0167*
+*usage: 2174 in / 231 out — $0.0166*
 
 ---
 
-## Step: B — 2026-08-29T02:01:23.266Z
+## Step: B — 2026-08-29T03:00:14.199Z
 
 ### Agent instructions (system)
 
@@ -130,7 +130,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay text exactly."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."},{"index":12,"supported":true,"reason":"Matches essay text."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Matches essay opening verbatim."},{"index":1,"supported":true,"reason":"Matches essay text."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."},{"index":12,"supported":true,"reason":"Matches essay text."}]}
 
-*usage: 2149 in / 343 out — $0.0193*
+*usage: 2149 in / 342 out — $0.0193*
 

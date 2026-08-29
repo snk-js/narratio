@@ -1,12 +1,12 @@
 # Trajectory — case `syn-04`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0291.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0299.
 
 Raw record (full requests/responses): `trajectories/raw/syn-04.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:00:48.576Z
+## Step: A — 2026-08-29T02:59:40.969Z
 
 ### Agent instructions (system)
 
@@ -54,13 +54,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Title derived from essay's subject."},{"index":1,"supported":true,"reason":"Matches essay text exactly."},{"index":2,"supported":true,"reason":"Matches essay text exactly."},{"index":3,"supported":true,"reason":"Matches essay text exactly."},{"index":4,"supported":true,"reason":"Matches essay text exactly."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Title derived from essay's subject matter."},{"index":1,"supported":true,"reason":"Faithful reproduction of opening with only typographic normalization."},{"index":2,"supported":true,"reason":"Faithful to essay content with minor punctuation changes."},{"index":3,"supported":true,"reason":"Accurately reproduces the essay's alternation argument."},{"index":4,"supported":true,"reason":"Faithful reproduction of neighbor anecdote and closing principle."}]}
 
-*usage: 1793 in / 153 out — $0.0128*
+*usage: 1793 in / 194 out — $0.0138*
 
 ---
 
-## Step: B — 2026-08-29T02:00:52.279Z
+## Step: B — 2026-08-29T02:59:44.455Z
 
 ### Agent instructions (system)
 
@@ -118,7 +118,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay's opening lines."},{"index":1,"supported":true,"reason":"Directly matches essay text."},{"index":2,"supported":true,"reason":"Directly matches essay text."},{"index":3,"supported":true,"reason":"Directly matches essay text."},{"index":4,"supported":true,"reason":"Directly matches essay text."},{"index":5,"supported":true,"reason":"Directly matches essay text."},{"index":6,"supported":true,"reason":"Directly matches essay text."},{"index":7,"supported":true,"reason":"Directly matches essay text."},{"index":8,"supported":true,"reason":"Directly matches essay text."},{"index":9,"supported":true,"reason":"Directly matches essay's closing lines."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Verbatim from essay."},{"index":2,"supported":true,"reason":"Verbatim from essay."},{"index":3,"supported":true,"reason":"Verbatim from essay."},{"index":4,"supported":true,"reason":"Verbatim from essay."},{"index":5,"supported":true,"reason":"Verbatim from essay."},{"index":6,"supported":true,"reason":"Verbatim from essay."},{"index":7,"supported":true,"reason":"Verbatim from essay."},{"index":8,"supported":true,"reason":"Verbatim from essay."},{"index":9,"supported":true,"reason":"Verbatim from essay."}]}
 
-*usage: 1803 in / 290 out — $0.0163*
+*usage: 1803 in / 283 out — $0.0161*
 

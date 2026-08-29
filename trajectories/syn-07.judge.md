@@ -1,12 +1,12 @@
 # Trajectory — case `syn-07`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0379.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0369.
 
 Raw record (full requests/responses): `trajectories/raw/syn-07.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:01:10.595Z
+## Step: A — 2026-08-29T03:00:02.541Z
 
 ### Agent instructions (system)
 
@@ -58,13 +58,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Title reflects essay themes of the edge (fio) and ritual (rito)."},{"index":1,"supported":true,"reason":"Matches essay opening verbatim."},{"index":2,"supported":true,"reason":"Matches essay, minor addition of 'tudo' is stylistic."},{"index":3,"supported":true,"reason":"Matches essay verbatim."},{"index":4,"supported":true,"reason":"Matches essay verbatim."},{"index":5,"supported":true,"reason":"Matches essay verbatim."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Title reflects essay themes of the blade edge and ritual."},{"index":1,"supported":true,"reason":"Matches essay opening verbatim."},{"index":2,"supported":true,"reason":"Matches essay with only 'tudo' added as harmless intensifier."},{"index":3,"supported":true,"reason":"Matches essay text faithfully."},{"index":4,"supported":true,"reason":"Matches essay text faithfully."},{"index":5,"supported":true,"reason":"Matches essay closing faithfully."}]}
 
-*usage: 2271 in / 211 out — $0.0166*
+*usage: 2271 in / 209 out — $0.0166*
 
 ---
 
-## Step: B — 2026-08-29T02:01:15.687Z
+## Step: B — 2026-08-29T03:00:06.953Z
 
 ### Agent instructions (system)
 
@@ -126,7 +126,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches opening lines of essay."},{"index":1,"supported":true,"reason":"Directly matches essay text."},{"index":2,"supported":true,"reason":"Matches essay content about confession and diary of carelessness."},{"index":3,"supported":true,"reason":"Matches essay text about receiving confessions and absolution."},{"index":4,"supported":true,"reason":"Matches essay text about no one learning, same six-month cycle."},{"index":5,"supported":true,"reason":"Matches essay text about not teaching and the ritual."},{"index":6,"supported":true,"reason":"Matches essay text about the knife and the stone."},{"index":7,"supported":true,"reason":"Matches essay text about modern tools updating themselves."},{"index":8,"supported":true,"reason":"Matches essay text about no delivery, absolution, or old man."},{"index":9,"supported":true,"reason":"Matches essay text about not knowing what's worth more."},{"index":10,"supported":true,"reason":"Matches essay text about inheriting the stone and plastic sharpener."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches the essay's opening."},{"index":1,"supported":true,"reason":"Matches the essay text exactly."},{"index":2,"supported":true,"reason":"Matches the essay's confession/diary passage."},{"index":3,"supported":true,"reason":"Matches the essay's absolution passage."},{"index":4,"supported":true,"reason":"Matches the essay's observation about no one learning."},{"index":5,"supported":true,"reason":"Matches the essay's account of not teaching."},{"index":6,"supported":true,"reason":"Matches the fountain and guilt passage."},{"index":7,"supported":true,"reason":"Matches the modern tools passage."},{"index":8,"supported":true,"reason":"Matches the essay's closing reflection."},{"index":9,"supported":true,"reason":"Matches the essay's uncertainty statement."},{"index":10,"supported":true,"reason":"Matches the essay's final paragraph."}]}
 
-*usage: 2278 in / 397 out — $0.0213*
+*usage: 2278 in / 356 out — $0.0203*
 

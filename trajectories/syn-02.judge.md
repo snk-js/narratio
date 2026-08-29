@@ -1,12 +1,12 @@
 # Trajectory — case `syn-02`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0387.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0388.
 
 Raw record (full requests/responses): `trajectories/raw/syn-02.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:00:30.680Z
+## Step: A — 2026-08-29T02:59:23.676Z
 
 ### Agent instructions (system)
 
@@ -55,13 +55,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully reproduces the opening with only minor phrasing changes."},{"index":1,"supported":true,"reason":"Matches essay content including 'lying awake' and future's authority."},{"index":2,"supported":true,"reason":"Accurately transforms the drill/flood/ritual passage."},{"index":3,"supported":true,"reason":"Preserves the compulsion-or-medicine ambiguity faithfully."},{"index":4,"supported":true,"reason":"Reproduces the funeral-on-a-Tuesday and furniture imagery accurately."},{"index":5,"supported":true,"reason":"Matches the closing about rehearsing now and maintenance of furniture."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully reproduces the opening with minor wording changes."},{"index":1,"supported":true,"reason":"Accurately conveys the essay's content."},{"index":2,"supported":true,"reason":"Matches the drill/ritual passage faithfully."},{"index":3,"supported":true,"reason":"Accurately renders the compulsion-or-medicine ambiguity."},{"index":4,"supported":true,"reason":"Faithful to the funeral/audience passage."},{"index":5,"supported":true,"reason":"Matches the closing paragraph faithfully."}]}
 
-*usage: 2379 in / 283 out — $0.0190*
+*usage: 2379 in / 284 out — $0.0190*
 
 ---
 
-## Step: B — 2026-08-29T02:00:34.517Z
+## Step: B — 2026-08-29T02:59:27.812Z
 
 ### Agent instructions (system)
 
@@ -118,7 +118,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay exactly."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay text exactly."},{"index":2,"supported":true,"reason":"Matches essay content."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay content."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay content."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay content."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay content."},{"index":11,"supported":true,"reason":"Matches essay ending."}]}
 
-*usage: 2371 in / 317 out — $0.0198*
+*usage: 2371 in / 319 out — $0.0198*
 

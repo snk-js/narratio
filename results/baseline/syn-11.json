@@ -1,0 +1,15 @@
+{
+  "caseId": "syn-11",
+  "arm": "baseline",
+  "promptVersion": "baseline.md@v1",
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "narration": "The letters were in a biscuit tin on top of the wardrobe. That's where my grandmother kept everything she had decided not to think about. There were forty or so, all in the same hand, and none of them from my grandfather. They spanned about four years, right in the middle of a marriage that lasted fifty-one.\n\nMy mother found them in 2003, while she was clearing the house. She read two, and then she put the lid back on. She carried that tin around in the boot of her car for eight months. I know this because I found it there when I borrowed the car — and because when I asked about it, she gave me the specific look that means: do not.\n\nEventually, she drove out to the home and confronted my grandmother about the letters. My grandmother apologised. The apology took four minutes, and it undid nothing. My mother came home, poured herself a drink, and sat in the kitchen with her coat still on.\n\nI have never asked for a transcript of those four minutes. I was twenty-six, and busy being certain about things. And by the time I stopped being certain, one of them was dead, and the other had stopped discussing it. So what I have instead is the shape of the afternoon: the drive out, the four minutes, the coat.\n\nThe tin went back on top of the wardrobe. And then, after the funeral, it went into a skip. My mother made that decision alone, and she told me afterward, in a sentence engineered to close the topic — which it did.\n\nWhat interests me now is not what was in the letters. Forty letters, one hand, across four years — the content isn't mysterious, and I'm not owed it. What interests me is this: that a family can carry a thing like that for twenty years, and metabolise it entirely through logistics. A tin. A boot. A drive. A skip. Nobody in my family has ever said the word affair out loud. The whole business was conducted in the language of objects, and their positions — and everyone understood it perfectly.\n\nI think this is more common than the alternative. We tell ourselves that families either talk about things, or they repress them. But there's a third mode, and it's the one most people actually live in. The thing is fully known. It is never stated. And it's managed by moving objects around. The tin on the wardrobe was not a secret. It was an agreement.",
+  "usage": {
+    "inputTokens": 833,
+    "outputTokens": 786,
+    "costUsd": 0.023815,
+    "calls": 1,
+    "wallMs": 10683
+  }
+}

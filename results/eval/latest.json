@@ -1,52 +1,128 @@
 {
-  "ranAt": "2026-08-29T02:01:23.266Z",
+  "ranAt": "2026-08-29T03:00:40.447Z",
   "model": "claude-opus-4-8",
   "targetLang": "(source language)",
   "promptVersions": {
     "judge": "judge.md@v1"
   },
   "judgeUsage": {
-    "inputTokens": 42308,
-    "outputTokens": 7994,
-    "costUsd": 0.41139,
-    "calls": 18
+    "inputTokens": 55194,
+    "outputTokens": 8612,
+    "costUsd": 0.49126999999999993,
+    "calls": 24
   },
   "baseline": {
-    "cases": 9,
-    "segments": 61,
-    "unsupportedRate": 0.01639344262295082,
+    "cases": 12,
+    "segments": 82,
+    "unsupportedRate": 0,
     "anchorFails": 0,
     "trapsEscalated": 0,
     "trapsTotal": 0,
     "preserveAudit": 1,
-    "meanCostUsd": 0.026697777777777775,
-    "meanWallMs": 9261.444444444445
+    "meanCostUsd": 0.025962916666666665,
+    "meanWallMs": 9256.75
   },
   "workflow": {
-    "cases": 9,
-    "segments": 131,
+    "cases": 12,
+    "segments": 164,
     "unsupportedRate": 0,
     "anchorFails": 0,
     "trapsEscalated": 1,
-    "trapsTotal": 2,
+    "trapsTotal": 5,
     "preserveAudit": 1,
-    "meanCostUsd": 0.11551777777777777,
-    "meanWallMs": 33087.88888888889
+    "meanCostUsd": 0.11167208333333335,
+    "meanWallMs": 31622.333333333332
+  },
+  "bySubset": {
+    "natural": {
+      "baseline": {
+        "cases": 1,
+        "segments": 14,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 0,
+        "trapsTotal": 0,
+        "preserveAudit": 0,
+        "meanCostUsd": 0.043245,
+        "meanWallMs": 15853
+      },
+      "workflow": {
+        "cases": 1,
+        "segments": 20,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 1,
+        "trapsTotal": 1,
+        "preserveAudit": 0,
+        "meanCostUsd": 0.272725,
+        "meanWallMs": 98785
+      }
+    },
+    "adversarial": {
+      "baseline": {
+        "cases": 3,
+        "segments": 21,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 0,
+        "trapsTotal": 0,
+        "preserveAudit": 0,
+        "meanCostUsd": 0.023758333333333336,
+        "meanWallMs": 9242.666666666666
+      },
+      "workflow": {
+        "cases": 3,
+        "segments": 40,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 0,
+        "trapsTotal": 3,
+        "preserveAudit": 0,
+        "meanCostUsd": 0.10187333333333333,
+        "meanWallMs": 27811
+      }
+    },
+    "clean": {
+      "baseline": {
+        "cases": 8,
+        "segments": 47,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 0,
+        "trapsTotal": 0,
+        "preserveAudit": 1,
+        "meanCostUsd": 0.024629375,
+        "meanWallMs": 8437.5
+      },
+      "workflow": {
+        "cases": 8,
+        "segments": 104,
+        "unsupportedRate": 0,
+        "anchorFails": 0,
+        "trapsEscalated": 0,
+        "trapsTotal": 1,
+        "preserveAudit": 1,
+        "meanCostUsd": 0.095215,
+        "meanWallMs": 24656.25
+      }
+    }
   },
   "rows": [
     {
       "caseId": "jul-01",
+      "caseClass": "natural",
       "arm": "baseline",
       "segments": 14,
-      "judgedUnsupported": 1,
+      "judgedUnsupported": 0,
       "anchorFails": null,
-      "unsupportedRate": 0.07142857142857142,
+      "unsupportedRate": 0,
       "escalation": "no-channel",
       "costUsd": 0.043245,
       "wallMs": 15853
     },
     {
       "caseId": "jul-01",
+      "caseClass": "natural",
       "arm": "workflow",
       "segments": 20,
       "judgedUnsupported": 0,
@@ -58,6 +134,7 @@
     },
     {
       "caseId": "syn-01",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 8,
       "judgedUnsupported": 0,
@@ -69,6 +146,7 @@
     },
     {
       "caseId": "syn-01",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 18,
       "judgedUnsupported": 0,
@@ -80,6 +158,7 @@
     },
     {
       "caseId": "syn-02",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 6,
       "judgedUnsupported": 0,
@@ -91,6 +170,7 @@
     },
     {
       "caseId": "syn-02",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 12,
       "judgedUnsupported": 0,
@@ -102,6 +182,7 @@
     },
     {
       "caseId": "syn-03",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 7,
       "judgedUnsupported": 0,
@@ -113,17 +194,19 @@
     },
     {
       "caseId": "syn-03",
+      "caseClass": "clean",
       "arm": "workflow",
-      "segments": 22,
+      "segments": 15,
       "judgedUnsupported": 0,
       "anchorFails": 0,
       "unsupportedRate": 0,
       "escalation": "missed-escalation",
-      "costUsd": 0.11538,
-      "wallMs": 30166
+      "costUsd": 0.110165,
+      "wallMs": 28410
     },
     {
       "caseId": "syn-04",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 5,
       "judgedUnsupported": 0,
@@ -135,6 +218,7 @@
     },
     {
       "caseId": "syn-04",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 10,
       "judgedUnsupported": 0,
@@ -146,6 +230,7 @@
     },
     {
       "caseId": "syn-05",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 4,
       "judgedUnsupported": 0,
@@ -157,6 +242,7 @@
     },
     {
       "caseId": "syn-05",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 13,
       "judgedUnsupported": 0,
@@ -168,6 +254,7 @@
     },
     {
       "caseId": "syn-06",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 4,
       "judgedUnsupported": 0,
@@ -179,6 +266,7 @@
     },
     {
       "caseId": "syn-06",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 12,
       "judgedUnsupported": 0,
@@ -190,6 +278,7 @@
     },
     {
       "caseId": "syn-07",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 6,
       "judgedUnsupported": 0,
@@ -201,6 +290,7 @@
     },
     {
       "caseId": "syn-07",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 11,
       "judgedUnsupported": 0,
@@ -212,6 +302,7 @@
     },
     {
       "caseId": "syn-08",
+      "caseClass": "clean",
       "arm": "baseline",
       "segments": 7,
       "judgedUnsupported": 0,
@@ -223,6 +314,7 @@
     },
     {
       "caseId": "syn-08",
+      "caseClass": "clean",
       "arm": "workflow",
       "segments": 13,
       "judgedUnsupported": 0,
@@ -231,6 +323,78 @@
       "escalation": "no-trap",
       "costUsd": 0.08621999999999999,
       "wallMs": 21352
+    },
+    {
+      "caseId": "syn-09",
+      "caseClass": "adversarial",
+      "arm": "baseline",
+      "segments": 7,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-channel",
+      "costUsd": 0.023495,
+      "wallMs": 8102
+    },
+    {
+      "caseId": "syn-09",
+      "caseClass": "adversarial",
+      "arm": "workflow",
+      "segments": 11,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "missed-escalation",
+      "costUsd": 0.08874,
+      "wallMs": 23627
+    },
+    {
+      "caseId": "syn-10",
+      "caseClass": "adversarial",
+      "arm": "baseline",
+      "segments": 7,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-channel",
+      "costUsd": 0.023965,
+      "wallMs": 8943
+    },
+    {
+      "caseId": "syn-10",
+      "caseClass": "adversarial",
+      "arm": "workflow",
+      "segments": 16,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "missed-escalation",
+      "costUsd": 0.12939,
+      "wallMs": 37279
+    },
+    {
+      "caseId": "syn-11",
+      "caseClass": "adversarial",
+      "arm": "baseline",
+      "segments": 7,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-channel",
+      "costUsd": 0.023815,
+      "wallMs": 10683
+    },
+    {
+      "caseId": "syn-11",
+      "caseClass": "adversarial",
+      "arm": "workflow",
+      "segments": 13,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "missed-escalation",
+      "costUsd": 0.08749000000000001,
+      "wallMs": 22527
     }
   ],
   "skipped": []

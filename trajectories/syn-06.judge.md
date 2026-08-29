@@ -1,12 +1,12 @@
 # Trajectory — case `syn-06`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0313.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0305.
 
 Raw record (full requests/responses): `trajectories/raw/syn-06.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:01:03.459Z
+## Step: A — 2026-08-29T02:59:55.112Z
 
 ### Agent instructions (system)
 
@@ -52,13 +52,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms the opening content without additions."},{"index":1,"supported":true,"reason":"Accurately conveys the essay's reflection on protecting a sequence of selves."},{"index":2,"supported":true,"reason":"Matches the essay's discussion of ambitions, envelopes, and scheduled ignorance."},{"index":3,"supported":true,"reason":"Faithfully renders the closing treaty about doing neither on purpose."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms the opening content."},{"index":1,"supported":true,"reason":"Accurately reflects the essay's second paragraph."},{"index":2,"supported":true,"reason":"Matches the third paragraph's claims."},{"index":3,"supported":true,"reason":"Faithfully renders the closing content."}]}
 
-*usage: 1882 in / 180 out — $0.0139*
+*usage: 1882 in / 139 out — $0.0129*
 
 ---
 
-## Step: B — 2026-08-29T02:01:07.441Z
+## Step: B — 2026-08-29T02:59:58.976Z
 
 ### Agent instructions (system)
 
@@ -120,7 +120,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay text."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches the opening."},{"index":1,"supported":true,"reason":"Matches the essay text."},{"index":2,"supported":true,"reason":"Matches the essay text."},{"index":3,"supported":true,"reason":"Matches the essay text."},{"index":4,"supported":true,"reason":"Matches the essay text."},{"index":5,"supported":true,"reason":"Matches the essay text."},{"index":6,"supported":true,"reason":"Matches the essay text."},{"index":7,"supported":true,"reason":"Matches the essay text."},{"index":8,"supported":true,"reason":"Matches the essay text."},{"index":9,"supported":true,"reason":"Matches the essay text."},{"index":10,"supported":true,"reason":"Matches the essay text."},{"index":11,"supported":true,"reason":"Matches the essay text."}]}
 
-*usage: 1907 in / 315 out — $0.0174*
+*usage: 1907 in / 325 out — $0.0177*
 

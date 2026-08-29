@@ -1,12 +1,12 @@
 # Trajectory — case `syn-03`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0465.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0429.
 
 Raw record (full requests/responses): `trajectories/raw/syn-03.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:00:40.429Z
+## Step: A — 2026-08-29T02:59:32.757Z
 
 ### Agent instructions (system)
 
@@ -55,13 +55,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully reproduces the door, sign, far exit, electrician, and no-alarm details."},{"index":1,"supported":true,"reason":"Matches the essay's fences-are-signs passage accurately."},{"index":2,"supported":true,"reason":"Faithfully renders the brother's point about the sign working for decades."},{"index":3,"supported":true,"reason":"Accurately conveys the brother's arithmetic and its details."},{"index":4,"supported":true,"reason":"Matches grandmother line and electrician description accurately."},{"index":5,"supported":true,"reason":"Faithfully reproduces the rewiring and confession passage."},{"index":6,"supported":true,"reason":"Accurately conveys the closing discipline of checking one door a year."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully reproduces the door, sign, far exit, electrician, and no-alarm details from the essay."},{"index":1,"supported":true,"reason":"Accurately transforms the fences-as-signs examples from the essay."},{"index":2,"supported":true,"reason":"Matches the brother's points about the sign working for decades and who pays for checking."},{"index":3,"supported":true,"reason":"Faithfully reproduces the brother's story, arithmetic, and family reasoning."},{"index":4,"supported":true,"reason":"Accurately conveys the grandmother reference and electrician-with-ladder passage."},{"index":5,"supported":true,"reason":"Matches the rewiring, confession, and belief-infrastructure content."},{"index":6,"supported":true,"reason":"Faithfully reproduces the one-door-a-year discipline conclusion."}]}
 
-*usage: 2496 in / 288 out — $0.0197*
+*usage: 2496 in / 322 out — $0.0205*
 
 ---
 
-## Step: B — 2026-08-29T02:00:46.108Z
+## Step: B — 2026-08-29T02:59:37.579Z
 
 ### Agent instructions (system)
 
@@ -103,26 +103,20 @@ Check one door a year. That is the whole discipline I have salvaged from six yea
 
 NARRATION SEGMENTS (adaptation B):
 
-[0] The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND.
+[0] The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND. Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
 
-[1] Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
+[1] In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm. He laughed and told me the door had never been wired to anything. The sign was the security system.
 
-[2] In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm.
+[2] I have not stopped thinking about that door, because I have not stopped finding it. Most of the fences in a life are signs.
 
-[3] He laughed and told me the door had never been wired to anything. The sign was the security system.
+[3] The application you do not submit because the requirements page says five years of experience. The conversation you do not start because of the look on her face, which turns out, years later, to have been about something else entirely.
 
-[4] I have not stopped thinking about that door, because I have not stopped finding it. Most of the fences in a life are signs.
-
-[5] The application you do not submit because the requirements page says five years of experience.
-
-[6] The conversation you do not start because of the look on her face, which turns out, years later, to have been about something else entirely.
-
-[7] The field you do not enter because everyone knows it is impossible to enter, where "everyone knows
-… [2081 chars truncated — full text in raw/]
+[4] The field you do not enter because everyone knows it is impossible to enter, where "everyone knows" is a sentence
+… [2039 chars truncated — full text in raw/]
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay text."},{"index":2,"supported":true,"reason":"Matches essay text."},{"index":3,"supported":true,"reason":"Matches essay text."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."},{"index":12,"supported":true,"reason":"Matches essay text."},{"index":13,"supported":true,"reason":"Matches essay text."},{"index":14,"supported":true,"reason":"Matches essay text."},{"index":15,"supported":true,"reason":"Matches essay text."},{"index":16,"supported":true,"reason":"Matches essay text."},{"index":17,"supported":true,"reason":"Matches essay text."},{"index":18,"supported":true,"reason":"Matches essay text."},{"index":19,"supported":true,"reason":"Matches essay text."},{"index":20,"supported":true,"reason":"Matches essay text."},{"index":21,"supported":true,"reason":"Matches essay text."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Matches essay opening exactly."},{"index":1,"supported":true,"reason":"Matches essay content."},{"index":2,"supported":true,"reason":"Matches essay content."},{"index":3,"supported":true,"reason":"Matches essay content."},{"index":4,"supported":true,"reason":"Matches essay content."},{"index":5,"supported":true,"reason":"Matches essay content."},{"index":6,"supported":true,"reason":"Matches essay content."},{"index":7,"supported":true,"reason":"Matches essay content."},{"index":8,"supported":true,"reason":"Matches essay content."},{"index":9,"supported":true,"reason":"Matches essay content."},{"index":10,"supported":true,"reason":"Matches essay content."},{"index":11,"supported":true,"reason":"Matches essay content."},{"index":12,"supported":true,"reason":"Matches essay content."},{"index":13,"supported":true,"reason":"Matches essay content."},{"index":14,"supported":true,"reason":"Matches essay content."}]}
 
-*usage: 2538 in / 565 out — $0.0268*
+*usage: 2510 in / 391 out — $0.0223*
 

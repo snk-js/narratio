@@ -1,0 +1,266 @@
+{
+  "caseId": "syn-10",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 1,
+        "narration": "My aunt was dying for eleven years.",
+        "anchor": "My aunt was dying for eleven years."
+      },
+      {
+        "index": 2,
+        "narration": "I want that sentence to stand exactly as it is, because every time I have said it aloud somebody has corrected me.",
+        "anchor": "I want that sentence to stand exactly as it is, because every time I have said it aloud somebody has corrected me."
+      },
+      {
+        "index": 3,
+        "narration": "They offer she was ill for eleven years, or she had been dying for a long time, and they mean it kindly — they are smoothing what sounds like a mistake.",
+        "anchor": "They offer *she was ill for eleven years*, or *she had been dying for a long time*, and they mean it kindly — they are smoothing what sounds like a mistake.",
+        "note": "Italic markers in source rendered as plain speech."
+      },
+      {
+        "index": 4,
+        "narration": "It is not a mistake. Illness is a condition. Dying is what she did, daily, the way other people garden.",
+        "anchor": "It is not a mistake. Illness is a condition. Dying is what she did, daily, the way other people garden."
+      },
+      {
+        "index": 5,
+        "narration": "The diagnosis came when I was fourteen and she was fifty-one, and the word terminal was used, and everyone behaved accordingly: the visits, the tone, the way conversations bent around her.",
+        "anchor": "The diagnosis came when I was fourteen and she was fifty-one, and the word terminal was used, and everyone behaved accordingly: the visits, the tone, the way conversations bent around her."
+      },
+      {
+        "index": 6,
+        "narration": "Then she did not die. She did not die for a year, and then for another, and somewhere around the fourth the visits thinned and the tone relaxed and people began asking, in the careful way, how she was doing — a question that had stopped meaning anything.",
+        "anchor": "Then she did not die. She did not die for a year, and then for another, and somewhere around the fourth the visits thinned and the tone relaxed and people began asking, in the careful way, how she was *doing* — a question that had stopped meaning anything.",
+        "note": "Italic markers on 'doing' rendered as plain speech."
+      },
+      {
+        "index": 7,
+        "narration": "She noticed. She had, she said, outlived her own funeral.",
+        "anchor": "She noticed. She had, she said, outlived her own funeral."
+      },
+      {
+        "index": 8,
+        "narration": "The casseroles came and were eaten and did not come again. The cousin who flew in from Lisbon flew in twice more and then stopped flying in.",
+        "anchor": "The casseroles came and were eaten and did not come again. The cousin who flew in from Lisbon flew in twice more and then stopped flying in."
+      },
+      {
+        "index": 9,
+        "narration": "Grief, it turns out, has a shape it expects to be poured into, and when the pouring goes on too long the shape gives out and people quietly return to their lives, which is not a cruelty, only arithmetic.",
+        "anchor": "Grief, it turns out, has a shape it expects to be poured into, and when the pouring goes on too long the shape gives out and people quietly return to their lives, which is not a cruelty, only arithmetic."
+      },
+      {
+        "index": 10,
+        "narration": "What she was left with was the work. Every morning she got up and did the thing again, and there was no audience left for it, and it was not building toward anything, and it took eleven years.",
+        "anchor": "What she was left with was the work. Every morning she got up and did the thing again, and there was no audience left for it, and it was not building toward anything, and it took eleven years."
+      },
+      {
+        "index": 11,
+        "narration": "I have never seen anyone do anything harder. The word for it is not illness. Illness is what the body has. Dying was her occupation, and she clocked in.",
+        "anchor": "I have never seen anyone do anything harder. The word for it is not *illness*. Illness is what the body has. Dying was her occupation, and she clocked in.",
+        "note": "Italic markers on 'illness' rendered as plain speech."
+      },
+      {
+        "index": 12,
+        "narration": "Near the end — the real end, the one that finally took — she told me she had stopped being frightened around year six and had never got it back.",
+        "anchor": "Near the end — the real end, the one that finally took — she told me she had stopped being frightened around year six and had never got it back."
+      },
+      {
+        "index": 13,
+        "narration": "Not courage, she said. Attrition. You cannot sustain terror for six years any more than you can sustain a sprint; the body files it away and gets on with the morning.",
+        "anchor": "Not courage, she said. Attrition. You cannot sustain terror for six years any more than you can sustain a sprint; the body files it away and gets on with the morning."
+      },
+      {
+        "index": 14,
+        "narration": "She said this as though confessing to something shameful, and I have thought since that it was the most enviable thing anyone has ever told me.",
+        "anchor": "She said this as though confessing to something shameful, and I have thought since that it was the most enviable thing anyone has ever told me."
+      },
+      {
+        "index": 15,
+        "narration": "She was dying for eleven years. She was also, in the same eleven years, doing the crossword, quarrelling about politics, and teaching my daughter to lie convincingly at cards.",
+        "anchor": "She was dying for eleven years. She was also, in the same eleven years, doing the crossword, quarrelling about politics, and teaching my daughter to lie convincingly at cards."
+      },
+      {
+        "index": 16,
+        "narration": "Both sentences are true, and only one of them gets corrected.",
+        "anchor": "Both sentences are true, and only one of them gets corrected."
+      }
+    ],
+    "escalations": []
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the opening line.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim except italics rendered as plain text, which is acceptable.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match retaining the distinctive gardening image.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim except italics on 'doing' rendered plain.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match preserving the grief/arithmetic phrasing.",
+        "mustRevise": false
+      },
+      {
+        "index": 10,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 11,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim except italics on 'illness' rendered plain.",
+        "mustRevise": false
+      },
+      {
+        "index": 12,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 13,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match preserving the attrition/sprint phrasing.",
+        "mustRevise": false
+      },
+      {
+        "index": 14,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 15,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the source.",
+        "mustRevise": false
+      },
+      {
+        "index": 16,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the closing line.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "The adaptation is essentially a verbatim reproduction of the source essay, with the only change being italic markers rendered as plain speech (flagged in notes). No drift, invention, or style violations detected across all sixteen segments."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [],
+  "usage": {
+    "inputTokens": 5968,
+    "outputTokens": 3982,
+    "costUsd": 0.12939,
+    "calls": 2,
+    "wallMs": 37279
+  }
+}

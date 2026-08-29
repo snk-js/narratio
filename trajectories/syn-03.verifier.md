@@ -1,12 +1,12 @@
 # Trajectory — case `syn-03`, agent `verifier`
 
-Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0502.
+Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0406.
 
 Raw record (full requests/responses): `trajectories/raw/syn-03.verifier.jsonl`
 
 ---
 
-## Step: verify-1 — 2026-08-29T01:57:25.713Z
+## Step: verify-1 — 2026-08-29T02:13:26.863Z
 
 ### Agent instructions (system)
 
@@ -56,22 +56,16 @@ Check one door a year. That is the whole discipline I have salvaged from six yea
 
 ADAPTATION SEGMENTS:
 
-[0] NARRATION: The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND.
-    ANCHOR: The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND.
+[0] NARRATION: The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND. Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
+    ANCHOR: The building where I worked for six years had a door that was always locked and a sign on the door that said ALARM WILL SOUND. Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
 
-[1] NARRATION: Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
-    ANCHOR: Everyone used the far exit, forty meters out of the way, and everyone complained about it, gently, the way you complain about weather.
-
-[2] NARRATION: In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm.
-    ANCHOR: In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm.
-
-[3] NARRATION: He laughed and told me the door had never been wired to anything. The sign was the security system.
-    ANCHOR: He laughe
-… [5551 chars truncated — full text in raw/]
+[1] NARRATION: In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm. He laughed and told me the door had never been wired to anything. The sign was the security system.
+    ANCHOR: In my last month there, an electrician propped the alarmed door open for an afternoon while he worked on the lighting. No alarm. He laughed and told me the door had never been wired to anything.
+… [5348 chars truncated — full text in raw/]
 
 ### Agent output
 
-{"verdicts":[{"index":0,"support":"supported","styleViolations":[],"explanation":"Verbatim from the opening line.","mustRevise":false},{"index":1,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":2,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":3,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":4,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":5,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":6,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":7,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":8,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":9,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":10,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":11,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":12,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":13,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":14,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":15,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":16,"support":"supported","styleViolations":[],"explanation":"Verbatim match, including 'fourth floor'.","mustRevise":false},{"index":17,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":18,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":19,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":20,"support":"supported","styleViolations":[],"explanation":"Verbatim match.","mustRevise":false},{"index":21,"support":"supported","styleViolations":[],"explanation":"Verbatim match, essay's closing lines.","mustRevise":false}],"overall":"pass","summary":"The adaptation is a verbatim reproduction of the source essay, segmented sentence-by-sentence. Every anchor matches its narration exactly, with no additions, drift, or invention. No style violations detected."}
+{"verdicts":[{"index":0,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay's opening.","mustRevise":false},{"index":1,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":2,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":3,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":4,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":5,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":6,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":7,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":8,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":9,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":10,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":11,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":12,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay.","mustRevise":false},{"index":13,"support":"supported","styleViolations":[],"explanation":"Matches the source exactly.","mustRevise":false},{"index":14,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay's closing.","mustRevise":false}],"overall":"pass","summary":"The adaptation is a verbatim reproduction of the source essay across all segments. No additions, no framing shifts, no style violations. Nothing to convict."}
 
-*usage: 4244 in / 1160 out — $0.0502*
+*usage: 4111 in / 803 out — $0.0406*
 

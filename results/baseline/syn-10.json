@@ -1,0 +1,15 @@
+{
+  "caseId": "syn-10",
+  "arm": "baseline",
+  "promptVersion": "baseline.md@v1",
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "narration": "My aunt was dying for eleven years.\n\nI want that sentence to stand exactly as it is, because every time I've said it aloud, somebody has corrected me. They offer: she was ill for eleven years. Or: she had been dying for a long time. And they mean it kindly — they're smoothing over what sounds like a mistake. But it isn't a mistake. Illness is a condition. Dying is what she did, daily, the way other people garden.\n\nThe diagnosis came when I was fourteen and she was fifty-one. The word terminal was used, and everyone behaved accordingly — the visits, the tone, the way conversations bent around her. And then she didn't die. She didn't die for a year, and then for another, and somewhere around the fourth year the visits thinned, the tone relaxed, and people began asking, in that careful way, how she was doing — a question that had stopped meaning anything.\n\nShe noticed. She said she had outlived her own funeral. The casseroles came, and were eaten, and did not come again. The cousin who flew in from Lisbon flew in twice more, and then stopped flying in. Grief, it turns out, has a shape it expects to be poured into, and when the pouring goes on too long, the shape gives out, and people quietly return to their lives. Which isn't a cruelty. Only arithmetic.\n\nWhat she was left with was the work. Every morning she got up and did the thing again. There was no audience left for it. It wasn't building toward anything. And it took eleven years. I have never seen anyone do anything harder. The word for it is not illness. Illness is what the body has. Dying was her occupation, and she clocked in.\n\nNear the end — the real end, the one that finally took — she told me she had stopped being frightened around year six, and had never got it back. Not courage, she said. Attrition. You can't sustain terror for six years any more than you can sustain a sprint. The body files it away and gets on with the morning. She said this as though confessing to something shameful, and I've thought since that it was the most enviable thing anyone has ever told me.\n\nShe was dying for eleven years. She was also, in those same eleven years, doing the crossword, quarrelling about politics, and teaching my daughter to lie convincingly at cards. Both sentences are true. And only one of them ever gets corrected.",
+  "usage": {
+    "inputTokens": 893,
+    "outputTokens": 780,
+    "costUsd": 0.023965,
+    "calls": 1,
+    "wallMs": 8943
+  }
+}

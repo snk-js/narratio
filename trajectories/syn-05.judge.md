@@ -1,12 +1,12 @@
 # Trajectory — case `syn-05`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0367.
+Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0372.
 
 Raw record (full requests/responses): `trajectories/raw/syn-05.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:00:55.980Z
+## Step: A — 2026-08-29T02:59:48.410Z
 
 ### Agent instructions (system)
 
@@ -51,13 +51,13 @@ NARRATION SEGMENTS (adaptation A):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms the essay's opening about queue as government, constitution, enforcement, diplomacy, and theory of fairness."},{"index":1,"supported":true,"reason":"Accurately conveys the essay's points on queue-jumping, repudiation of the constitution, and paying taxes by standing and waiting."},{"index":2,"supported":true,"reason":"Faithfully reproduces the essay's claims about state formation, micro-nations, and men in suits."},{"index":3,"supported":true,"reason":"Accurately renders the essay's points on fairness, fragility, unpunished violations, and order as a practice."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Faithfully transforms the essay's opening about queue as government, its unwritten constitution, enforcement, diplomacy, and theory of fairness."},{"index":1,"supported":true,"reason":"Accurately conveys the essay's points about queue-jumping enraging out of proportion, repudiation of constitution, and paying taxes by standing and waiting."},{"index":2,"supported":true,"reason":"Correctly renders the state forming, micro-nations, dissolution, and men in suits defending the sandwich line."},{"index":3,"supported":true,"reason":"Faithfully adapts the essay's closing about fairness, fragility, unpunished violations, and order as a practice."}]}
 
-*usage: 2181 in / 237 out — $0.0168*
+*usage: 2181 in / 256 out — $0.0173*
 
 ---
 
-## Step: B — 2026-08-29T02:01:00.193Z
+## Step: B — 2026-08-29T02:59:52.545Z
 
 ### Agent instructions (system)
 
@@ -116,7 +116,7 @@ NARRATION SEGMENTS (adaptation B):
 
 ### Agent output
 
-{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches the essay's opening."},{"index":1,"supported":true,"reason":"Matches enforcement and diplomacy content."},{"index":2,"supported":true,"reason":"Verbatim from essay."},{"index":3,"supported":true,"reason":"Matches essay content."},{"index":4,"supported":true,"reason":"Matches essay content."},{"index":5,"supported":true,"reason":"Verbatim from essay."},{"index":6,"supported":true,"reason":"Matches essay content."},{"index":7,"supported":true,"reason":"Matches essay content."},{"index":8,"supported":true,"reason":"Matches essay content."},{"index":9,"supported":true,"reason":"Matches essay content."},{"index":10,"supported":true,"reason":"Matches essay content."},{"index":11,"supported":true,"reason":"Matches essay content."},{"index":12,"supported":true,"reason":"Matches essay's closing."}]}
+{"verdicts":[{"index":0,"supported":true,"reason":"Directly matches essay opening."},{"index":1,"supported":true,"reason":"Matches essay text on enforcement and diplomacy."},{"index":2,"supported":true,"reason":"Matches essay's theory of fairness claim."},{"index":3,"supported":true,"reason":"Matches essay content."},{"index":4,"supported":true,"reason":"Matches essay text."},{"index":5,"supported":true,"reason":"Matches essay text."},{"index":6,"supported":true,"reason":"Matches essay text."},{"index":7,"supported":true,"reason":"Matches essay text."},{"index":8,"supported":true,"reason":"Matches essay text."},{"index":9,"supported":true,"reason":"Matches essay text."},{"index":10,"supported":true,"reason":"Matches essay text."},{"index":11,"supported":true,"reason":"Matches essay text."},{"index":12,"supported":true,"reason":"Matches essay closing."}]}
 
-*usage: 2184 in / 356 out — $0.0198*
+*usage: 2184 in / 360 out — $0.0199*
 

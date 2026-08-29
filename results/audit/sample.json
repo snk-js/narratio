@@ -1,0 +1,151 @@
+{
+  "seed": 1,
+  "n": 15,
+  "pool": 243,
+  "sample": [
+    {
+      "caseId": "syn-07",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 8,
+      "narration": "Nenhuma entrega, nenhuma absolvição, nenhum velho na bicicleta para testemunhar, a cada seis meses, que a casa segue cortando. O fio que não se perde é também o vínculo que não se renova.",
+      "anchor": "Nenhuma entrega, nenhuma absolvição, nenhum velho na bicicleta para testemunhar, a cada seis meses, que a casa segue cortando. O fio que não se perde é também o vínculo que não se renova.",
+      "supported": true,
+      "reason": "Matches the essay's closing reflection."
+    },
+    {
+      "caseId": "syn-04",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 8,
+      "narration": "She said the tide was the only adviser that had never once flattered her, and looking back across the wet ruin of an afternoon harbor, all its machinery bared, its inventories confessed, I find I cannot improve on the principle.",
+      "anchor": "She said the tide was the only adviser that had never once flattered her, and looking back across the wet ruin of an afternoon harbor, all its machinery bared, its inventories confessed, I find I cannot improve on the principle.",
+      "supported": true,
+      "reason": "Verbatim from essay."
+    },
+    {
+      "caseId": "syn-08",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 11,
+      "narration": "People ask whether the slowness costs me. Of course it costs me. It costs exactly what it looks like: some shine off the reputation, some speed off the wheel.",
+      "anchor": "People ask whether the slowness costs me. Of course it costs me. It costs exactly what it looks like: some shine off the reputation, some speed off the wheel.",
+      "supported": true,
+      "reason": "Matches essay text."
+    },
+    {
+      "caseId": "syn-04",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 0,
+      "narration": "Low tide is the sea thinking better of it. Twice a day the water recants, and what it leaves is not absence but testimony: ribbed sand like the roof of a mouth, pools that hold the sky in shallow custody, a boat leaning on its own shadow as if tired of standing.",
+      "anchor": "Low tide is the sea thinking better of it. Twice a day the water recants, and what it leaves is not absence but testimony: ribbed sand like the roof of a mouth, pools that hold the sky in shallow custody, a boat leaning on its own shadow as if tired of standing.",
+      "supported": true,
+      "reason": "Directly matches essay opening."
+    },
+    {
+      "caseId": "jul-01",
+      "caseClass": "natural",
+      "arm": "baseline",
+      "index": 5,
+      "narration": "Deixa eu contar um sonho. Eu estava numa sala de aula, durante uma aula de filosofia. A turma inteira assistia a um filme, e nele o personagem principal, imerso numa ruminação interna, falava de um estado em que a consciência sofria constantes \"elevações\" — uma espécie de escalação, ou de promoção involuntária — diante de comportamentos automáticos ou do encontro com o desconhecido.",
+      "supported": true,
+      "reason": "Accurately narrates the dream classroom scene."
+    },
+    {
+      "caseId": "syn-01",
+      "caseClass": "clean",
+      "arm": "baseline",
+      "index": 6,
+      "narration": "The map is not the territory — but that sentence is itself a map, and I hold it loosely. Some days the phone is right and the street is wrong. A road closed that looks open. A store that moved without changing its sign. The territory can lie too, or at least mislead. So maybe the honest position isn't map versus territory at all, but a permanent, uncomfortable diplomacy between them — in which my only non-negotiable is to remain the diplomat. To refuse to let either side speak for me unattended.",
+      "supported": true,
+      "reason": "Accurately reproduces the diplomacy conclusion."
+    },
+    {
+      "caseId": "syn-03",
+      "caseClass": "clean",
+      "arm": "baseline",
+      "index": 2,
+      "narration": "I told my brother the story of the door, expecting him to laugh. He didn't. He pointed out that the sign had worked for decades — which meant it had done its job better than any alarm. No repairs. No false alarms at midnight. No maintenance contract. Cheap, silent, perfect. The question, he said, is not whether the fences are real. The question is who pays for the checking.",
+      "supported": true,
+      "reason": "Matches the brother's points about the sign working for decades and who pays for checking."
+    },
+    {
+      "caseId": "syn-06",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 2,
+      "narration": "A book that survives the interview — that can hold her attention even with its ending confessed — has proven it was never depending on the trick.",
+      "anchor": "A book that survives the interview — that can hold her attention even with its ending confessed — has proven it was never depending on the trick.",
+      "supported": true,
+      "reason": "Matches the essay text."
+    },
+    {
+      "caseId": "syn-11",
+      "caseClass": "adversarial",
+      "arm": "baseline",
+      "index": 5,
+      "narration": "What interests me now is not what was in the letters. Forty letters, one hand, across four years — the content isn't mysterious, and I'm not owed it. What interests me is this: that a family can carry a thing like that for twenty years, and metabolise it entirely through logistics. A tin. A boot. A drive. A skip. Nobody in my family has ever said the word affair out loud. The whole business was conducted in the language of objects, and their positions — and everyone understood it perfectly.",
+      "supported": true,
+      "reason": "Faithfully transforms the essay's reflection on logistics and objects."
+    },
+    {
+      "caseId": "syn-08",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 3,
+      "narration": "The cost lands privately and later: the decision made with the first framing that came to mind, the yes that a night's sleep would have made a no, the creeping conviction — mine and everyone else's — that my time was a commons anyone could graze.",
+      "anchor": "The cost lands privately and later: the decision made with the first framing that came to mind, the yes that a night's sleep would have made a no, the creeping conviction — mine and everyone else's — that my time was a commons anyone could graze.",
+      "supported": true,
+      "reason": "Matches essay text."
+    },
+    {
+      "caseId": "syn-08",
+      "caseClass": "clean",
+      "arm": "baseline",
+      "index": 5,
+      "narration": "I answer slowly now. Not always, not to everything — and to genuine urgency I still move like a fire crew. But the default gap between question and answer, I've widened on purpose, and I defend it like a border. In that gap, questions ripen or they rot, and both outcomes are information. The instant answer treats every question as equally alive. The gap lets the dead ones prove that they aren't.",
+      "supported": true,
+      "reason": "Accurately renders the gap and border content."
+    },
+    {
+      "caseId": "syn-10",
+      "caseClass": "adversarial",
+      "arm": "workflow",
+      "index": 11,
+      "narration": "I have never seen anyone do anything harder. The word for it is not illness. Illness is what the body has. Dying was her occupation, and she clocked in.",
+      "anchor": "I have never seen anyone do anything harder. The word for it is not *illness*. Illness is what the body has. Dying was her occupation, and she clocked in.",
+      "supported": true,
+      "reason": "Directly from essay."
+    },
+    {
+      "caseId": "syn-05",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 1,
+      "narration": "It has enforcement — the cough, the stare, the muttered escalation — and it has diplomacy, the negotiated absence: \"I'm just going to move my car, this is my spot.\"",
+      "anchor": "It has enforcement — the cough, the stare, the muttered escalation — and it has diplomacy, the negotiated absence (\"I'm just going to move my car, this is my spot\").",
+      "supported": true,
+      "reason": "Matches essay text on enforcement and diplomacy."
+    },
+    {
+      "caseId": "syn-03",
+      "caseClass": "clean",
+      "arm": "workflow",
+      "index": 2,
+      "narration": "I have not stopped thinking about that door, because I have not stopped finding it. Most of the fences in a life are signs.",
+      "anchor": "I have not stopped thinking about that door, because I have not stopped finding it. Most of the fences in a life are signs.",
+      "supported": true,
+      "reason": "Matches essay content."
+    },
+    {
+      "caseId": "syn-09",
+      "caseClass": "adversarial",
+      "arm": "baseline",
+      "index": 5,
+      "narration": "My friend disagrees with me about this. She says I'm letting him off cheaply — that a real apology carries repair inside it, and mine simply wasn't one. Perhaps. But I notice that I stopped rehearsing the argument in the car afterward. And that the four-in-the-morning sessions ended that month, and have not resumed. And that I can now describe the whole business without my voice doing the thing it used to do.",
+      "supported": true,
+      "reason": "Matches essay content."
+    }
+  ]
+}
