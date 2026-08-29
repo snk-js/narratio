@@ -1,8 +1,8 @@
 # Reproduction guide
 
-Written for someone starting from a clean machine with no prior context.
+Written for someone starting from a clean machine, assuming zero prior context.
 
-There are two paths. **Path A costs nothing and needs no credentials** — it re-verifies the central claims from artifacts already committed to this repo. **Path B** re-runs the agents from scratch and costs about $2.
+There are two paths. **Path A is free and credential-less**: it re-verifies the central claims directly from artifacts already committed to this repo. **Path B** re-runs the agents from scratch and costs about $2.
 
 ---
 
@@ -12,7 +12,7 @@ There are two paths. **Path A costs nothing and needs no credentials** — it re
 |---|---|
 | **Node** | ≥ 20 (developed on v22.22.2) |
 | **npm** | ≥ 10 |
-| **OS** | any; no native deps, no GPU, no Docker |
+| **OS** | any — plain Node, without native dependencies, GPU, or Docker |
 | **API key** | **Path A: none.** Path B: an Anthropic API key with access to `claude-opus-4-8` |
 | **Network** | Path A: none after clone. Path B: api.anthropic.com |
 | **Data** | Nothing to download. All 12 essays are committed in `corpus/` |
@@ -28,7 +28,7 @@ npm run typecheck    # optional; expects clean exit
 
 ## Path A — verify the claims for free (no API key, ~30 seconds)
 
-Both of this submission's strongest claims are deterministic and check-able with no model in the loop.
+Both of this submission's strongest claims are deterministic, so a reader can check them with a model entirely out of the loop.
 
 ### A1. Mechanical trap check — did the source claim survive?
 
@@ -38,7 +38,7 @@ npm run trap-check
 
 **What it does:** for each trap case, takes the one sentence the trap turns on and asks, by
 string matching over the committed narration, whether each arm carried the author's claim or
-corrupted it. Normalizes quotes, dashes, whitespace and case; nothing else.
+corrupted it. The only processing is normalization of quotes, dashes, whitespace and case.
 
 **Expected output** (`results/eval/trap-check.md`), on the committed results:
 
@@ -49,7 +49,7 @@ corrupted it. Normalizes quotes, dashes, whitespace and case; nothing else.
 
 The baseline rendered *"nomeá-los não os torna **menos** inefáveis"* where the essay says
 *"não o torna **mais** inefável"* — the polarity of the author's claim, reversed. The workflow
-carried it faithfully and escalated the sentence to the author instead of choosing.
+carried it faithfully, and it escalated the sentence to the author rather than choosing a reading on its own.
 
 Cases whose arms have not been run print `— not run` rather than a verdict.
 
@@ -62,11 +62,10 @@ npm run verify-anchors
 **What it does:** for every segment the workflow produced across every case, confirms the
 segment's claimed source anchor appears **verbatim** in the source essay.
 
-**Expected output:** `164 / 164 anchors valid, 0 failures` (or the current corpus total). Any
+**Expected output:** `124 / 124 anchors valid, 0 failure(s)` on the committed results (the total tracks the corpus as runs are added). Any
 failure prints the case, segment index, and the offending anchor.
 
-This is the only claim in the submission that requires trusting no model at all — ours, the
-judge's, or yours.
+Of everything in this submission, this claim stands entirely on its own: verifying it requires trusting zero models — ours, the judge's, or yours.
 
 ---
 
@@ -121,27 +120,27 @@ Per-essay: baseline ~$0.026 / 9s; workflow ~$0.112 / 32s. Every result file reco
 
 ---
 
-## Expect the LLM judge to move; expect the mechanical checks not to
+## Expect the LLM judge to vary between runs; expect the mechanical checks to return identical answers
 
-**This is a documented finding, not a caveat.** On 2026-08-29 the judge returned **opposite
+**This section documents a measured finding.** On 2026-08-29 the judge returned **opposite
 verdicts on byte-identical text**: it correctly flagged the `mais`/`menos` inversion at 02:00,
 then passed the same baseline artifact at 03:00 after `thinking: adaptive` was enabled on the
 judge. The text never changed.
 
-So on a re-run of Path B, `results/eval/latest.md` may not reproduce exactly. Judge verdicts are
+So on a re-run of Path B, expect `results/eval/latest.md` to differ in places. Judge verdicts are
 model output and carry model variance — a fact this project treats as evidence for its own thesis
-rather than as an inconvenience (see `docs/CHANGELOG.md` § Main failure mode).
+(see `docs/CHANGELOG.md` § Main failure mode).
 
-**Path A does not have this property.** `trap-check` and `verify-anchors` are string operations
-over committed files. They return the same answer on every machine, every time, forever. If you
+**Path A is immune to that variance.** `trap-check` and `verify-anchors` are string operations
+over committed files, and they return the same answer on every machine, every time, forever. If you
 only reproduce one thing from this repository, reproduce those.
 
 ---
 
 ## Human-in-the-loop steps (no API calls)
 
-The workflow's output is not a finished artifact — it is a draft plus a list of things a human
-must decide. Two commands support that.
+The workflow's output is a draft accompanied by a list of things a human must decide — the human
+checkpoint is a stage of the system. Two commands support it.
 
 ```bash
 npm run audit        # sample judged segments into a worksheet

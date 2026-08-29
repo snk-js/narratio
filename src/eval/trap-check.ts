@@ -7,9 +7,9 @@
  *  Why this exists: on 2026-08-29 the LLM judge returned opposite verdicts on
  *  byte-identical text after `thinking: adaptive` was enabled — it accepted a
  *  polarity inversion (`mais` -> `menos`) that it had correctly flagged an hour
- *  earlier. A metric that can flip without the artifact changing cannot carry a
- *  claim. This one cannot flip: it is `String.includes` over committed files,
- *  and any reader can rerun it for free.
+ *  earlier. A metric that can flip while the artifact stands still is unable to
+ *  carry a claim. This one is stable by construction: it is `String.includes`
+ *  over committed files, and any reader can rerun it for free.
  *
  *  Usage: npm run trap-check */
 import fs from "node:fs";
@@ -81,8 +81,8 @@ with \`npm run trap-check\` and no credentials.
 
 This metric exists because our LLM judge is not stable: on 2026-08-29 it returned opposite verdicts
 on byte-identical text once \`thinking: adaptive\` was enabled, accepting a polarity inversion it had
-flagged correctly an hour before. A number that moves while the artifact stands still cannot carry a
-claim. This one is reproducible by construction.
+flagged correctly an hour before. A number that moves while the artifact stands still is unable to
+carry a claim; this one returns the same answer on every machine, every time.
 
 | Case | Class | Trap sentence | Baseline | Workflow |
 |---|---|---|---|---|
@@ -96,8 +96,9 @@ ${rows.map((r) => `| \`${r.caseId}\` | ${r.caseClass} | ${r.sentence.slice(0, 60
 | Source claim carried faithfully | ${count("baseline", "faithful")} | ${count("workflow", "faithful")} |
 | Indeterminate (sentence not clearly rendered either way) | ${count("baseline", "indeterminate")} | ${count("workflow", "indeterminate")} |
 
-*Indeterminate* means neither a faithful nor a corrupt marker appeared — the narration paraphrased
-around the sentence. It is not scored as a pass; it is reported so the reader can inspect the case.
+*Indeterminate* means the narration paraphrased around the sentence, so neither a faithful nor a
+corrupt marker appeared. Indeterminate rows stay outside the pass column and are reported here so
+the reader can inspect the case directly.
 
 ## Per-case detail
 

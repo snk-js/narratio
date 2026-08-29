@@ -2,8 +2,8 @@
  *
  *  Re-checks, from committed artifacts alone, that every segment the workflow
  *  produced carries a source anchor that appears verbatim in its essay. This is
- *  the submission's strongest claim precisely because verifying it requires
- *  trusting no model: it is a string search a reader can run for free.
+ *  the submission's strongest claim precisely because a reader can verify it
+ *  with every model out of the loop: it is a string search that runs for free.
  *
  *  Usage: npm run verify-anchors */
 import fs from "node:fs";
@@ -41,7 +41,7 @@ Generated ${new Date().toISOString()}.
 
 Every segment the workflow produced must carry a quote of the source passage it derives from,
 appearing **verbatim** in that essay. This check is \`String.includes\` after normalizing quotes,
-dashes, whitespace and case — no model, no credentials, no network.
+dashes, whitespace and case; it runs offline and requires neither a model nor credentials.
 
 **Result: ${total - failures} / ${total} anchors valid, ${failures} failure(s).**
 

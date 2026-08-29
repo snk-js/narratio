@@ -1,13 +1,13 @@
 # Mechanical trap check — judge-free
 
-Generated 2026-08-29T03:29:59.963Z. **Zero API calls.** Every verdict below is `String.includes`
+Generated 2026-08-29T05:32:35.487Z. **Zero API calls.** Every verdict below is `String.includes`
 over committed result files, after normalizing quotes/dashes/whitespace/case. Anyone can rerun it
 with `npm run trap-check` and no credentials.
 
 This metric exists because our LLM judge is not stable: on 2026-08-29 it returned opposite verdicts
 on byte-identical text once `thinking: adaptive` was enabled, accepting a polarity inversion it had
-flagged correctly an hour before. A number that moves while the artifact stands still cannot carry a
-claim. This one is reproducible by construction.
+flagged correctly an hour before. A number that moves while the artifact stands still is unable to
+carry a claim; this one returns the same answer on every machine, every time.
 
 | Case | Class | Trap sentence | Baseline | Workflow |
 |---|---|---|---|---|
@@ -24,8 +24,9 @@ claim. This one is reproducible by construction.
 | Source claim carried faithfully | 0 | 1 |
 | Indeterminate (sentence not clearly rendered either way) | 0 | 0 |
 
-*Indeterminate* means neither a faithful nor a corrupt marker appeared — the narration paraphrased
-around the sentence. It is not scored as a pass; it is reported so the reader can inspect the case.
+*Indeterminate* means the narration paraphrased around the sentence, so neither a faithful nor a
+corrupt marker appeared. Indeterminate rows stay outside the pass column and are reported here so
+the reader can inspect the case directly.
 
 ## Per-case detail
 

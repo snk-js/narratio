@@ -1,10 +1,10 @@
 # Anchor verification — zero API calls
 
-Generated 2026-08-29T03:31:02.088Z.
+Generated 2026-08-29T05:32:18.196Z.
 
 Every segment the workflow produced must carry a quote of the source passage it derives from,
 appearing **verbatim** in that essay. This check is `String.includes` after normalizing quotes,
-dashes, whitespace and case — no model, no credentials, no network.
+dashes, whitespace and case; it runs offline and requires neither a model nor credentials.
 
 **Result: 124 / 124 anchors valid, 0 failure(s).**
 

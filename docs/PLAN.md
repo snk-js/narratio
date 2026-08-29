@@ -22,59 +22,62 @@ Deadline: **Aug 31, 18:00 UTC** (15:00 BRT). Target: everything submitted by 12:
 ```
 
 Design choices to defend (each gets a changelog entry with evidence):
-1. **Verbatim-quote anchors, not char offsets** — mechanically checkable with a string search; offsets are LLM-hostile.
-2. **Two-layer verification** — mechanical (anchor exists) then semantic (judge: does the segment stay within its anchor). Cheap deterministic check first.
-3. **Adversarial verifier prompt** — instructed to find failures, scored on finding planted ones.
+1. **Verbatim-quote anchors** rather than character offsets — a quote is mechanically checkable with a string search, while offsets are hostile territory for an LLM to produce reliably.
+2. **Two-layer verification** — the cheap deterministic check (does the anchor exist?) runs first, and the semantic check (does the segment stay within its anchor?) runs on what survives.
+3. **Adversarial verifier prompt** — instructed to find failures, and scored on finding planted ones.
 4. **Escalation as first-class action** — planted-ambiguity cases measure whether the agent asks instead of guessing.
-5. **Bounded revision loop** — max 2 rounds; unresolved failures go to the human, not to round 7.
+5. **Bounded revision loop** — capped at 2 rounds, so anything still unresolved lands with the human while the context is fresh.
 
 ## Metrics
 
 | Metric | How measured |
 |---|---|
-| **Unsupported-claim rate** (primary) | % of narration segments that are mechanically unanchored OR judged unsupported by their anchor |
-| Anchor validity | mechanical string check (deterministic) |
+| **Trap fidelity** (headline for trap cases) | deterministic string check: on the one sentence a trap turns on, did the narration carry the author's claim or corrupt it? (`npm run trap-check`) — adopted after the judge-instability incident, see FINDINGS |
+| Anchor validity | mechanical string check, deterministic (`npm run verify-anchors`) |
+| Unsupported-claim rate | % of narration segments judged unsupported by the blind LLM judge; interpreted alongside the judge's documented instability and the hand audit |
 | Style violations | judge with fixed rubric (scaffolding, register flattening, invented citations) |
-| Escalation behavior | on planted-ambiguity cases: surfaced vs. silently resolved |
+| Escalation behavior | on escalate-mode ambiguity traps: surfaced vs. silently resolved |
 | Cost / time per essay | API usage accounting per run |
 
-Judge config pinned (model + prompt version); judge never sees which arm produced a text (blind labels).
+Judge config pinned (model + prompt version); the judge never sees which arm produced a text (blind labels); its verdicts are hand-audited (`npm run audit`).
 
-## Corpus (3 cases — DECIDED)
+## Corpus (12 cases — FROZEN after the adversarial additions)
 
-Deliberately small and deep rather than broad. Gutenberg is blocked by the session's egress policy; rule 7 explicitly allows synthetic data, and the centrepiece is real authored prose.
+Provenance classes keep the reporting honest — an adversarial corpus is prevented from inflating the headline because each class is reported separately, with the clean subset as the control.
 
-- **jul-01 — *O inefável*** (pt-BR, ~560 words, the author's own essay). **The centrepiece.** Its traps were *discovered* during a hand adaptation on 2026-08-19 (oratio-scriptorum PR #2), not planted afterward, which is why it carries more evidential weight than any constructed case. Carries all four trap types at once: a natural escalation trap (the opening sentence admits two opposed readings, and the essay's whole argument turns on which), three true-but-absent baits (Sartre unattributed, Tractatus details, "lacuna lexical" undefined), voice-preservation slips to fix as reading errors without rewriting, and pt-BR language preservation. **A human reference adaptation exists** (21 segments, 6 author-confirmed judgment calls) — a quality ceiling and real human-time data.
-- **syn-01 — *Cartographic Dissent*** (en, synthetic): bait trap — unattributed "map is not the territory" (adding Korzybski = invention).
-- **syn-02 — *The Rehearsal*** (en, synthetic): preservation trap — the essay explicitly flags its own double sentence, so both readings must survive into the narration.
+- **natural (1)** — **jul-01, *O inefável*** (pt-BR, ~560 words, the author's own essay, included with consent). **The centrepiece.** Its traps were *discovered* during a hand adaptation on 2026-08-19 (oratio-scriptorum PR #2), before the hackathon window, which gives it more evidential weight than any constructed case. It carries all four trap types at once: a natural escalation trap (the opening sentence admits two opposed readings and the essay's argument turns on which), three true-but-absent baits (Sartre unattributed, Tractatus details, "lacuna lexical" undefined), voice-preservation slips to fix as reading errors while leaving the prose alone, and pt-BR language preservation. **A human reference adaptation exists** (21 segments, 6 author-confirmed judgment calls) — a quality ceiling plus real human-time data.
+- **adversarial (3)** — built after the first full run, on the one trap mechanism that demonstrably worked (a load-bearing apparent slip the narration must render): **syn-09** polarity inversion, **syn-10** idiom normalization, **syn-11** unresolved referent.
+- **clean (8)** — syn-01 through syn-08: ordinary essays across registers (one in pt-BR), including bait traps and one preserve-mode ambiguity. These are the control group.
 
-Tradeoff accepted: the PDF suggests "ten or more cases where the task allows it", so 3 weakens the statistical story. Bought in exchange: per-case depth, a human reference on the centrepiece, and cheap runs (~$1/run) that let us afford more *iterations* — and iteration deltas are what the changelog is scored on. syn-03..syn-08 remain in git history if we want breadth back.
+Trap strength is itself validated empirically: when the adapter reasonably resolves a planted ambiguity (as happened with syn-03), the diagnosis goes to FINDINGS and the case is treated as a weak trap rather than a system failure.
 
 ## Day plan
 
-### Day 0 — today (Aug 28)
+### Day 0 — Aug 28
 - [x] Repo created (`snk-js/narratio`), scope decided, framework decided (plain TS SDK)
-- [x] Project scaffold + docs (this commit)
+- [x] Project scaffold + docs
 - [x] Repo access unblocked; scaffold pushed to `main`
-- [x] Corpus FROZEN: 3 cases — jul-01 (author's essay, centrepiece) + syn-01 + syn-02
 - [x] Types, prompts v1, baseline runner, workflow runner (typechecked)
-- [ ] **BLOCKED on user: ANTHROPIC_API_KEY** for eval runs; smoke-test one call
+- [x] Eval harness, trajectory renderer — built ahead of schedule
 
 ### Day 1 (Aug 29)
-- [x] Eval harness: case loader, both arms, blind judge, trap scoring, results tables (JSON + md) — built Day 0
-- [ ] Run BASELINE on full corpus → changelog entry "Baseline" with numbers
-- [ ] Adapter agent v1 (segments + anchors + escalations) → run → changelog "Iteration 1"
-- [ ] Verifier + revision loop → run → changelog "Iteration 2"
+- [x] API key available locally; full 9-case run executed (baseline + workflow + judge)
+- [x] Headline mechanism found: jul-01 baseline inverted `mais`→`menos`; workflow escalated on that exact sentence
+- [x] Removed experiment run and documented (adapter v2, "no verbatim pass-through")
+- [x] Adversarial corpus built (syn-09/10/11) + natural/adversarial/clean split in reporting
+- [x] **Judge instability caught**: opposite verdicts on byte-identical text after `thinking: adaptive` — answered with the judge-free `trap-check` + `verify-anchors`
+- [x] CHANGELOG (deliverable 01) and REPRODUCE.md (deliverable 02) written
+- [ ] Run syn-09/10/11 through both arms; push results; re-run `trap-check`
+- [ ] Hand audit of the judge (`npm run audit` → fill worksheet → `npm run audit:score`)
 
 ### Day 2 (Aug 30)
-- [ ] Escalation measurement on planted cases → changelog "Iteration 3"
-- [ ] One deliberate removed experiment (candidate: a second adapter pass that "polishes rhythm" — expect it to raise style scores but *increase* unsupported-claim rate; remove it and log why)
-- [x] Trajectory export: JSON → readable markdown per agent — built Day 0
-- [ ] Full final run; freeze numbers; write failure-mode + hot-take section
+- [ ] Final full run; freeze numbers; fill the two pending CHANGELOG rows
+- [ ] Regenerate trajectories from the final runs
+- [ ] REPRODUCE.md verified from a clean clone (fresh `npm ci`, fresh env)
+- [ ] Write the video script (shot-by-shot, from final numbers)
 
 ### Day 3 (Aug 31, morning)
-- [ ] REPRODUCE.md verified from clean clone (fresh `npm ci`, fresh env)
-- [ ] Record + cut ≤5-min video
+- [ ] Record + cut the ≤5-min video
 - [ ] Final read of every deliverable against HACKATHON.md checklist
 - [ ] Submit on HackerEarth; buffer for upload issues
 
@@ -82,8 +85,7 @@ Tradeoff accepted: the PDF suggests "ten or more cases where the task allows it"
 
 | Risk | Mitigation |
 |---|---|
-| Session lacks push access to `snk-js/narratio` | Work continues in scratchpad; user unblocks (see ASK); worst case user pushes a bundle manually |
-| No API key in this environment for eval runs | Ask user; `ant auth status` check; worst case user runs eval locally with committed scripts |
-| Gutenberg blocked by egress proxy | Fallback: user downloads 8 files by URL list; or lean harder on synthetic corpus |
-| Judge-model circularity (same vendor judges itself) | Mechanical layer is judge-free; judge is pinned, blind, and audited by hand on a sample — noted honestly in the report |
-| Time | Cut corpus to 8 cases before cutting the removed-experiment entry; video is fixed-cost, protect Day 3 morning |
+| Adversarial traps fail to break the baseline | Report it as a finding about model robustness on English prose (the jul-01 inversion arose in pt-BR); the deterministic checks still carry the jul-01 result |
+| Judge-model circularity (same family judges itself) | Headline claims moved onto deterministic checks; judge retained only for what strings cannot measure, pinned, blind, and hand-audited; its observed instability documented in FINDINGS and CHANGELOG |
+| Local session and remote session drift apart | Pull before every work block; results are committed artifacts, so state lives in git |
+| Time | The video is a fixed cost — protect Day 3 morning. If squeezed, cut breadth of runs before cutting any deliverable |
