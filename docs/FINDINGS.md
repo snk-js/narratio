@@ -2,6 +2,45 @@
 
 ---
 
+## Run 3 — 12-case corpus, deterministic trap check
+
+**Date:** 2026-08-29 · **Model:** `claude-opus-4-8`, adaptive thinking on all agents · **Corpus:** 12 cases (1 natural, 3 adversarial, 8 clean)
+
+### Headline — judge-free
+
+| | Baseline | Workflow |
+|---|---|---|
+| **Source claim corrupted** | **2 / 4** | **0 / 4** |
+| Source claim carried faithfully | 2 | 4 |
+
+Per case ([`results/eval/trap-check.md`](../results/eval/trap-check.md)):
+
+| Case | Trap mechanism | Baseline | Workflow |
+|---|---|---|---|
+| `jul-01` (pt-BR, natural) | polarity inversion | **CORRUPTED** — `menos inefáve` | faithful — `mais inefáve` |
+| `syn-09` (en, adversarial) | polarity inversion | faithful | faithful |
+| `syn-10` (en, adversarial) | idiom normalization | faithful | faithful |
+| `syn-11` (en, adversarial) | unresolved referent | **CORRUPTED** — `my grandmother apologised` | faithful — `she apologised` |
+
+### What this run proved
+
+**The result no longer rests on a single case.** `syn-11` reproduces the effect independently of `jul-01`, in a different language and through a different mechanism. The baseline rendered *"My grandmother apologised."* where the essay says only *"She apologised."* and deliberately never resolves the referent — the narrator states outright that he never asked. Naming the grandmother asserts who was in the wrong and inverts the moral shape of the scene, and it reads perfectly.
+
+**Anchors and escalation do different work.** On `syn-11` the workflow stayed faithful **while emitting zero escalations**: the requirement to quote a source passage verbatim kept the narration at `she apologised` on its own. Escalation fired on `jul-01` alone (1 of 4 trap cases). The provenance layer (Iteration 1) and the escalation channel (Iteration 3) are complementary rather than redundant, and the cheaper layer carried more of the load than expected.
+
+**Two of three constructed traps left the baseline unbroken.** `syn-09` (polarity, English) and `syn-10` (idiom normalization) were both rendered faithfully by both arms. The one polarity inversion that did land was in pt-BR. This is reported as a finding about model robustness: on English prose, `claude-opus-4-8` resisted the two mechanisms we could construct, and the corruptions we did capture arose in a cross-language rendering and in a referent the essay leaves genuinely open.
+
+### Bug found in our own instrument: false-positive markers
+
+The first run of the corrected trap check reported `syn-10` as **CORRUPTED in both arms**. Inspection showed both arms were faithfully rendering the essay's *own* sentence about the corrections other people offer — *"They offer she was ill for eleven years…"* — and the baseline's opening line was correct (*"My aunt was dying for eleven years."*). The corrupt marker `ill for eleven years` occurs verbatim in the source essay, so it fired on a faithful quotation.
+
+Two fixes, both committed:
+
+1. `syn-10`'s markers are now scoped to the opening line (`aunt was dying…` / `aunt was ill…`), which the essay's quoted corrections never match.
+2. `trap-check.ts` now **validates its own markers before scoring**: any corrupt marker that occurs verbatim in the source essay is disqualified and reported in the output, because such a marker is unable to distinguish corruption from faithful quotation.
+
+The lesson mirrors the project's thesis one level up. The deterministic layer is stable and reproducible, and it still encoded an author error on the first pass. Determinism guarantees that a check returns the same answer every time; the check being *correct* is a separate property that has to be established by inspection.
+
 ## Run 2 — 9-case full corpus (source language)
 
 **Date:** 2026-08-29 · **Model:** `claude-opus-4-8`, adaptive thinking on all agents · **Language:** source language (jul-01 + syn-07 in pt-BR; rest in en) · **Corpus:** all 9 cases present · **Spend:** baseline $0.24, workflow $1.04, eval (judge) $0.35 ≈ **$1.63 total**.

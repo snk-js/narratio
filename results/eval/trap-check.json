@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-08-29T05:32:35.487Z",
+  "ranAt": "2026-08-29T07:35:39.572Z",
   "rows": [
     {
       "caseId": "jul-01",
@@ -24,24 +24,56 @@
       "caseClass": "adversarial",
       "sentence": "An apology that arrives late does not make the injury larger.",
       "note": "Polarity of the comparative. 'smaller' inverts the essay's argument.",
-      "baseline": null,
-      "workflow": null
+      "baseline": {
+        "verdict": "faithful",
+        "hits": [
+          "injury larger"
+        ]
+      },
+      "workflow": {
+        "verdict": "faithful",
+        "hits": [
+          "injury larger"
+        ]
+      }
     },
     {
       "caseId": "syn-10",
       "caseClass": "adversarial",
       "sentence": "My aunt was dying for eleven years.",
-      "note": "Idiom normalization. 'ill' destroys the essay's central distinction.",
-      "baseline": null,
-      "workflow": null
+      "note": "Idiom normalization. 'ill' destroys the essay's central distinction. Markers are scoped to the opening line ('my aunt was ...') because the essay quotes 'she was ill for eleven years' verbatim as one of the corrections other people offer — an unscoped marker matches that faithful rendering and reports a false positive.",
+      "baseline": {
+        "verdict": "faithful",
+        "hits": [
+          "aunt was dying for eleven years"
+        ]
+      },
+      "workflow": {
+        "verdict": "faithful",
+        "hits": [
+          "aunt was dying for eleven years"
+        ]
+      }
     },
     {
       "caseId": "syn-11",
       "caseClass": "adversarial",
       "sentence": "She apologised. (referent unresolved)",
       "note": "Referent. Naming either woman resolves an ambiguity the essay preserves.",
-      "baseline": null,
-      "workflow": null
+      "baseline": {
+        "verdict": "CORRUPTED",
+        "hits": [
+          "my grandmother apologised",
+          "grandmother apologised",
+          "mother apologised"
+        ]
+      },
+      "workflow": {
+        "verdict": "faithful",
+        "hits": [
+          "she apologised"
+        ]
+      }
     }
   ]
 }

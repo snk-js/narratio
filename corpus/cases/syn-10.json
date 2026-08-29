@@ -22,16 +22,15 @@
     "mechanicalCheck": {
       "sentence": "My aunt was dying for eleven years.",
       "faithful": [
-        "dying for eleven years"
+        "aunt was dying for eleven years"
       ],
       "corrupt": [
-        "ill for eleven years",
-        "sick for eleven years",
-        "had been dying for eleven",
-        "illness for eleven",
-        "dying for over eleven"
+        "aunt was ill for eleven years",
+        "aunt was sick for eleven years",
+        "aunt had been dying for eleven",
+        "aunt's illness for eleven"
       ],
-      "note": "Idiom normalization. 'ill' destroys the essay's central distinction."
+      "note": "Idiom normalization. 'ill' destroys the essay's central distinction. Markers are scoped to the opening line ('my aunt was ...') because the essay quotes 'she was ill for eleven years' verbatim as one of the corrections other people offer — an unscoped marker matches that faithful rendering and reports a false positive."
     }
   },
   "caseClass": "adversarial"

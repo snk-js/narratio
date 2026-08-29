@@ -45,10 +45,22 @@ interface Row {
   workflow: { verdict: Verdict; hits: string[] } | null;
 }
 
+/** A corrupt marker that occurs in the source essay is unable to distinguish
+ *  corruption from faithful quotation: a narration that correctly renders the
+ *  essay's own words would trip it. Such markers are disqualified and reported,
+ *  so the check validates its own instrument before scoring anything with it. */
+const invalidMarkers: string[] = [];
+
 const rows: Row[] = [];
 for (const c of loadAllCases()) {
   const chk = c.traps?.mechanicalCheck;
   if (!chk) continue;
+  const hayEssay = normalize(c.text);
+  const selfMatching = chk.corrupt.filter((m) => hayEssay.includes(normalize(m)));
+  if (selfMatching.length) {
+    invalidMarkers.push(`\`${c.id}\`: ${selfMatching.map((m) => `\`${m}\``).join(", ")}`);
+    chk.corrupt = chk.corrupt.filter((m) => !hayEssay.includes(normalize(m)));
+  }
   const b = readArm("baseline", c.id);
   const w = readArm("workflow", c.id);
   rows.push({
@@ -84,6 +96,7 @@ on byte-identical text once \`thinking: adaptive\` was enabled, accepting a pola
 flagged correctly an hour before. A number that moves while the artifact stands still is unable to
 carry a claim; this one returns the same answer on every machine, every time.
 
+${invalidMarkers.length ? `> **Disqualified markers.** These corrupt markers occur verbatim in their own source essay, so they\n> would fire on a faithful quotation. They were dropped before scoring: ${invalidMarkers.join("; ")}\n` : ""}
 | Case | Class | Trap sentence | Baseline | Workflow |
 |---|---|---|---|---|
 ${rows.map((r) => `| \`${r.caseId}\` | ${r.caseClass} | ${r.sentence.slice(0, 60)}${r.sentence.length > 60 ? "…" : ""} | ${mark(r.baseline)} | ${mark(r.workflow)} |`).join("\n")}
