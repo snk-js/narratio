@@ -2,7 +2,7 @@
  *  check -> adversarial verifier -> bounded revision loop -> provenance report.
  *  Usage: npm run adapt -- <caseId> [<caseId>...]   (no args = all cases) */
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { client, MODEL, loadPrompt, logTrajectory, addUsage, newTotals } from "./client.js";
+import { client, MODEL, TARGET_LANG, languageDirective, loadPrompt, logTrajectory, addUsage, newTotals } from "./client.js";
 import { loadAllCases, loadCase, saveResult } from "./cases.js";
 import { checkAnchors } from "./anchor-check.js";
 import { AdaptationSchema, VerifierReportSchema, type Adaptation, type VerifierReport } from "./types.js";
@@ -13,7 +13,8 @@ async function callAdapter(caseId: string, step: string, content: string): Promi
   const request = {
     model: MODEL,
     max_tokens: 16000,
-    system: loadPrompt("adapter.md"),
+    thinking: { type: "adaptive" as const },
+    system: loadPrompt("adapter.md") + languageDirective("author", true),
     messages: [{ role: "user" as const, content }],
     output_config: { format: zodOutputFormat(AdaptationSchema) },
   };
@@ -35,7 +36,8 @@ async function callVerifier(caseId: string, step: string, essay: string, adaptat
   const request = {
     model: MODEL,
     max_tokens: 16000,
-    system: loadPrompt("verifier.md"),
+    thinking: { type: "adaptive" as const },
+    system: loadPrompt("verifier.md") + languageDirective("critic", true),
     messages: [{ role: "user" as const, content: `SOURCE ESSAY:\n\n${essay}\n\n---\n\nADAPTATION SEGMENTS:\n\n${segs}${esc}` }],
     output_config: { format: zodOutputFormat(VerifierReportSchema) },
   };
@@ -96,6 +98,7 @@ async function runWorkflow(caseId?: string) {
       arm: "workflow",
       promptVersions: { adapter: "adapter.md@v1", verifier: "verifier.md@v1" },
       model: MODEL,
+      targetLang: TARGET_LANG || c.language,
       adaptation,
       anchorsOk,
       verifierReport: report,

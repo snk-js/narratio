@@ -1,0 +1,15 @@
+{
+  "caseId": "syn-07",
+  "arm": "baseline",
+  "promptVersion": "baseline.md@v1",
+  "model": "claude-opus-4-8",
+  "targetLang": "pt",
+  "narration": "# O Fio e o Rito\n\nMeu avô afiava as ferramentas dos outros. Era o ofício dele nos últimos anos: uma bicicleta adaptada, uma pedra de amolar, e os quintais alheios. Eu achava, na época, que ele vendia fio de navalha. Hoje acho que vendia outra coisa.\n\nQuem entrega uma faca cega entrega junto uma confissão: deixei passar. A ferramenta cega é um diário do descuido — cada corte forçado, cada tomate amassado em vez de fatiado, tudo anotado ali no metal. Meu avô recebia essas confissões sem comentário, como um padre de quintal. Passava a pedra, devolvia a lâmina, e com ela uma espécie de absolvição: recomece, agora corta de novo.\n\nO que me impressiona, olhando de longe, é que ninguém aprendia. Os mesmos quintais, as mesmas facas, o mesmo ciclo de seis meses. Ele não ensinava a afiar, e me lembro de perguntar por quê. Ele disse que ensinar a afiar era fácil, mas que ninguém queria aprender; queriam era o rito da entrega. A faca ia e voltava como quem vai à fonte. Se cada casa tivesse sua pedra, disse ele, cada casa teria uma faca cega e uma culpa a mais.\n\nPenso nisso quando vejo as ferramentas de agora, que não cegam: atualizam-se sozinhas, à noite, sem confissão e sem rito. Ganhamos o fio permanente e perdemos o comparecimento. Nenhuma entrega, nenhuma absolvição, nenhum velho na bicicleta para testemunhar, a cada seis meses, que a casa segue cortando. O fio que não se perde é também o vínculo que não se renova.\n\nNão sei medir o que vale mais: a lâmina sempre pronta ou o ciclo que obrigava a lâmina a passar de mão em mão. Sei que herdei a pedra dele e não herdei o ofício. Ela está numa gaveta da cozinha, seca há vinte anos, e eu afio minhas facas — quando afio — com um afiador de plástico que faz o serviço em oito segundos e não me pergunta nada.",
+  "usage": {
+    "inputTokens": 934,
+    "outputTokens": 801,
+    "costUsd": 0.024695,
+    "calls": 1,
+    "wallMs": 7763
+  }
+}

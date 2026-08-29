@@ -1,0 +1,207 @@
+{
+  "caseId": "syn-06",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 1,
+        "narration": "I have a friend who reads last pages first. She says she is not spoiling the book; she is interviewing it.",
+        "anchor": "I have a friend who reads last pages first. She says she is not spoiling the book; she is interviewing it."
+      },
+      {
+        "index": 2,
+        "narration": "A book that survives the interview — that can hold her attention even with its ending confessed — has proven it was never depending on the trick.",
+        "anchor": "A book that survives the interview — that can hold her attention even with its ending confessed — has proven it was never depending on the trick."
+      },
+      {
+        "index": 3,
+        "narration": "I have argued with her about this for a decade, and I have lost every argument, and I still cannot make myself do it.",
+        "anchor": "I have argued with her about this for a decade, and I have lost every argument, and I still cannot make myself do it."
+      },
+      {
+        "index": 4,
+        "narration": "My resistance interests me more than her method. What exactly do I think I am protecting?",
+        "anchor": "My resistance interests me more than her method. What exactly do I think I am protecting?"
+      },
+      {
+        "index": 5,
+        "narration": "Not information: I forget most endings within a year, sometimes within a month, and reread them as a stranger.",
+        "anchor": "Not information: I forget most endings within a year, sometimes within a month, and reread them as a stranger."
+      },
+      {
+        "index": 6,
+        "narration": "Not suspense in any respectable sense: I reread books whose endings I do know, and the rereading is often the better reading.",
+        "anchor": "Not suspense in any respectable sense: I reread books whose endings I do know, and the rereading is often the better reading."
+      },
+      {
+        "index": 7,
+        "narration": "What I am protecting, I think, is a sequence of selves. The person who reaches page two hundred not knowing is a different person from the one who reaches it knowing, and I want to have been the first person before I become the second.",
+        "anchor": "What I am protecting, I think, is a sequence of selves. The person who reaches page two hundred not knowing is a different person from the one who reaches it knowing, and I want to have been the first person before I become the second."
+      },
+      {
+        "index": 8,
+        "narration": "This sounds precious until you notice how much of a life is arranged around the same principle. We could, most of us, find out early how many of our ambitions will pan out — the evidence is usually lying around by thirty-five, unread. We decline to run the numbers.",
+        "anchor": "This sounds precious until you notice how much of a life is arranged around the same principle. We could, most of us, find out early how many of our ambitions will pan out — the evidence is usually lying around by thirty-five, unread. We decline to run the numbers."
+      },
+      {
+        "index": 9,
+        "narration": "We keep certain envelopes closed not because the contents are unknowable but because we are rationing who we have to become, and when. Ignorance, chosen carefully, is not the absence of knowledge. It is a schedule for it.",
+        "anchor": "We keep certain envelopes closed not because the contents are unknowable but because we are rationing who we have to become, and when. Ignorance, chosen carefully, is not the absence of knowledge. It is a schedule for it."
+      },
+      {
+        "index": 10,
+        "narration": "My friend would say I am romanticizing slowness, and that her way honors the book more: she gives her hours only to prose that can survive honesty.",
+        "anchor": "My friend would say I am romanticizing slowness, and that her way honors the book more: she gives her hours only to prose that can survive honesty."
+      },
+      {
+        "index": 11,
+        "narration": "Perhaps both disciplines are real. Hers tests the book. Mine paces the reader. She interviews; I ripen.",
+        "anchor": "Perhaps both disciplines are real. Hers tests the book. Mine paces the reader. She interviews; I ripen."
+      },
+      {
+        "index": 12,
+        "narration": "The one mistake, we agree, in our only settled treaty, is to do neither on purpose — to let endings arrive unchosen, information unscheduled, the selves succeeding one another with nobody keeping the calendar.",
+        "anchor": "The one mistake, we agree, in our only settled treaty, is to do neither on purpose — to let endings arrive unchosen, information unscheduled, the selves succeeding one another with nobody keeping the calendar."
+      }
+    ],
+    "escalations": []
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim from the essay's opening.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 10,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 11,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 12,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "The adaptation reproduces the essay verbatim segment by segment, preserving the author's distinctive phrasing throughout. No drift, invention, or style violations found."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [],
+  "usage": {
+    "inputTokens": 5234,
+    "outputTokens": 2406,
+    "costUsd": 0.08632,
+    "calls": 2,
+    "wallMs": 22941
+  }
+}

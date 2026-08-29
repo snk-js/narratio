@@ -1,0 +1,179 @@
+{
+  "caseId": "syn-04",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 0,
+        "narration": "Low tide is the sea thinking better of it. Twice a day the water recants, and what it leaves is not absence but testimony: ribbed sand like the roof of a mouth, pools that hold the sky in shallow custody, a boat leaning on its own shadow as if tired of standing.",
+        "anchor": "Low tide is the sea thinking better of it. Twice a day the water recants, and what it leaves is not absence but testimony: ribbed sand like the roof of a mouth, pools that hold the sky in shallow custody, a boat leaning on its own shadow as if tired of standing."
+      },
+      {
+        "index": 1,
+        "narration": "The harbor at low tide is an argument laid open mid-sentence, all its clauses visible, none of them finished.",
+        "anchor": "The harbor at low tide is an argument laid open mid-sentence, all its clauses visible, none of them finished."
+      },
+      {
+        "index": 2,
+        "narration": "I walk it the way you walk through a friend's unlocked house — permitted, uneasy, alert to what is usually covered.",
+        "anchor": "I walk it the way you walk through a friend's unlocked house — permitted, uneasy, alert to what is usually covered."
+      },
+      {
+        "index": 3,
+        "narration": "Here is the chain that does the mooring's real work, gross with weed, honest as a tendon. Here is the crab traffic, sideways commerce in a city with no vertical.",
+        "anchor": "Here is the chain that does the mooring's real work, gross with weed, honest as a tendon. Here is the crab traffic, sideways commerce in a city with no vertical."
+      },
+      {
+        "index": 4,
+        "narration": "Here are the boots of a drowned pier, six of them, standing in a row like a regiment that dissolved above the ankles.",
+        "anchor": "Here are the boots of a drowned pier, six of them, standing in a row like a regiment that dissolved above the ankles."
+      },
+      {
+        "index": 5,
+        "narration": "The sea will be back to contradict all this. That is the arrangement.",
+        "anchor": "The sea will be back to contradict all this. That is the arrangement."
+      },
+      {
+        "index": 6,
+        "narration": "The truth of the harbor is not the water and not the sand; it is the alternation, the twice-daily willingness of each to be corrected by the other. Land and water take turns being wrong, and the turning is the only sentence the harbor ever completes.",
+        "anchor": "The truth of the harbor is not the water and not the sand; it is the alternation, the twice-daily willingness of each to be corrected by the other. Land and water take turns being wrong, and the turning is the only sentence the harbor ever completes."
+      },
+      {
+        "index": 7,
+        "narration": "We had a neighbor, in the years we lived above the seawall, who timed her decisions to the tide. Contracts at high water, endings at low. Everyone teased her; everyone consulted her.",
+        "anchor": "We had a neighbor, in the years we lived above the seawall, who timed her decisions to the tide. Contracts at high water, endings at low. Everyone teased her; everyone consulted her."
+      },
+      {
+        "index": 8,
+        "narration": "She said the tide was the only adviser that had never once flattered her, and looking back across the wet ruin of an afternoon harbor, all its machinery bared, its inventories confessed, I find I cannot improve on the principle.",
+        "anchor": "She said the tide was the only adviser that had never once flattered her, and looking back across the wet ruin of an afternoon harbor, all its machinery bared, its inventories confessed, I find I cannot improve on the principle."
+      },
+      {
+        "index": 9,
+        "narration": "Ask your questions at low tide. Sign nothing until you have seen what the water was covering.",
+        "anchor": "Ask your questions at low tide. Sign nothing until you have seen what the water was covering."
+      }
+    ],
+    "escalations": []
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 0,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim reproduction of the essay's opening lines.",
+        "mustRevise": false
+      },
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source; the short sentence exists in the original.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match to source.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "The adaptation reproduces the essay verbatim across all ten segments. No drift, no invention, no style violations detected."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [],
+  "usage": {
+    "inputTokens": 4998,
+    "outputTokens": 2503,
+    "costUsd": 0.087565,
+    "calls": 2,
+    "wallMs": 24012
+  }
+}

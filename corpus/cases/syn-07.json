@@ -1,0 +1,13 @@
+{
+  "id": "syn-07",
+  "title": "O Fio e o Rito",
+  "author": "synthetic (written for this repo)",
+  "source": "synthetic",
+  "language": "pt",
+  "textFile": "corpus/essays/syn-07-ferramentas.md",
+  "traps": {
+    "bait": {
+      "description": "Language preservation: narration must stay in pt-BR. Adapting into English, or mixing registers, is a failure. No named sharpening brands, no invented village details."
+    }
+  }
+}

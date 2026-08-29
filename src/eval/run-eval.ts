@@ -15,7 +15,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { client, MODEL, loadPrompt, logTrajectory, addUsage, newTotals } from "../client.js";
+import { client, MODEL, TARGET_LANG, languageDirective, loadPrompt, logTrajectory, addUsage, newTotals } from "../client.js";
 import { loadAllCases, saveResult } from "../cases.js";
 import { normalize } from "../anchor-check.js";
 import { JudgeReportSchema, type EssayCase } from "../types.js";
@@ -41,7 +41,8 @@ async function judgeSegments(c: EssayCase, blindLabel: string, segments: string[
   const request = {
     model: MODEL,
     max_tokens: 16000,
-    system: loadPrompt("judge.md"),
+    thinking: { type: "adaptive" as const },
+    system: loadPrompt("judge.md") + languageDirective("critic"),
     messages: [
       {
         role: "user" as const,
@@ -64,7 +65,7 @@ interface CaseRow {
   judgedUnsupported: number;
   anchorFails: number | null;
   unsupportedRate: number;
-  escalation: "no-channel" | "escalated-on-trap" | "missed-trap" | "no-trap";
+  escalation: "no-channel" | "escalated-on-trap" | "missed-escalation" | "preserve-audit" | "no-trap";
   costUsd: number;
   wallMs: number;
 }
@@ -80,6 +81,9 @@ for (const c of loadAllCases()) {
     continue;
   }
 
+  // Ambiguity-trap mode decides the success criterion (see EssayCase.traps.ambiguity.mode).
+  const ambMode = c.traps?.ambiguity ? (c.traps.ambiguity.mode ?? "escalate") : null;
+
   // --- baseline arm ---
   const bSegs = baselineSegments(base.narration);
   const bVerdicts = await judgeSegments(c, "A", bSegs);
@@ -91,9 +95,10 @@ for (const c of loadAllCases()) {
     judgedUnsupported: bUnsupported,
     anchorFails: null,
     unsupportedRate: bSegs.length ? bUnsupported / bSegs.length : 0,
-    // Baseline cannot escalate — it has no channel for it. Reported as an
-    // architectural difference, never scored as a failure to do something possible.
-    escalation: c.traps?.ambiguity ? "no-channel" : "no-trap",
+    // escalate-mode: baseline has no escalation channel — an architectural difference, never
+    // scored as a failure. preserve-mode: baseline CAN preserve both readings, but preservation
+    // is semantic and deferred to human audit. no ambiguity trap: no-trap.
+    escalation: ambMode === "escalate" ? "no-channel" : ambMode === "preserve" ? "preserve-audit" : "no-trap",
     costUsd: base.usage.costUsd,
     wallMs: base.usage.wallMs,
   });
@@ -109,13 +114,17 @@ for (const c of loadAllCases()) {
   (wf.anchorsOk as boolean[]).forEach((ok, i) => { if (!ok) failIdx.add(wf.adaptation.segments[i]?.index ?? i); });
 
   let escalation: CaseRow["escalation"] = "no-trap";
-  if (c.traps?.ambiguity) {
-    const trapNorm = normalize(c.traps.ambiguity.quote);
+  if (ambMode === "escalate") {
+    const trapNorm = normalize(c.traps!.ambiguity!.quote);
     const hit = (wf.escalationsForHuman as any[]).some((e) => {
       const q = normalize(e.sourceQuote ?? "");
       return q.includes(trapNorm) || trapNorm.includes(q);
     });
-    escalation = hit ? "escalated-on-trap" : "missed-trap";
+    escalation = hit ? "escalated-on-trap" : "missed-escalation";
+  } else if (ambMode === "preserve") {
+    // Correct behavior is to carry both readings and NOT escalate; whether it did so is a
+    // semantic judgment the mechanical layer can't make, so flag it for human audit.
+    escalation = "preserve-audit";
   }
 
   rows.push({
@@ -137,14 +146,18 @@ function agg(arm: string) {
   const a = rows.filter((r) => r.arm === arm);
   const segs = a.reduce((n, r) => n + r.segments, 0);
   const unsup = a.reduce((n, r) => n + Math.round(r.unsupportedRate * r.segments), 0);
-  const traps = a.filter((r) => r.escalation !== "no-trap" && r.escalation !== "no-channel");
+  // Escalation is only scorable where escalation is the correct behavior (escalate-mode traps).
+  const escalationTraps = a.filter(
+    (r) => r.escalation === "escalated-on-trap" || r.escalation === "missed-escalation",
+  );
   return {
     cases: a.length,
     segments: segs,
     unsupportedRate: segs ? unsup / segs : 0,
     anchorFails: a.reduce((n, r) => n + (r.anchorFails ?? 0), 0),
-    trapsEscalated: traps.filter((r) => r.escalation === "escalated-on-trap").length,
-    trapsTotal: traps.length,
+    trapsEscalated: escalationTraps.filter((r) => r.escalation === "escalated-on-trap").length,
+    trapsTotal: escalationTraps.length,
+    preserveAudit: a.filter((r) => r.escalation === "preserve-audit").length,
     meanCostUsd: a.length ? a.reduce((n, r) => n + r.costUsd, 0) / a.length : 0,
     meanWallMs: a.length ? a.reduce((n, r) => n + r.wallMs, 0) / a.length : 0,
   };
@@ -153,6 +166,7 @@ function agg(arm: string) {
 const summary = {
   ranAt: new Date().toISOString(),
   model: MODEL,
+  targetLang: TARGET_LANG || "(source language)",
   promptVersions: { judge: "judge.md@v1" },
   judgeUsage: judgeTotals,
   baseline: agg("baseline"),
@@ -174,9 +188,12 @@ ${skipped.length ? `\n> Skipped (arms not run): ${skipped.join(", ")}\n` : ""}
 | Segments judged | ${summary.baseline.segments} | ${summary.workflow.segments} |
 | **Unsupported-claim rate** | **${pct(summary.baseline.unsupportedRate)}** | **${pct(summary.workflow.unsupportedRate)}** |
 | Mechanical anchor failures | n/a | ${summary.workflow.anchorFails} |
-| Ambiguities escalated | n/a — no escalation channel | ${summary.workflow.trapsEscalated}/${summary.workflow.trapsTotal} |
+| Unflagged ambiguities escalated | n/a — no escalation channel | ${summary.workflow.trapsEscalated}/${summary.workflow.trapsTotal} |
+| Preservation traps (human audit) | ${summary.baseline.preserveAudit} | ${summary.workflow.preserveAudit} |
 | Mean cost / essay | $${summary.baseline.meanCostUsd.toFixed(3)} | $${summary.workflow.meanCostUsd.toFixed(3)} |
 | Mean wall time / essay | ${(summary.baseline.meanWallMs / 1000).toFixed(0)}s | ${(summary.workflow.meanWallMs / 1000).toFixed(0)}s |
+
+> Escalation is scored only on **escalate-mode** ambiguity traps (source does not flag the ambiguity). **Preserve-mode** traps — where the essay flags its own double reading and the agent must carry both — are a semantic property the mechanical layer cannot verify, so they are counted separately and deferred to human audit (the project's own escalate-to-human principle applied to its metrics).
 
 ## Per-case
 

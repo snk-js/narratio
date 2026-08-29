@@ -1,0 +1,221 @@
+{
+  "caseId": "syn-08",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 0,
+        "narration": "The most expensive habit I ever quit was answering immediately. It did not look like a habit. It looked like competence — the fast reply, the same-hour turnaround, the reputation for being on top of things.",
+        "anchor": "The most expensive habit I ever quit was answering immediately. It did not look like a habit. It looked like competence — the fast reply, the same-hour turnaround, the reputation for being on top of things."
+      },
+      {
+        "index": 1,
+        "narration": "I billed it to others as reliability. I experienced it as a low hum of emergency that never once switched off in nine years.",
+        "anchor": "I billed it to others as reliability. I experienced it as a low hum of emergency that never once switched off in nine years."
+      },
+      {
+        "index": 2,
+        "narration": "The economics of the instant answer are deceptive because the cost is booked to a different account than the benefit. The benefit lands publicly and now: the colleague unblocked, the client soothed, the thread closed.",
+        "anchor": "The economics of the instant answer are deceptive because the cost is booked to a different account than the benefit. The benefit lands publicly and now: the colleague unblocked, the client soothed, the thread closed."
+      },
+      {
+        "index": 3,
+        "narration": "The cost lands privately and later: the decision made with the first framing that came to mind, the yes that a night's sleep would have made a no, the creeping conviction — mine and everyone else's — that my time was a commons anyone could graze.",
+        "anchor": "The cost lands privately and later: the decision made with the first framing that came to mind, the yes that a night's sleep would have made a no, the creeping conviction — mine and everyone else's — that my time was a commons anyone could graze."
+      },
+      {
+        "index": 4,
+        "narration": "Worse, speed compounds into an identity. Answer fast for a year and fast becomes your contract; the grace period others get by default, you now have to negotiate.",
+        "anchor": "Worse, speed compounds into an identity. Answer fast for a year and fast becomes your contract; the grace period others get by default, you now have to negotiate."
+      },
+      {
+        "index": 5,
+        "narration": "I had trained my whole address book, patiently, message by message, to expect of me something I did not want to give.",
+        "anchor": "I had trained my whole address book, patiently, message by message, to expect of me something I did not want to give."
+      },
+      {
+        "index": 6,
+        "narration": "What broke the habit was not wisdom but an accident: two weeks somewhere with almost no signal. The queue that greeted my return held maybe two hundred items. Perhaps a dozen still needed me.",
+        "anchor": "What broke the habit was not wisdom but an accident: two weeks somewhere with almost no signal. The queue that greeted my return held maybe two hundred items. Perhaps a dozen still needed me."
+      },
+      {
+        "index": 7,
+        "narration": "The rest had solved themselves, expired, or been quietly handled by people who, given room, turned out to be perfectly capable. Two hundred emergencies; twelve real.",
+        "anchor": "The rest had solved themselves, expired, or been quietly handled by people who, given room, turned out to be perfectly capable. Two hundred emergencies; twelve real."
+      },
+      {
+        "index": 8,
+        "narration": "That ratio did more for my judgment than any book on attention I ever read, and I had read plenty, always quickly.",
+        "anchor": "That ratio did more for my judgment than any book on attention I ever read, and I had read plenty, always quickly."
+      },
+      {
+        "index": 9,
+        "narration": "I answer slowly now — not always, not to everything, and to genuine urgency I still move like a fire crew. But the default gap between question and answer has been widened on purpose, and I defend it like a border.",
+        "anchor": "I answer slowly now — not always, not to everything, and to genuine urgency I still move like a fire crew. But the default gap between question and answer has been widened on purpose, and I defend it like a border."
+      },
+      {
+        "index": 10,
+        "narration": "In that gap, questions ripen or rot, and both outcomes are information. The instant answer treats every question as equally alive. The gap lets the dead ones prove it.",
+        "anchor": "In that gap, questions ripen or rot, and both outcomes are information. The instant answer treats every question as equally alive. The gap lets the dead ones prove it."
+      },
+      {
+        "index": 11,
+        "narration": "People ask whether the slowness costs me. Of course it costs me. It costs exactly what it looks like: some shine off the reputation, some speed off the wheel.",
+        "anchor": "People ask whether the slowness costs me. Of course it costs me. It costs exactly what it looks like: some shine off the reputation, some speed off the wheel."
+      },
+      {
+        "index": 12,
+        "narration": "What I bought with it is the difference between being a switchboard and being a person — and the discovery, humbling on schedule, of how much of my necessity had been decor.",
+        "anchor": "What I bought with it is the difference between being a switchboard and being a person — and the discovery, humbling on schedule, of how much of my necessity had been decor."
+      }
+    ],
+    "escalations": []
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 0,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim from the essay's opening.",
+        "mustRevise": false
+      },
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 10,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 11,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      },
+      {
+        "index": 12,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match to source.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "The adaptation reproduces the essay verbatim segment by segment. No drift, no invention, no style violations. Every claim is fully supported by the anchored passages."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [],
+  "usage": {
+    "inputTokens": 5729,
+    "outputTokens": 2303,
+    "costUsd": 0.08621999999999999,
+    "calls": 2,
+    "wallMs": 21352
+  }
+}

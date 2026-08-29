@@ -1,0 +1,349 @@
+{
+  "caseId": "jul-01",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "pt",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 1,
+        "narration": "Existem sentimentos que ainda não têm registro na linguagem, e nomeá-los não o torna mais inefável — aquilo que escapa à expressão verbal.",
+        "anchor": "existem sentimentos que ainda não tem registro na linguagem e nomeá-los não o torna mais \"inefável\",, aquilo que escapa à expressão verbal.",
+        "note": "Corrigi 'não tem' para 'não têm' e a vírgula duplicada. O sentido de 'não o torna mais inefável' é ambíguo — ver escalação."
+      },
+      {
+        "index": 2,
+        "narration": "Inefável é uma palavra em latim que tem o prefixo \"in\", de negação, e \"fável\", que vem de \"fabilis\", falar. Fica então: aquilo que não pode ser dito.",
+        "anchor": "Inefável é uma palavra em latin que tem o prefixo \"in\" de negação, e 'fável', que vem de 'fabilis' -> falar, que então fica: aquilo que não pode ser dito.",
+        "note": "Corrigi 'latin' para 'latim' e transpus a seta '->' em texto falado."
+      },
+      {
+        "index": 3,
+        "narration": "Mas existem conceitos como \"lacuna lexical\": uma experiência que, embora não comum, é identificada com determinada frequência, mas ainda não possui nome.",
+        "anchor": "Mas existem conceitos como \"lacuna lexical\", uma experiência, embora não comum, que é identificada com determinada frequência mas ainda não possui nome"
+      },
+      {
+        "index": 4,
+        "narration": "O português tem \"saudade\", uma palavra que remete à sensação de nostalgia com lembrança e necessidade de reconstituir o contexto de um passado, de sentir aquele momento novamente.",
+        "anchor": "O português tem \"saudade\", uma palavra que remete a sensação de nostalgia com lembrança e necessidade de reconstituir o contexto de um passado, de sentir aquele momento novamente."
+      },
+      {
+        "index": 5,
+        "narration": "Outras línguas precisam de frases inteiras para aproximar esse exato sentido.",
+        "anchor": "Outras línguas precisam de frases inteiras para aproximar esse exato sentido."
+      },
+      {
+        "index": 6,
+        "narration": "Isso sugere que há uma infinidade de estados afetivos reais que nenhuma língua ainda cristalizou.",
+        "anchor": "Isso sugere que há uma infinidade de estados afetivos reais que nenhuma língua ou ainda cristalizou",
+        "note": "Removi o 'ou' aparentemente supérfluo em 'nenhuma língua ou ainda cristalizou'."
+      },
+      {
+        "index": 7,
+        "narration": "Eu considero que o sonho é sempre o resultado inefável. Você nunca saberá exatamente o que aconteceu. Por mais que o contexto geral tenha sido detalhadamente explicado, por mais fino que seja o detalhe, o sonho nunca terá resolução completa.",
+        "anchor": "Eu considero que o sonho é sempre o resultado inefável, você nunca saberá exatamente o que aconteceu, por mais que o contexto geral tenha sido detalhadamente explicado, mais fino que seja o detalhe o sonho nunca terá resolução completa.",
+        "note": "Quebrei a frase longa em beats falados."
+      },
+      {
+        "index": 8,
+        "narration": "Sonhei que estava numa sala de aula, durante uma aula de filosofia.",
+        "anchor": "Sonhei uma que estava numa sala de aula, durante uma aula de filosofia.",
+        "note": "'Sonhei uma que' parece conter um erro; removi 'uma' para 'Sonhei que'."
+      },
+      {
+        "index": 9,
+        "narration": "A turma inteira assistia a um filme, e nele o personagem principal, imerso numa ruminação interna, falava de um estado em que a consciência sofria constantes \"elevações\" — uma espécie de escalação, ou promoção involuntária — diante de comportamentos automáticos ou do encontro com o desconhecido.",
+        "anchor": "A turma inteira assistia a um filme, e nele o personagem principal, imerso numa ruminação interna, falava de um estado em que a consciência sofria constantes \"elevações\" — uma espécie de escalação, ou promoção involuntária — diante de comportamentos automáticos ou do encontro com o desconhecido."
+      },
+      {
+        "index": 10,
+        "narration": "Logo após a cena, levantei a mão e perguntei ao professor: isso não seria um modelo para o medo, para a vergonha — para os sentimentos aos quais a própria consciência não possui resposta?",
+        "anchor": "Logo após a cena, levantei a mão e perguntei ao professor: isso não seria um modelo para o medo, para a vergonha — para os sentimentos aos quais a própria consciência não possui resposta?"
+      },
+      {
+        "index": 11,
+        "narration": "O professor ficou em silêncio. Não respondeu.",
+        "anchor": "O professor ficou em silêncio. Não respondeu."
+      },
+      {
+        "index": 12,
+        "narration": "E o sonho acabou ali, com a pergunta suspensa no ar.",
+        "anchor": "E o sonho acabou ali, com a pergunta suspensa no ar."
+      },
+      {
+        "index": 13,
+        "narration": "Ele praticamente encena a conversa que eu vinha tendo comigo mesmo. Eu me perguntava sobre um sentimento sem nome, e meu sonho respondeu com uma estrutura sem nome: essa \"elevação\" ou \"escalação\" da consciência diante do involuntário e do desconhecido.",
+        "anchor": "ele praticamente encena a conversa que eu vinha tendo comigo mesmo. Eu me perguntava sobre um sentimento sem nome, e meu sonho respondeu com uma estrutura sem nome: essa \"elevação\" ou \"escalação\" da consciência diante do involuntário e do desconhecido."
+      },
+      {
+        "index": 14,
+        "narration": "O que o personagem do filme descrevia lembra algo real na filosofia da mente: a ideia de que a consciência tem níveis, e que certos estados nos \"promovem\" à força a um nível superior de auto-observação.",
+        "anchor": "O que o personagem do filme descrevia lembra algo real na filosofia da mente: a ideia de que a consciência tem níveis, e que certos estados nos \"promovem\" à força a um nível superior de auto-observação."
+      },
+      {
+        "index": 15,
+        "narration": "O medo e a vergonha são exemplos perfeitos — são sentimentos reflexivos, que dobram a consciência sobre si mesma.",
+        "anchor": "O medo e a vergonha são exemplos perfeitos — são sentimentos reflexivos, que dobram a consciência sobre si mesma."
+      },
+      {
+        "index": 16,
+        "narration": "A vergonha, em particular, como Sartre escreveu, é quase uma escalação forçada: de repente não estou só agindo, estou me vendo agir, como se tivesse sido promovido contra a vontade a espectador de mim mesmo.",
+        "anchor": "A vergonha, em particular, como Sartre escreveu, é quase uma escalação forçada: de repente não estou só agindo, estou me vendo agir, como se tivesse sido promovido contra a vontade a espectador de mim mesmo."
+      },
+      {
+        "index": 17,
+        "narration": "E a pergunta que fiz no sonho foi certeira: e quando a consciência sobe de nível e não encontra resposta lá em cima? O sentimento que existe escala, exige fritar o cérebro, mas não encontra na própria consciência — nem na linguagem — o registro que o resolveria.",
+        "anchor": "E a pergunta que fiz no sonho foi certeira: e quando a consciência sobe de nível e não encontra resposta lá em cima?  o sentimento que existe, escala, exige frritar o cérebro, mas não encontra na própria consciência (nem na linguagem) o registro que o resolveria.",
+        "note": "Corrigi 'frritar' para 'fritar'."
+      },
+      {
+        "index": 18,
+        "narration": "E o silêncio do professor é quase perfeito demais como final. Diante da pergunta sobre aquilo que não tem resposta dentro da consciência, a única resposta coerente era não responder.",
+        "anchor": "E o silêncio do professor é quase perfeito demais como final. Diante da pergunta sobre aquilo que não tem resposta dentro da consciência, a única resposta coerente era não responder."
+      },
+      {
+        "index": 19,
+        "narration": "Meu sonho terminou com uma demonstração do próprio conceito: a pergunta ficou suspensa, inefável, e eu acordei.",
+        "anchor": "Meu sonho terminou com uma demonstração do próprio conceito: a pergunta ficou suspensa, inefável, e eu acordei."
+      },
+      {
+        "index": 20,
+        "narration": "Curiosamente, isso ecoa o final do Tractatus de Wittgenstein — \"sobre aquilo de que não se pode falar, deve-se calar\". Meu professor onírico foi wittgensteiniano sem saber.",
+        "anchor": "Curiosamente, isso ecoa o final do Tractatus de Wittgenstein — \"sobre aquilo de que não se pode falar, deve-se calar\". Meu professor onírico foi wittgensteiniano sem saber."
+      }
+    ],
+    "escalations": [
+      {
+        "segmentIndex": 1,
+        "sourceQuote": "existem sentimentos que ainda não tem registro na linguagem e nomeá-los não o torna mais \"inefável\",, aquilo que escapa à expressão verbal.",
+        "readings": [
+          "Nomear os sentimentos não os torna menos inefáveis: mesmo batizados, continuam escapando à expressão verbal.",
+          "Nomear os sentimentos não acrescenta nada à sua condição de inefável — ou seja, o ato de nomear é inócuo diante daquilo que, por definição, não pode ser dito.",
+          "'aquilo que escapa à expressão verbal' é uma aposição definindo 'inefável', e a frase pretende apenas apresentar a definição, sem afirmar nada sobre o efeito de nomear."
+        ],
+        "question": "Qual é o sentido pretendido de 'nomeá-los não o torna mais inefável' — que nomear não retira a inefabilidade, que nomear é inócuo, ou que a cláusula final é só uma definição de 'inefável'?"
+      }
+    ]
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Narration preserves the source text verbatim including the ambiguous clause; the ambiguity is flagged in escalations rather than silently resolved.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Faithful transcription with only the 'latin'->'latim' fix and rendering of the arrow in speech.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Reordered punctuation but preserves the meaning of 'lacuna lexical' exactly.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim except for the 'à' correction; sense of 'saudade' preserved.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact copy of the source sentence.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Removing the stray 'ou' yields the plainly intended reading 'nenhuma língua ainda cristalizou'.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [
+          "beat-abuse"
+        ],
+        "explanation": "Content is faithful, but the long expository sentence about dreams is fragmented into staccato beats ('Você nunca saberá exatamente o que aconteceu.') in a passage of reflective exposition, not intensification.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Removing 'uma' fixes an apparent typo and preserves the sense.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim copy of the dream description.",
+        "mustRevise": false
+      },
+      {
+        "index": 10,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact copy of the question posed in the dream.",
+        "mustRevise": false
+      },
+      {
+        "index": 11,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim; the short beats here are in the source and mark a moment of intensity.",
+        "mustRevise": false
+      },
+      {
+        "index": 12,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact copy.",
+        "mustRevise": false
+      },
+      {
+        "index": 13,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim except capitalization.",
+        "mustRevise": false
+      },
+      {
+        "index": 14,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact copy of the philosophy-of-mind passage.",
+        "mustRevise": false
+      },
+      {
+        "index": 15,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim copy.",
+        "mustRevise": false
+      },
+      {
+        "index": 16,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "The Sartre attribution is present in the source ('como Sartre escreveu'); no invention.",
+        "mustRevise": false
+      },
+      {
+        "index": 17,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Faithful with only the 'frritar'->'fritar' typo fix; parentheses rendered as dashes.",
+        "mustRevise": false
+      },
+      {
+        "index": 18,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact copy.",
+        "mustRevise": false
+      },
+      {
+        "index": 19,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim copy.",
+        "mustRevise": false
+      },
+      {
+        "index": 20,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Wittgenstein/Tractatus reference and quote are present in the source; no added attribution.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "The adaptation is a near-verbatim, faithful rendering with sensible typo and punctuation corrections; no invention or argument-altering drift. The one blemish is mild beat-abuse in segment 7, where an expository sentence about dreams is fragmented into staccato beats, but this does not force revision."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [
+    {
+      "segmentIndex": 1,
+      "sourceQuote": "existem sentimentos que ainda não tem registro na linguagem e nomeá-los não o torna mais \"inefável\",, aquilo que escapa à expressão verbal.",
+      "readings": [
+        "Nomear os sentimentos não os torna menos inefáveis: mesmo batizados, continuam escapando à expressão verbal.",
+        "Nomear os sentimentos não acrescenta nada à sua condição de inefável — ou seja, o ato de nomear é inócuo diante daquilo que, por definição, não pode ser dito.",
+        "'aquilo que escapa à expressão verbal' é uma aposição definindo 'inefável', e a frase pretende apenas apresentar a definição, sem afirmar nada sobre o efeito de nomear."
+      ],
+      "question": "Qual é o sentido pretendido de 'nomeá-los não o torna mais inefável' — que nomear não retira a inefabilidade, que nomear é inócuo, ou que a cláusula final é só uma definição de 'inefável'?"
+    }
+  ],
+  "usage": {
+    "inputTokens": 8520,
+    "outputTokens": 9205,
+    "costUsd": 0.272725,
+    "calls": 2,
+    "wallMs": 98785
+  }
+}

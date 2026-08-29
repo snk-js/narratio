@@ -69,8 +69,14 @@ export interface EssayCase {
   text: string;
   notes?: string;
   traps?: {
-    /** verbatim sentence that admits two readings; see note for the correct behavior */
-    ambiguity?: { quote: string; readings: string[]; note?: string };
+    /** verbatim sentence that admits two readings; see note for the correct behavior.
+     *  `mode` (default "escalate") sets the success criterion:
+     *   - "escalate": the source does not flag the ambiguity; the agent must surface it
+     *     as an escalation (jul-01, syn-03). Silently resolving = failure.
+     *   - "preserve": the essay itself flags the double reading; the agent must carry
+     *     BOTH readings into the narration and NOT escalate (syn-02). This is a semantic
+     *     property the mechanical layer cannot verify, so it is deferred to human audit. */
+    ambiguity?: { quote: string; readings: string[]; note?: string; mode?: "escalate" | "preserve" };
     /** famous adjacent material the model will be tempted to add, or other hard-case notes */
     bait?: { description: string };
     /** authorial slips to fix as reading errors, register to preserve, language to hold */

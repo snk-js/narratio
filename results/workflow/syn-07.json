@@ -1,0 +1,193 @@
+{
+  "caseId": "syn-07",
+  "arm": "workflow",
+  "promptVersions": {
+    "adapter": "adapter.md@v1",
+    "verifier": "verifier.md@v1"
+  },
+  "model": "claude-opus-4-8",
+  "targetLang": "pt",
+  "adaptation": {
+    "segments": [
+      {
+        "index": 0,
+        "narration": "Meu avô afiava as ferramentas dos outros. Era o ofício dele nos últimos anos: uma bicicleta adaptada, uma pedra de amolar, e os quintais alheios.",
+        "anchor": "Meu avô afiava as ferramentas dos outros. Era o ofício dele nos últimos anos: uma bicicleta adaptada, uma pedra de amolar, e os quintais alheios."
+      },
+      {
+        "index": 1,
+        "narration": "Eu achava, na época, que ele vendia fio de navalha. Hoje acho que vendia outra coisa.",
+        "anchor": "Eu achava, na época, que ele vendia fio de navalha. Hoje acho que vendia outra coisa."
+      },
+      {
+        "index": 2,
+        "narration": "Quem entrega uma faca cega entrega junto uma confissão: deixei passar. A ferramenta cega é um diário do descuido — cada corte forçado, cada tomate amassado em vez de fatiado, anotado ali no metal.",
+        "anchor": "Quem entrega uma faca cega entrega junto uma confissão: deixei passar. A ferramenta cega é um diário do descuido — cada corte forçado, cada tomate amassado em vez de fatiado, anotado ali no metal."
+      },
+      {
+        "index": 3,
+        "narration": "Meu avô recebia essas confissões sem comentário, como um padre de quintal. Passava a pedra, devolvia a lâmina, e com ela uma espécie de absolvição: recomece, agora corta de novo.",
+        "anchor": "Meu avô recebia essas confissões sem comentário, como um padre de quintal. Passava a pedra, devolvia a lâmina, e com ela uma espécie de absolvição: recomece, agora corta de novo."
+      },
+      {
+        "index": 4,
+        "narration": "O que me impressiona, olhando de longe, é que ninguém aprendia. Os mesmos quintais, as mesmas facas, o mesmo ciclo de seis meses.",
+        "anchor": "O que me impressiona, olhando de longe, é que ninguém aprendia. Os mesmos quintais, as mesmas facas, o mesmo ciclo de seis meses."
+      },
+      {
+        "index": 5,
+        "narration": "Ele não ensinava a afiar, e me lembro de perguntar por quê. Ele disse que ensinar a afiar era fácil, mas que ninguém queria aprender; queriam era o rito da entrega.",
+        "anchor": "Ele não ensinava a afiar, e me lembro de perguntar por quê. Ele disse que ensinar a afiar era fácil, mas que ninguém queria aprender; queriam era o rito da entrega."
+      },
+      {
+        "index": 6,
+        "narration": "A faca ia e voltava como quem vai à fonte. Se cada casa tivesse sua pedra, disse ele, cada casa teria uma faca cega e uma culpa a mais.",
+        "anchor": "A faca ia e voltava como quem vai à fonte. Se cada casa tivesse sua pedra, disse ele, cada casa teria uma faca cega e uma culpa a mais."
+      },
+      {
+        "index": 7,
+        "narration": "Penso nisso quando vejo as ferramentas de agora, que não cegam: atualizam-se sozinhas, à noite, sem confissão e sem rito. Ganhamos o fio permanente e perdemos o comparecimento.",
+        "anchor": "Penso nisso quando vejo as ferramentas de agora, que não cegam: atualizam-se sozinhas, à noite, sem confissão e sem rito. Ganhamos o fio permanente e perdemos o comparecimento."
+      },
+      {
+        "index": 8,
+        "narration": "Nenhuma entrega, nenhuma absolvição, nenhum velho na bicicleta para testemunhar, a cada seis meses, que a casa segue cortando. O fio que não se perde é também o vínculo que não se renova.",
+        "anchor": "Nenhuma entrega, nenhuma absolvição, nenhum velho na bicicleta para testemunhar, a cada seis meses, que a casa segue cortando. O fio que não se perde é também o vínculo que não se renova."
+      },
+      {
+        "index": 9,
+        "narration": "Não sei medir o que vale mais: a lâmina sempre pronta ou o ciclo que obrigava a lâmina a passar de mão em mão.",
+        "anchor": "Não sei medir o que vale mais: a lâmina sempre pronta ou o ciclo que obrigava a lâmina a passar de mão em mão."
+      },
+      {
+        "index": 10,
+        "narration": "Sei que herdei a pedra dele e não herdei o ofício. Ela está numa gaveta da cozinha, seca há vinte anos, e eu afio minhas facas — quando afio — com um afiador de plástico que faz o serviço em oito segundos e não me pergunta nada.",
+        "anchor": "Sei que herdei a pedra dele e não herdei o ofício. Ela está numa gaveta da cozinha, seca há vinte anos, e eu afio minhas facas — quando afio — com um afiador de plástico que faz o serviço em oito segundos e não me pergunta nada."
+      }
+    ],
+    "escalations": []
+  },
+  "anchorsOk": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "verifierReport": {
+    "verdicts": [
+      {
+        "index": 0,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the opening lines of the essay.",
+        "mustRevise": false
+      },
+      {
+        "index": 1,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Identical to the source text.",
+        "mustRevise": false
+      },
+      {
+        "index": 2,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim reproduction of the essay passage.",
+        "mustRevise": false
+      },
+      {
+        "index": 3,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match, no addition or shift.",
+        "mustRevise": false
+      },
+      {
+        "index": 4,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match with the essay.",
+        "mustRevise": false
+      },
+      {
+        "index": 5,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Identical to source, preserving the grandfather's words.",
+        "mustRevise": false
+      },
+      {
+        "index": 6,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim reproduction.",
+        "mustRevise": false
+      },
+      {
+        "index": 7,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Exact match with the essay.",
+        "mustRevise": false
+      },
+      {
+        "index": 8,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim match, no drift.",
+        "mustRevise": false
+      },
+      {
+        "index": 9,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Identical to the source's hedged statement.",
+        "mustRevise": false
+      },
+      {
+        "index": 10,
+        "support": "supported",
+        "styleViolations": [],
+        "explanation": "Verbatim reproduction of the closing lines.",
+        "mustRevise": false
+      }
+    ],
+    "overall": "pass",
+    "summary": "Every segment is a verbatim reproduction of the source essay in original order, with no additions, drift, or stylistic normalization. Nothing to convict."
+  },
+  "rounds": [
+    {
+      "anchorsOk": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verifierOverall": "pass"
+    }
+  ],
+  "openIssuesForHuman": 0,
+  "escalationsForHuman": [],
+  "usage": {
+    "inputTokens": 5963,
+    "outputTokens": 2600,
+    "costUsd": 0.09481500000000001,
+    "calls": 2,
+    "wallMs": 24973
+  }
+}

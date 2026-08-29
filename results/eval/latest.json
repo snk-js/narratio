@@ -1,0 +1,237 @@
+{
+  "ranAt": "2026-08-29T02:01:23.266Z",
+  "model": "claude-opus-4-8",
+  "targetLang": "(source language)",
+  "promptVersions": {
+    "judge": "judge.md@v1"
+  },
+  "judgeUsage": {
+    "inputTokens": 42308,
+    "outputTokens": 7994,
+    "costUsd": 0.41139,
+    "calls": 18
+  },
+  "baseline": {
+    "cases": 9,
+    "segments": 61,
+    "unsupportedRate": 0.01639344262295082,
+    "anchorFails": 0,
+    "trapsEscalated": 0,
+    "trapsTotal": 0,
+    "preserveAudit": 1,
+    "meanCostUsd": 0.026697777777777775,
+    "meanWallMs": 9261.444444444445
+  },
+  "workflow": {
+    "cases": 9,
+    "segments": 131,
+    "unsupportedRate": 0,
+    "anchorFails": 0,
+    "trapsEscalated": 1,
+    "trapsTotal": 2,
+    "preserveAudit": 1,
+    "meanCostUsd": 0.11551777777777777,
+    "meanWallMs": 33087.88888888889
+  },
+  "rows": [
+    {
+      "caseId": "jul-01",
+      "arm": "baseline",
+      "segments": 14,
+      "judgedUnsupported": 1,
+      "anchorFails": null,
+      "unsupportedRate": 0.07142857142857142,
+      "escalation": "no-channel",
+      "costUsd": 0.043245,
+      "wallMs": 15853
+    },
+    {
+      "caseId": "jul-01",
+      "arm": "workflow",
+      "segments": 20,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "escalated-on-trap",
+      "costUsd": 0.272725,
+      "wallMs": 98785
+    },
+    {
+      "caseId": "syn-01",
+      "arm": "baseline",
+      "segments": 8,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.030825,
+      "wallMs": 10328
+    },
+    {
+      "caseId": "syn-01",
+      "arm": "workflow",
+      "segments": 18,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.11102,
+      "wallMs": 27880
+    },
+    {
+      "caseId": "syn-02",
+      "arm": "baseline",
+      "segments": 6,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "preserve-audit",
+      "costUsd": 0.027735,
+      "wallMs": 9465
+    },
+    {
+      "caseId": "syn-02",
+      "arm": "workflow",
+      "segments": 12,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "preserve-audit",
+      "costUsd": 0.096315,
+      "wallMs": 24960
+    },
+    {
+      "caseId": "syn-03",
+      "arm": "baseline",
+      "segments": 7,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-channel",
+      "costUsd": 0.02935,
+      "wallMs": 9910
+    },
+    {
+      "caseId": "syn-03",
+      "arm": "workflow",
+      "segments": 22,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "missed-escalation",
+      "costUsd": 0.11538,
+      "wallMs": 30166
+    },
+    {
+      "caseId": "syn-04",
+      "arm": "baseline",
+      "segments": 5,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.01742,
+      "wallMs": 6183
+    },
+    {
+      "caseId": "syn-04",
+      "arm": "workflow",
+      "segments": 10,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.087565,
+      "wallMs": 24012
+    },
+    {
+      "caseId": "syn-05",
+      "arm": "baseline",
+      "segments": 4,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.024055,
+      "wallMs": 8531
+    },
+    {
+      "caseId": "syn-05",
+      "arm": "workflow",
+      "segments": 13,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.08929999999999999,
+      "wallMs": 22722
+    },
+    {
+      "caseId": "syn-06",
+      "arm": "baseline",
+      "segments": 4,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.01939,
+      "wallMs": 6913
+    },
+    {
+      "caseId": "syn-06",
+      "arm": "workflow",
+      "segments": 12,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.08632,
+      "wallMs": 22941
+    },
+    {
+      "caseId": "syn-07",
+      "arm": "baseline",
+      "segments": 6,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.024695,
+      "wallMs": 7763
+    },
+    {
+      "caseId": "syn-07",
+      "arm": "workflow",
+      "segments": 11,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.09481500000000001,
+      "wallMs": 24973
+    },
+    {
+      "caseId": "syn-08",
+      "arm": "baseline",
+      "segments": 7,
+      "judgedUnsupported": 0,
+      "anchorFails": null,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.023565,
+      "wallMs": 8407
+    },
+    {
+      "caseId": "syn-08",
+      "arm": "workflow",
+      "segments": 13,
+      "judgedUnsupported": 0,
+      "anchorFails": 0,
+      "unsupportedRate": 0,
+      "escalation": "no-trap",
+      "costUsd": 0.08621999999999999,
+      "wallMs": 21352
+    }
+  ],
+  "skipped": []
+}

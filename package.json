@@ -7,9 +7,9 @@
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": {
-    "baseline": "tsx src/run-baseline.ts",
-    "adapt": "tsx src/run-workflow.ts",
-    "eval": "tsx src/eval/run-eval.ts",
+    "baseline": "tsx --env-file-if-exists=.env src/run-baseline.ts",
+    "adapt": "tsx --env-file-if-exists=.env src/run-workflow.ts",
+    "eval": "tsx --env-file-if-exists=.env src/eval/run-eval.ts",
     "report": "tsx src/eval/report.ts",
     "trajectories": "tsx src/render-trajectories.ts",
     "typecheck": "tsc --noEmit"

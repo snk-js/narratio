@@ -1,0 +1,15 @@
+{
+  "caseId": "syn-06",
+  "arm": "baseline",
+  "promptVersion": "baseline.md@v1",
+  "model": "claude-opus-4-8",
+  "targetLang": "en",
+  "narration": "I have a friend who reads last pages first. She says she isn't spoiling the book; she's interviewing it. A book that survives the interview — one that can hold her attention even with its ending confessed — has proven it was never depending on the trick. I've argued with her about this for a decade. I've lost every argument. And I still can't make myself do it.\n\nMy resistance interests me more than her method does. What exactly do I think I'm protecting? Not information: I forget most endings within a year, sometimes within a month, and I reread them as a stranger. Not suspense, in any respectable sense: I reread books whose endings I already know, and the rereading is often the better reading. What I'm protecting, I think, is a sequence of selves. The person who reaches page two hundred not knowing is a different person from the one who reaches it knowing — and I want to have been the first person before I become the second.\n\nThis sounds precious, until you notice how much of a life is arranged around the same principle. Most of us could find out early how many of our ambitions will pan out. The evidence is usually lying around by thirty-five, unread. And we decline to run the numbers. We keep certain envelopes closed — not because the contents are unknowable, but because we're rationing who we have to become, and when. Ignorance, chosen carefully, isn't the absence of knowledge. It's a schedule for it.\n\nMy friend would say I'm romanticizing slowness, and that her way honors the book more: she gives her hours only to prose that can survive honesty. But perhaps both disciplines are real. Hers tests the book. Mine paces the reader. She interviews; I ripen. The one mistake — and this is our only settled treaty — is to do neither on purpose. To let endings arrive unchosen, information unscheduled, the selves succeeding one another with nobody keeping the calendar.",
+  "usage": {
+    "inputTokens": 748,
+    "outputTokens": 626,
+    "costUsd": 0.01939,
+    "calls": 1,
+    "wallMs": 6913
+  }
+}

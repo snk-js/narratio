@@ -1,7 +1,7 @@
 /** BASELINE ARM: one well-written prompt to the same model the workflow uses.
  *  This is the honest version of what a writer does today with a chat window.
  *  Usage: npm run baseline -- <caseId> [<caseId>...]   (no args = all cases) */
-import { client, MODEL, loadPrompt, logTrajectory, addUsage, newTotals } from "./client.js";
+import { client, MODEL, TARGET_LANG, languageDirective, loadPrompt, logTrajectory, addUsage, newTotals } from "./client.js";
 import { loadAllCases, loadCase, saveResult } from "./cases.js";
 
 async function runBaseline(caseId?: string) {
@@ -9,10 +9,11 @@ async function runBaseline(caseId?: string) {
   for (const c of cases) {
     const totals = newTotals();
     const t0 = Date.now();
-    const prompt = loadPrompt("baseline.md");
+    const prompt = loadPrompt("baseline.md") + languageDirective("author");
     const request = {
       model: MODEL,
       max_tokens: 16000,
+      thinking: { type: "adaptive" as const },
       messages: [{ role: "user" as const, content: `${prompt}\n\n---\n\n# ${c.title}\n\n${c.text}` }],
     };
     const response = await client.messages.create(request);
@@ -30,6 +31,7 @@ async function runBaseline(caseId?: string) {
       arm: "baseline",
       promptVersion: "baseline.md@v1",
       model: MODEL,
+      targetLang: TARGET_LANG || c.language,
       narration,
       usage: { ...totals, wallMs: Date.now() - t0 },
     });
