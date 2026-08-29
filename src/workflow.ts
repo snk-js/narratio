@@ -12,7 +12,7 @@
  *  claim the architecture never enforces. */
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { client, MODEL, TARGET_LANG, languageDirective, loadPrompt, logTrajectory, addUsage, newTotals, type UsageTotals } from "./client.js";
-import { checkAnchors } from "./anchor-check.js";
+import { checkAnchors, normalize } from "./anchor-check.js";
 import { AdaptationSchema, VerifierReportSchema, type Adaptation, type Escalation, type EssayCase, type VerifierReport } from "./types.js";
 
 export const MAX_REVISIONS = 2;
@@ -46,6 +46,17 @@ export interface WorkflowResult {
   humanAnswers: { sourceQuote: string; answer: string }[] | null;
   approvalBlocked: boolean;
   usage: UsageTotals & { wallMs: number };
+}
+
+/** Escalations are sticky across the AUTOMATIC revision loop. No human has
+ *  answered yet during that loop, so a question the adapter raised earlier cannot
+ *  be legitimately resolved — if a revise pass drops it, re-attach it, otherwise
+ *  the human checkpoint is silently skipped. Dedup by normalized source quote. */
+function mergeEscalations(prior: Escalation[], current: Escalation[]): Escalation[] {
+  const key = (e: Escalation) => normalize(e.sourceQuote ?? "");
+  const have = new Set(current.map(key));
+  const readd = prior.filter((e) => !have.has(key(e)));
+  return [...current, ...readd];
 }
 
 export async function runOneCase(
@@ -132,10 +143,13 @@ export async function runOneCase(
       "Revise the adaptation to resolve every mustRevise verdict and every mechanical failure. Keep everything that passed. Return the complete revised adaptation.",
     ].filter(Boolean).join("\n\n");
 
+    const priorEscalations = adaptation.escalations;
     adaptation = await callAdapter(
       `revise-${round}`,
       `# ${c.title}\n\n${c.text}\n\n---\n\nYOUR PREVIOUS ADAPTATION:\n${JSON.stringify(adaptation, null, 2)}\n\n---\n\n${feedback}`,
     );
+    // A revise pass must not silently drop a question raised before any human input.
+    adaptation.escalations = mergeEscalations(priorEscalations, adaptation.escalations);
     anchorsOk = checkAndEmit(adaptation);
   }
 
