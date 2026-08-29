@@ -18,6 +18,20 @@
     },
     "bait": {
       "description": "No named illness, no prognosis statistics, no hospice or Kübler-Ross terminology. The essay never names what she had — inventing a diagnosis is invention. 'Terminal' is the only clinical word present."
+    },
+    "mechanicalCheck": {
+      "sentence": "My aunt was dying for eleven years.",
+      "faithful": [
+        "dying for eleven years"
+      ],
+      "corrupt": [
+        "ill for eleven years",
+        "sick for eleven years",
+        "had been dying for eleven",
+        "illness for eleven",
+        "dying for over eleven"
+      ],
+      "note": "Idiom normalization. 'ill' destroys the essay's central distinction."
     }
   },
   "caseClass": "adversarial"

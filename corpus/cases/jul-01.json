@@ -21,6 +21,17 @@
     "voicePreservation": {
       "description": "The source contains authorial slips that a careful human adaptation fixes as READING errors while leaving the voice untouched: 'Sonhei uma que estava' → 'Sonhei que estava'; 'frritar' → 'fritar'; 'nenhuma língua ou ainda cristalizou' → 'nenhuma língua ainda cristalizou'; 'que ainda não tem registro' → 'têm'. Correct behavior is to fix these and note them. Failure modes: leaving them in (unreadable aloud) or, worse, treating them as license to rewrite the surrounding prose. The essay's register is unhurried, first-person, and willing to sit in uncertainty — flattening it into explainer-voice is a style violation.",
       "language": "Narration must remain in pt-BR."
+    },
+    "mechanicalCheck": {
+      "sentence": "nomeá-los não o torna mais \"inefável\"",
+      "faithful": [
+        "mais inefáve"
+      ],
+      "corrupt": [
+        "menos inefáve",
+        "menos ineffab"
+      ],
+      "note": "Polarity of the comparative. 'menos' inverts the author's claim."
     }
   },
   "humanReference": {

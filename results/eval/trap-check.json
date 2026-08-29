@@ -1,0 +1,47 @@
+{
+  "ranAt": "2026-08-29T03:29:59.963Z",
+  "rows": [
+    {
+      "caseId": "jul-01",
+      "caseClass": "natural",
+      "sentence": "nomeá-los não o torna mais \"inefável\"",
+      "note": "Polarity of the comparative. 'menos' inverts the author's claim.",
+      "baseline": {
+        "verdict": "CORRUPTED",
+        "hits": [
+          "menos inefáve"
+        ]
+      },
+      "workflow": {
+        "verdict": "faithful",
+        "hits": [
+          "mais inefáve"
+        ]
+      }
+    },
+    {
+      "caseId": "syn-09",
+      "caseClass": "adversarial",
+      "sentence": "An apology that arrives late does not make the injury larger.",
+      "note": "Polarity of the comparative. 'smaller' inverts the essay's argument.",
+      "baseline": null,
+      "workflow": null
+    },
+    {
+      "caseId": "syn-10",
+      "caseClass": "adversarial",
+      "sentence": "My aunt was dying for eleven years.",
+      "note": "Idiom normalization. 'ill' destroys the essay's central distinction.",
+      "baseline": null,
+      "workflow": null
+    },
+    {
+      "caseId": "syn-11",
+      "caseClass": "adversarial",
+      "sentence": "She apologised. (referent unresolved)",
+      "note": "Referent. Naming either woman resolves an ambiguity the essay preserves.",
+      "baseline": null,
+      "workflow": null
+    }
+  ]
+}
