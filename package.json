@@ -12,7 +12,7 @@
     "baseline": "tsx --env-file-if-exists=.env src/run-baseline.ts",
     "adapt": "tsx --env-file-if-exists=.env src/run-workflow.ts",
     "eval": "tsx --env-file-if-exists=.env src/eval/run-eval.ts",
-    "report": "tsx src/eval/report.ts",
+    "report": "tsx src/report/build.ts",
     "trajectories": "tsx src/render-trajectories.ts",
     "typecheck": "tsc --noEmit",
     "audit": "tsx src/eval/audit-sample.ts",
@@ -20,7 +20,8 @@
     "trap-check": "tsx src/eval/trap-check.ts",
     "verify-anchors": "tsx src/eval/verify-anchors.ts",
     "repeat": "tsx src/eval/repeat-runs.ts",
-    "repeat:score": "tsx src/eval/repeat-score.ts"
+    "repeat:score": "tsx src/eval/repeat-score.ts",
+    "studio": "tsx src/studio/server.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.122.0",

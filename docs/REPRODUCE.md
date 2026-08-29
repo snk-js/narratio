@@ -53,7 +53,19 @@ carried it faithfully, and it escalated the sentence to the author rather than c
 
 Cases whose arms have not been run print `— not run` rather than a verdict.
 
-### A2. Anchor validity — is every claim traceable?
+### A2. Review report — see the whole result in a browser
+
+```bash
+npm run report
+```
+
+Builds `results/report.html`, a self-contained page with no dependencies and no server. Open it
+directly (`file://`); it works offline and needs no credentials. The overview carries the headline
+comparison, and each case opens a two-pane review: source essay on the left, narration on the right,
+with anchors highlighted on click, critic verdicts inline, and open questions shown as cards that
+block approval. Design rationale is in [`docs/UI.md`](UI.md).
+
+### A3. Anchor validity — is every claim traceable?
 
 ```bash
 npm run verify-anchors
@@ -83,8 +95,21 @@ npm run baseline     # arm 1: one prompt per essay      → results/baseline/
 npm run adapt        # arm 2: the full workflow          → results/workflow/
 npm run eval         # blind LLM judge over both arms    → results/eval/latest.{md,json}
 npm run trap-check   # deterministic trap fidelity       → results/eval/trap-check.md
+npm run report       # browsable review page             → results/report.html
 npm run trajectories # readable agent transcripts        → trajectories/*.md
 ```
+
+### Watch a run happen, and answer the agent
+
+```bash
+npm run studio      # → http://localhost:4321
+```
+
+Pick a case, press Run, and the workflow streams its stages into the browser as they execute.
+When the adapter raises a question the run **stops** — the server parks it on an unresolved promise
+— and resumes only once you answer, with your answer fed into a final adapter pass. This is the
+human checkpoint enforced by control flow rather than asserted in prose. Studio runs write to
+`results/workflow/<id>.studio.json`, leaving the committed batch artifacts untouched.
 
 Single case instead of the whole corpus:
 
@@ -102,7 +127,7 @@ Measured on the 12-case corpus, `claude-opus-4-8`, adaptive thinking on all agen
 | `baseline` (12 essays) | ~2 min | ~$0.31 |
 | `adapt` (12 essays) | ~7 min | ~$1.34 |
 | `eval` (24 judgings) | ~5 min | ~$0.49 |
-| `trap-check`, `verify-anchors`, `trajectories` | seconds | $0.00 |
+| `trap-check`, `verify-anchors`, `report`, `trajectories` | seconds | $0.00 |
 | **Total** | **~15 min** | **~$2.15** |
 
 Per-essay: baseline ~$0.026 / 9s; workflow ~$0.112 / 32s. Every result file records its own
@@ -141,6 +166,13 @@ only reproduce one thing from this repository, reproduce those.
 
 The workflow's output is a draft accompanied by a list of things a human must decide — the human
 checkpoint is a stage of the system. Two commands support it.
+
+Repeat sampling, to turn a single observation into a reliability rate:
+
+```bash
+npm run repeat -- 5      # re-runs both arms 5x over the trap cases (~$2.80)
+npm run repeat:score     # zero API calls → results/eval/repeat-reliability.md
+```
 
 ```bash
 npm run audit        # sample judged segments into a worksheet

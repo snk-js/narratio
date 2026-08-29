@@ -1,0 +1,197 @@
+<!doctype html><meta charset="utf-8"><title>narratio studio</title>
+<style>
+:root{--bg:#fbfbfa;--fg:#22201d;--mut:#6b6660;--line:#e2ded8;--ok:#3f7d3f;--warn:#b8860b;--bad:#a5453f;--mark:#fdf0c8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 ui-serif,Georgia,serif}
+header{border-bottom:1px solid var(--line);padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#fff}
+h1{font:700 14px/1 ui-sans-serif,system-ui;letter-spacing:.1em;text-transform:uppercase;margin:0}
+select,button{font:600 13px/1 ui-sans-serif,system-ui;padding:7px 11px;border:1px solid var(--line);
+background:#fff;border-radius:5px;color:var(--fg)}
+button{cursor:pointer}button:disabled{opacity:.45;cursor:default}
+button.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cost{margin-left:auto;font:600 12px/1 ui-sans-serif,system-ui;color:var(--mut)}
+main{display:grid;grid-template-columns:300px 1fr 1fr;gap:14px;padding:14px;max-width:1500px;margin:0 auto}
+@media(max-width:1050px){main{grid-template-columns:1fr}}
+section{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px;min-width:0}
+h2{font:600 11px/1 ui-sans-serif,system-ui;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+.pipe{list-style:none;margin:0;padding:0}
+.pipe li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);
+font:13px/1.45 ui-sans-serif,system-ui}
+.pipe li:last-child{border-bottom:0}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line);margin-top:5px;flex:0 0 auto}
+li.run .dot{background:var(--warn);animation:pulse 1.1s infinite}
+li.done .dot{background:var(--ok)}li.block .dot{background:var(--bad)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.small{color:var(--mut);font-size:12px}
+.etext{white-space:pre-wrap;max-height:62vh;overflow:auto;font-size:14px}
+mark{background:var(--mark)}
+.seg{border-left:3px solid var(--line);padding:5px 0 5px 9px;margin-bottom:9px;cursor:pointer}
+.seg p{margin:.15em 0}
+.seg.ok{border-left-color:var(--ok)}.seg.ok p{color:var(--mut)}
+.seg.flag{border-left-color:var(--warn);background:#fffdf6}
+.seg .h{font:600 10px/1 ui-sans-serif,system-ui;text-transform:uppercase;letter-spacing:.07em;color:var(--mut)}
+.seg.flag .h{color:var(--warn)}
+.block{background:#fff;border:2px solid var(--bad);border-radius:6px;padding:14px;margin-bottom:12px}
+.block h3{font:700 11px/1 ui-sans-serif,system-ui;text-transform:uppercase;letter-spacing:.08em;color:var(--bad);margin:0 0 8px}
+blockquote{margin:8px 0;padding-left:10px;border-left:2px solid var(--line);color:var(--mut)}
+.opt{display:block;width:100%;text-align:left;margin:5px 0;padding:9px 11px;font:400 14px/1.45 ui-serif,Georgia,serif}
+.opt.sel{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+textarea{width:100%;font:14px/1.5 ui-serif,Georgia,serif;padding:8px;border:1px solid var(--line);border-radius:5px;resize:vertical}
+.q{font-weight:600;margin:8px 0}
+.pill{font:600 10px/1 ui-sans-serif,system-ui;text-transform:uppercase;letter-spacing:.07em;
+padding:3px 6px;border-radius:3px;background:#f2efe9;color:var(--mut)}
+.waiting{color:var(--bad);font-weight:700}
+</style>
+<header>
+  <h1>narratio studio</h1>
+  <select id="case"></select>
+  <button id="run" class="primary">Run workflow</button>
+  <span id="status" class="small"></span>
+  <span class="cost" id="cost"></span>
+</header>
+<main>
+  <section>
+    <h2>Pipeline</h2>
+    <ul class="pipe" id="pipe"></ul>
+    <p class="small" id="hint">Pick a case and press Run. Each stage lights up as it executes; the
+      run stops at the human checkpoint until you answer.</p>
+  </section>
+  <section>
+    <h2>Source essay</h2>
+    <div class="etext" id="essay"></div>
+  </section>
+  <section>
+    <h2>Narration <span class="pill" id="segcount"></span></h2>
+    <div id="blocks"></div>
+    <div id="segs"></div>
+  </section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+let sessionId = null, rawEssay = "", pendingEsc = null, answers = {};
+
+const STAGES = [
+  ["adapter","Adapter — draft segments + anchors"],
+  ["anchor-check","Mechanical anchor check (no model)"],
+  ["verifier","Adversarial verifier"],
+  ["human-checkpoint","Human checkpoint"],
+];
+function paintPipe(state){
+  $('#pipe').innerHTML = STAGES.map(([k,label]) => {
+    const st = state[k] || "";
+    return `<li class="${st}"><span class="dot"></span><span><b>${label}</b>${
+      state[k+':detail'] ? `<br><span class="small">${state[k+':detail']}</span>` : ''}</span></li>`;
+  }).join('');
+}
+const state = {}; paintPipe(state);
+
+const norm = s => s.replace(/[‘’‚′]/g,"'").replace(/[“”„″]/g,'"').replace(/[–—−]/g,'-').replace(/\s+/g,' ').trim().toLowerCase();
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function highlight(text, anchor){
+  if(!anchor) return esc(text);
+  const nt=norm(text), na=norm(anchor), at=nt.indexOf(na);
+  if(at<0) return esc(text);
+  let seen=0,start=-1,end=-1,prev=false;
+  for(let i=0;i<=text.length;i++){
+    if(seen===at&&start<0)start=i;
+    if(seen===at+na.length&&end<0){end=i;break}
+    const ch=text[i]; if(ch===undefined)break;
+    const sp=/\s/.test(ch); if(sp&&prev)continue; prev=sp; seen++;
+  }
+  if(start<0)return esc(text); if(end<0)end=text.length;
+  return esc(text.slice(0,start))+'<mark>'+esc(text.slice(start,end))+'</mark>'+esc(text.slice(end));
+}
+
+async function loadCases(){
+  const cs = await (await fetch('/api/cases')).json();
+  $('#case').innerHTML = cs.map(c => `<option value="${c.id}">${c.id} · ${c.title} (${c.language}${c.hasTrap?', trap':''})</option>`).join('');
+  loadEssay();
+}
+async function loadEssay(){
+  const d = await (await fetch('/api/case?id='+$('#case').value)).json();
+  rawEssay = d.text; $('#essay').innerHTML = esc(d.text);
+}
+$('#case').onchange = () => { loadEssay(); $('#segs').innerHTML=''; $('#blocks').innerHTML=''; };
+
+$('#run').onclick = async () => {
+  $('#run').disabled = true; $('#segs').innerHTML=''; $('#blocks').innerHTML='';
+  for(const k in state) delete state[k]; paintPipe(state);
+  $('#status').textContent = 'starting…';
+  const r = await fetch('/api/run?id='+$('#case').value, {method:'POST'});
+  const d = await r.json();
+  if(d.error){ $('#status').textContent = d.error; $('#run').disabled=false; return; }
+  sessionId = d.sessionId;
+  const es = new EventSource('/api/stream?s='+sessionId);
+  es.onmessage = ev => handle(JSON.parse(ev.data));
+  es.onerror = () => es.close();
+};
+
+function handle(e){
+  if(e.type==='stage'){
+    state[e.stage] = e.status==='start' ? 'run' : 'done';
+    if(e.detail) state[e.stage+':detail'] = e.detail;
+    $('#status').textContent = e.status==='start' ? e.stage+'…' : '';
+    paintPipe(state);
+  }
+  if(e.type==='cost') $('#cost').textContent = '$'+e.usd.toFixed(4)+' · '+e.calls+' calls';
+  if(e.type==='segments'){
+    $('#segcount').textContent = e.segments.length+' segments';
+    $('#segs').innerHTML = e.segments.map((s,i) => `
+      <div class="seg ${e.anchorsOk[i]===false?'flag':'ok'}" data-a="${esc(s.anchor)}">
+        <div class="h">${s.index} · ${e.anchorsOk[i]===false?'anchor missing':'anchor verified'}</div>
+        <p>${esc(s.narration)}</p></div>`).join('');
+    $('#segs').querySelectorAll('.seg').forEach(el => el.onclick = () => {
+      $('#essay').innerHTML = highlight(rawEssay, el.dataset.a);
+      const m = $('#essay').querySelector('mark'); if(m) m.scrollIntoView({block:'center',behavior:'smooth'});
+    });
+  }
+  if(e.type==='verdicts'){
+    const bad = e.verdicts.filter(v=>v.mustRevise);
+    state['verifier:detail'] = e.overall==='pass' ? 'pass — nothing to revise' : bad.length+' segment(s) must revise';
+    paintPipe(state);
+    bad.forEach(v => {
+      const el = $('#segs').children[v.index]; if(!el) return;
+      el.className = 'seg flag';
+      el.insertAdjacentHTML('beforeend', `<div class="small"><b>${v.support}</b> — ${esc(v.explanation)}</div>`);
+    });
+  }
+  if(e.type==='blocked'){
+    state['human-checkpoint']='block'; paintPipe(state);
+    $('#status').innerHTML = '<span class="waiting">waiting for you</span>';
+    pendingEsc = e.escalations; answers = {};
+    $('#blocks').innerHTML = e.escalations.map((x,i) => `
+      <div class="block">
+        <h3>The agent stopped to ask · blocks approval</h3>
+        <blockquote>${esc(x.sourceQuote)}</blockquote>
+        <div class="q">${esc(x.question)}</div>
+        ${x.readings.map((r,j)=>`<button class="opt" data-i="${i}" data-r="${esc(r)}">${esc(r)}</button>`).join('')}
+        <textarea data-i="${i}" rows="2" placeholder="…or answer in your own words"></textarea>
+      </div>`).join('') + `<button class="primary" id="send" disabled>Send answer and resume the run</button>`;
+    $('#blocks').querySelectorAll('.opt').forEach(b => b.onclick = () => {
+      $('#blocks').querySelectorAll(`.opt[data-i="${b.dataset.i}"]`).forEach(o=>o.classList.remove('sel'));
+      b.classList.add('sel'); answers[b.dataset.i] = b.dataset.r; check();
+    });
+    $('#blocks').querySelectorAll('textarea').forEach(t => t.oninput = () => {
+      if(t.value.trim()){ answers[t.dataset.i] = t.value.trim();
+        $('#blocks').querySelectorAll(`.opt[data-i="${t.dataset.i}"]`).forEach(o=>o.classList.remove('sel')); }
+      check();
+    });
+    const check = () => { $('#send').disabled = Object.keys(answers).length < pendingEsc.length; };
+    $('#send').onclick = async () => {
+      $('#send').disabled = true; $('#send').textContent = 'resuming…';
+      await fetch('/api/answer?s='+sessionId, {method:'POST', headers:{'content-type':'application/json'},
+        body: JSON.stringify({answers: pendingEsc.map((x,i)=>({sourceQuote:x.sourceQuote, answer:answers[i]}))})});
+      $('#blocks').innerHTML = '<div class="small">Answer sent. The adapter is applying it…</div>';
+    };
+  }
+  if(e.type==='answered'){ state['human-checkpoint']='done'; paintPipe(state); }
+  if(e.type==='done'){
+    $('#run').disabled=false;
+    $('#status').textContent = e.result.approvalBlocked ? 'finished with open questions' : 'ready to approve';
+    if(!e.result.approvalBlocked && !$('#blocks').textContent.trim())
+      $('#blocks').innerHTML = '<div class="small">No open questions. Every segment carries a verified anchor.</div>';
+  }
+  if(e.type==='error'){ $('#status').textContent = 'error: '+e.message; $('#run').disabled=false; }
+}
+loadCases();
+</script>
