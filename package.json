@@ -20,7 +20,8 @@
     "trap-check": "tsx src/eval/trap-check.ts",
     "verify-anchors": "tsx src/eval/verify-anchors.ts",
     "repeat": "tsx src/eval/repeat-runs.ts",
-    "repeat:score": "tsx src/eval/repeat-score.ts"
+    "repeat:score": "tsx src/eval/repeat-score.ts",
+    "studio": "tsx src/studio/server.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.122.0",

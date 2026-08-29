@@ -99,6 +99,18 @@ npm run report       # browsable review page             → results/report.html
 npm run trajectories # readable agent transcripts        → trajectories/*.md
 ```
 
+### Watch a run happen, and answer the agent
+
+```bash
+npm run studio      # → http://localhost:4321
+```
+
+Pick a case, press Run, and the workflow streams its stages into the browser as they execute.
+When the adapter raises a question the run **stops** — the server parks it on an unresolved promise
+— and resumes only once you answer, with your answer fed into a final adapter pass. This is the
+human checkpoint enforced by control flow rather than asserted in prose. Studio runs write to
+`results/workflow/<id>.studio.json`, leaving the committed batch artifacts untouched.
+
 Single case instead of the whole corpus:
 
 ```bash

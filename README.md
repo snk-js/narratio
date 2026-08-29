@@ -63,6 +63,7 @@ The prior design work is why the problem statement is sharp; the hackathon work 
 | `docs/CHANGELOG.md` | The improvement changelog (deliverable 01) |
 | `docs/REPRODUCE.md` | Reproduction guide (deliverable 02) |
 | `docs/UI.md` | Review-surface design: user flows, layout, and the reasoning behind each rule |
+| `src/studio/` | Live run surface — streams stages to the browser and blocks at the human checkpoint |
 | `docs/HACKATHON.md` | Rubric, rules, and deliverables checklist we're building against |
 
 ## Main failure mode & hot take

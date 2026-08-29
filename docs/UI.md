@@ -4,10 +4,20 @@ The workflow's output is a draft plus a list of decisions a human must make. Unt
 as JSON, which is fine for a machine and hostile to the person whose name goes on the text. This
 document specifies the review surface: what the writer sees, in what order, and why.
 
-**Shape:** a single self-contained HTML file generated from committed results (`npm run report`).
-No server, no build step, no network. It opens with `file://`, works offline, and costs nothing to
-produce — so it strengthens reproducibility rather than taxing it, and a judge can open it without
-credentials.
+**Two surfaces, because reviewing a finished run and watching one happen are different jobs:**
+
+| | `npm run report` | `npm run studio` |
+|---|---|---|
+| What it is | A single self-contained HTML file built from committed results | A local server that runs the real workflow live |
+| Needs a key | No — opens over `file://`, works offline | Yes — it executes the workflow |
+| Good for | Reviewing a finished run; a judge auditing claims for free | Watching stages execute, and answering the agent when it stops |
+| The checkpoint | Shown as a record of what was asked | **Genuinely blocks** — the run suspends until you answer |
+
+The studio exists because a checkpoint that never suspends anything is a claim the architecture
+fails to enforce. In `studio`, `askHuman` parks the run on an unresolved promise; nothing advances
+until a person posts an answer, and that answer is fed back into a final adapter pass so it changes
+the artifact. Rules 4 and 5 ask for human approval *before* the consequential action, and control
+flow is the only honest way to demonstrate it.
 
 ---
 
@@ -150,11 +160,46 @@ is actually making. A status banner sits above both.
 6. **Dismissing a false alarm asks for one line of reasoning.** That line is the seed of a style
    rule, which is how the system learns this author.
 
+## Live run — what the studio shows
+
+```mermaid
+sequenceDiagram
+    participant W as Writer
+    participant UI as Studio (browser)
+    participant S as Server
+    participant AG as Agents
+
+    W->>UI: pick a case, press Run
+    UI->>S: POST /api/run
+    S-->>UI: SSE stream opens
+    AG->>S: adapter drafting…
+    S-->>UI: stage: adapter (running)
+    AG->>S: segments + anchors
+    S-->>UI: segments render; anchors clickable
+    Note over S: mechanical check — no model
+    S-->>UI: stage: anchor-check done (n/n valid)
+    AG->>S: verifier verdicts
+    S-->>UI: flagged segments expand with the convicting words
+
+    AG->>S: escalation raised
+    S-->>UI: stage: human-checkpoint BLOCKED
+    Note over S,AG: the run is suspended on an<br/>unresolved promise — nothing advances
+    UI->>W: shows the sentence, both readings, the question
+    W->>UI: picks a reading, or writes their own
+    UI->>S: POST /api/answer
+    Note over S: promise resolves; the run continues
+    AG->>S: final pass applying the author's answer
+    S-->>UI: stage: done — ready to approve
+```
+
 ## Scope for the hackathon build
 
-In: overview page with the headline numbers, per-case two-pane review, anchor highlighting, inline
-critic verdicts, escalation cards, and the baseline-vs-workflow diff on trap sentences.
+In: the static report (overview, per-case two-pane review, anchor highlighting, inline critic
+verdicts, escalation cards, baseline-vs-workflow diff on trap sentences) and the live studio
+(streamed stages, clickable anchors as they arrive, a blocking checkpoint that resumes on an
+answer, running cost).
 
-Out: editing narration in the browser, persisting approvals to disk, multi-user anything. The
-approval *record* stays a CLI concern (`npm run approve`), because a static page has nowhere
-trustworthy to write.
+Out: editing narration in the browser, multi-user anything, and authentication — the studio binds
+to localhost and is a single-operator tool. Studio runs are written to
+`results/workflow/<id>.studio.json` so an interactive session never overwrites the committed
+batch artifacts the evaluation depends on.
