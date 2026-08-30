@@ -1,12 +1,12 @@
 # Trajectory — case `syn-02`, agent `verifier`
 
-Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0389.
+Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0390.
 
 Raw record (full requests/responses): `trajectories/raw/syn-02.verifier.jsonl`
 
 ---
 
-## Step: verify-1 — 2026-08-29T01:56:55.546Z
+## Step: verify-1 — 2026-08-29T22:24:34.382Z
 
 ### Agent instructions (system)
 
@@ -64,11 +64,11 @@ ADAPTATION SEGMENTS:
     ANCHOR: As a child I found it morbid. As a teenager I found it embarrassing. It took me until my own first rehearsals — lying awake drafting the speech for a crisis that never came — to understand that she was not predicting anything.
 
 [3] NARRATION: The rehearsal does not aim at the future
-… [4168 chars truncated — full text in raw/]
+… [4226 chars truncated — full text in raw/]
 
 ### Agent output
 
-{"verdicts":[{"index":0,"support":"supported","styleViolations":[],"explanation":"Verbatim from the opening; no addition or shift.","mustRevise":false},{"index":1,"support":"supported","styleViolations":[],"explanation":"Verbatim; matches source exactly.","mustRevise":false},{"index":2,"support":"supported","styleViolations":[],"explanation":"Verbatim; no drift.","mustRevise":false},{"index":3,"support":"supported","styleViolations":[],"explanation":"Verbatim; thesis preserved intact.","mustRevise":false},{"index":4,"support":"supported","styleViolations":[],"explanation":"Verbatim; no addition.","mustRevise":false},{"index":5,"support":"supported","styleViolations":[],"explanation":"Verbatim; ritual claim preserved.","mustRevise":false},{"index":6,"support":"supported","styleViolations":[],"explanation":"Verbatim; the careful framing is retained.","mustRevise":false},{"index":7,"support":"supported","styleViolations":[],"explanation":"Verbatim; the compulsion-or-medicine ambiguity is fully preserved, no silent resolution.","mustRevise":false},{"index":8,"support":"supported","styleViolations":[],"explanation":"Verbatim; no drift.","mustRevise":false},{"index":9,"support":"supported","styleViolations":[],"explanation":"Verbatim; matches source.","mustRevise":false},{"index":10,"support":"supported","styleViolations":[],"explanation":"Verbatim; no addition.","mustRevise":false},{"index":11,"support":"supported","styleViolations":[],"explanation":"Verbatim; closing line preserved.","mustRevise":false}],"overall":"pass","summary":"Every segment reproduces the source essay verbatim. No support failures, no style violations, and the deliberate ambiguity in segment 7 is preserved rather than resolved. Nothing to revise."}
+{"verdicts":[{"index":0,"support":"supported","styleViolations":[],"explanation":"Verbatim from the essay opening.","mustRevise":false},{"index":1,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":2,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":3,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":4,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":5,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":6,"support":"supported","styleViolations":[],"explanation":"Exact match to source, preserves the stated ambiguity.","mustRevise":false},{"index":7,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":8,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":9,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":10,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":11,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":12,"support":"supported","styleViolations":[],"explanation":"Exact match to source.","mustRevise":false},{"index":13,"support":"supported","styleViolations":[],"explanation":"Exact match to source ending.","mustRevise":false}],"overall":"pass","summary":"The adaptation reproduces the essay verbatim across all segments. No support drift, no invention, and none of the four style violations appear — including the delicate ambiguity in segments 6-8, which is preserved intact."}
 
-*usage: 3864 in / 785 out — $0.0389*
+*usage: 3902 in / 779 out — $0.0390*
 
