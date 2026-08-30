@@ -1,12 +1,14 @@
 # Trajectory — case `syn-04`, agent `judge`
 
-Model: `claude-opus-4-8`. 2 call(s). Total cost: $0.0299.
+Model: `claude-opus-4-8`. 2 call(s): `A` → `B`. Total cost: $0.0299.
+
+**What happened in this run:** .
 
 Raw record (full requests/responses): `trajectories/raw/syn-04.judge.jsonl`
 
 ---
 
-## Step: A — 2026-08-29T02:59:40.969Z
+## Step 1: `A` — 2026-08-29T02:59:40.969Z
 
 ### Agent instructions (system)
 
@@ -60,7 +62,7 @@ NARRATION SEGMENTS (adaptation A):
 
 ---
 
-## Step: B — 2026-08-29T02:59:44.455Z
+## Step 2: `B` — 2026-08-29T02:59:44.455Z
 
 ### Agent instructions (system)
 

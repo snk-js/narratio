@@ -1,12 +1,14 @@
 # Trajectory — case `syn-02`, agent `baseline`
 
-Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0277.
+Model: `claude-opus-4-8`. 1 call(s): `adapt`. Total cost: $0.0277.
+
+**What happened in this run:** a single pass. The verifier returned `pass` on the first round, so the revision loop never fired and no step needed feedback from a previous one.
 
 Raw record (full requests/responses): `trajectories/raw/syn-02.baseline.jsonl`
 
 ---
 
-## Step: adapt — 2026-08-29T01:53:25.390Z
+## Step 1: `adapt` — 2026-08-29T01:53:25.390Z
 
 ### Input (user)
 

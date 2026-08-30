@@ -1,12 +1,14 @@
 # Trajectory — case `syn-03`, agent `verifier`
 
-Model: `claude-opus-4-8`. 1 call(s). Total cost: $0.0406.
+Model: `claude-opus-4-8`. 1 call(s): `verify-1`. Total cost: $0.0406.
+
+**What happened in this run:** a single pass. The verifier returned `pass` on the first round, so the revision loop never fired and no step needed feedback from a previous one.
 
 Raw record (full requests/responses): `trajectories/raw/syn-03.verifier.jsonl`
 
 ---
 
-## Step: verify-1 — 2026-08-29T02:13:26.863Z
+## Step 1: `verify-1` — 2026-08-29T02:13:26.863Z
 
 ### Agent instructions (system)
 
