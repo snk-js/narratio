@@ -68,7 +68,7 @@ padding:3px 6px;border-radius:3px;background:#f2efe9;color:var(--mut)}
 </main>
 <script>
 const $ = s => document.querySelector(s);
-let sessionId = null, rawEssay = "", pendingEsc = null, answers = {};
+let sessionId = null, rawEssay = "", pendingEsc = null, answers = {}, curSegs = [];
 
 const STAGES = [
   ["adapter","Adapter — draft segments + anchors"],
@@ -86,7 +86,10 @@ function paintPipe(state){
 const state = {}; paintPipe(state);
 
 const norm = s => s.replace(/[‘’‚′]/g,"'").replace(/[“”„″]/g,'"').replace(/[–—−]/g,'-').replace(/\s+/g,' ').trim().toLowerCase();
-const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// Escapes quotes as well as angle brackets: this string is used inside HTML
+// attributes, and an unescaped double quote truncates the attribute silently —
+// which once cut a human's recorded answer in half at the first quoted word.
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 function highlight(text, anchor){
   if(!anchor) return esc(text);
   const nt=norm(text), na=norm(anchor), at=nt.indexOf(na);
@@ -136,12 +139,13 @@ function handle(e){
   if(e.type==='cost') $('#cost').textContent = '$'+e.usd.toFixed(4)+' · '+e.calls+' calls';
   if(e.type==='segments'){
     $('#segcount').textContent = e.segments.length+' segments';
+    curSegs = e.segments;
     $('#segs').innerHTML = e.segments.map((s,i) => `
-      <div class="seg ${e.anchorsOk[i]===false?'flag':'ok'}" data-a="${esc(s.anchor)}">
+      <div class="seg ${e.anchorsOk[i]===false?'flag':'ok'}" data-i="${i}">
         <div class="h">${s.index} · ${e.anchorsOk[i]===false?'anchor missing':'anchor verified'}</div>
         <p>${esc(s.narration)}</p></div>`).join('');
     $('#segs').querySelectorAll('.seg').forEach(el => el.onclick = () => {
-      $('#essay').innerHTML = highlight(rawEssay, el.dataset.a);
+      $('#essay').innerHTML = highlight(rawEssay, curSegs[+el.dataset.i].anchor);
       const m = $('#essay').querySelector('mark'); if(m) m.scrollIntoView({block:'center',behavior:'smooth'});
     });
   }
@@ -164,12 +168,15 @@ function handle(e){
         <h3>The agent stopped to ask · blocks approval</h3>
         <blockquote>${esc(x.sourceQuote)}</blockquote>
         <div class="q">${esc(x.question)}</div>
-        ${x.readings.map((r,j)=>`<button class="opt" data-i="${i}" data-r="${esc(r)}">${esc(r)}</button>`).join('')}
+        ${x.readings.map((r,j)=>`<button class="opt" data-i="${i}" data-j="${j}">${esc(r)}</button>`).join('')}
         <textarea data-i="${i}" rows="2" placeholder="…or answer in your own words"></textarea>
       </div>`).join('') + `<button class="primary" id="send" disabled>Send answer and resume the run</button>`;
     $('#blocks').querySelectorAll('.opt').forEach(b => b.onclick = () => {
       $('#blocks').querySelectorAll(`.opt[data-i="${b.dataset.i}"]`).forEach(o=>o.classList.remove('sel'));
-      b.classList.add('sel'); answers[b.dataset.i] = b.dataset.r; check();
+      b.classList.add('sel');
+      // Read the reading out of the payload, never out of the DOM attribute.
+      answers[b.dataset.i] = pendingEsc[+b.dataset.i].readings[+b.dataset.j];
+      check();
     });
     $('#blocks').querySelectorAll('textarea').forEach(t => t.oninput = () => {
       if(t.value.trim()){ answers[t.dataset.i] = t.value.trim();
