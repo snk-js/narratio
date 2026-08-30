@@ -82,6 +82,22 @@ npm run studio       # → http://localhost:4321
 
 ## The main flow: how an essay gets checked and narrated
 
+```mermaid
+flowchart LR
+    E["Essay"] --> A["<b>Adapter</b><br/>drafts narration, quotes<br/>the source for every segment"]
+    A --> M{"<b>Anchor check</b><br/><i>String.includes</i><br/>no model · no cost"}
+    M --> V["<b>Adversarial verifier</b><br/>invention · drift<br/>scaffolding · flattening"]
+    V -->|"issues found — max 2 rounds"| A
+    V --> H{"<b>Open question?</b>"}
+    H -->|"yes"| B["<b>RUN SUSPENDED</b><br/>waits for the author"]
+    B --> R["<b>Resolve pass</b><br/>the answer changes<br/>the narration itself"]
+    R --> O
+    H -->|"no"| O["Narration + provenance record<br/><i>approval blocked while<br/>a question is open</i>"]
+```
+
+The full mechanism, plus a diagram for each audit instrument, is in
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
 ### 1. An essay goes in
 
 `corpus/essays/` holds the source texts and `corpus/cases/` holds their metadata — language, case
@@ -246,6 +262,7 @@ and the measurement.
 | [`docs/CHANGELOG.md`](docs/CHANGELOG.md) | The improvement changelog (deliverable 01), including the main failure mode and the hot take |
 | [`docs/REPRODUCE.md`](docs/REPRODUCE.md) | Reproduction guide (deliverable 02) |
 | [`docs/FINDINGS.md`](docs/FINDINGS.md) | The validation run log — what each run showed, including corrected diagnoses |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | The layers and the audit instruments, with diagrams |
 | [`docs/UI.md`](docs/UI.md) | Review-surface design: user flows, layout, and the reasoning behind each rule |
 | [`docs/PLAN.md`](docs/PLAN.md) | The working plan and progress tracker |
 | [`docs/HACKATHON.md`](docs/HACKATHON.md) | Rubric, rules, and deliverables checklist |

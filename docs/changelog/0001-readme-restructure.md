@@ -1,4 +1,4 @@
-# 0001 — README restructure, and three stale facts corrected
+# 0001 — README restructure, architecture diagrams, three stale facts corrected
 
 **Branch:** `claude/readme-restructure`
 **Date:** 2026-08-30
@@ -49,6 +49,38 @@ Removed the duplicated `npm run studio` invocation (it appeared twice), folded t
 The `124` figure predated the last three corpus cases. A judge following
 [`docs/REPRODUCE.md`](../REPRODUCE.md) would have seen `164` where the guide promised `124` and had
 to decide whether the discrepancy meant a broken reproduction.
+
+### Diagrams
+
+Added [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), which answers two questions the prose was
+carrying alone — what the workflow does to an essay, and how each claim about it gets checked —
+with six mermaid diagrams:
+
+1. **Two arms, one evaluation.** Baseline and workflow over the same corpus into the same instruments.
+2. **The four layers.** The full control flow, including the revision loop, its two-round cap, the
+   suspension at the human checkpoint, and the resolve pass that makes an answer change the artifact.
+3. **The audit instruments.** Deterministic checks and model-based checks drawn on opposite sides,
+   with the claim each one is able to carry, and the judge-instability incident that put the headline
+   claims on the deterministic side.
+4. **Auditing the judge.** The sampling, the blank human column, the fold that hides the judge's
+   verdict until the reviewer has formed their own, and the agreement rate that results.
+5. **Inside the trap check.** Marker self-validation, the disqualification path, and the three
+   outcomes including *indeterminate*.
+6. **Turning single observations into rates.** The repeat sampler, ending on the honest note that at
+   n = 1 the table reports an observation rather than a rate.
+
+A compact version of diagram 2 now opens the README's flow section, and `docs/ARCHITECTURE.md` was
+added to the repository map.
+
+### A diagram that never rendered
+
+`docs/UI.md` diagram 5 — the studio sequence, which is the one that shows the checkpoint blocking —
+failed to parse and therefore displayed as an error box on GitHub rather than as a diagram. Two
+sequence messages contained a semicolon, which mermaid reads as a statement separator. Both were
+replaced with commas.
+
+All twelve diagrams across `README.md`, `docs/ARCHITECTURE.md` and `docs/UI.md` were parsed with the
+mermaid 11 parser before commit; twelve of twelve parse.
 
 ## What did not change
 

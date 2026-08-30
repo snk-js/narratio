@@ -175,7 +175,7 @@ sequenceDiagram
     AG->>S: adapter drafting…
     S-->>UI: stage: adapter (running)
     AG->>S: segments + anchors
-    S-->>UI: segments render; anchors clickable
+    S-->>UI: segments render, anchors clickable
     Note over S: mechanical check — no model
     S-->>UI: stage: anchor-check done (n/n valid)
     AG->>S: verifier verdicts
@@ -187,7 +187,7 @@ sequenceDiagram
     UI->>W: shows the sentence, both readings, the question
     W->>UI: picks a reading, or writes their own
     UI->>S: POST /api/answer
-    Note over S: promise resolves; the run continues
+    Note over S: promise resolves, the run continues
     AG->>S: final pass applying the author's answer
     S-->>UI: stage: done — ready to approve
 ```
