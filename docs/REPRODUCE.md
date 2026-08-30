@@ -74,7 +74,7 @@ npm run verify-anchors
 **What it does:** for every segment the workflow produced across every case, confirms the
 segment's claimed source anchor appears **verbatim** in the source essay.
 
-**Expected output:** `124 / 124 anchors valid, 0 failure(s)` on the committed results (the total tracks the corpus as runs are added). Any
+**Expected output:** `164 / 164 anchors valid, 0 failure(s)` on the committed results (the total tracks the corpus as runs are added). Any
 failure prints the case, segment index, and the offending anchor.
 
 Of everything in this submission, this claim stands entirely on its own: verifying it requires trusting zero models — ours, the judge's, or yours.
