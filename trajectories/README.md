@@ -35,20 +35,28 @@ loop fired and whether a human checkpoint occurred. Individual steps are labelle
   appears in the input and changes the artifact
 - `verify-final` — re-verification after the author's answer was applied
 
-## What the current committed set does and does not show
+## The human checkpoint, captured
 
-**Present:** every agent's instructions and outputs, escalations raised by the adapter and passed
-into the verifier, per-call cost and token usage, and the judge's per-segment verdicts.
+**[`jul-01.adapter.md`](jul-01.adapter.md) records a real suspension.** Its step sequence is
+`adapt → resolve`: the adapter raised an escalation on the essay's opening sentence, the run halted,
+a person answered in the studio, and the `resolve` step carries that answer in its input. The
+matching verifier trajectory runs `verify-1 → verify-final`, re-checking the adaptation after the
+answer was applied. [`syn-02`](syn-02.adapter.md) records a second such run.
 
-**Absent, and worth stating plainly:** none of these twelve batch runs contains a `revise-N` or a
-`resolve` step. The verifier returned `pass` on the first round for every case, so the revision loop
-never engaged, and batch mode records escalations without blocking on them. The loops are
-implemented and exercised — see `src/workflow.ts` and the studio — and the committed batch runs
-simply never needed them.
+The resulting artifact is [`results/workflow/jul-01.studio.json`](../results/workflow/jul-01.studio.json),
+where `humanAnswers` holds what the author said, `escalationsForHuman` is empty because the question
+was resolved, and `approvalBlocked` is false. Studio runs are written to `<id>.studio.json` so an
+interactive session never overwrites the batch artifacts the evaluation depends on.
 
-To capture both on this corpus, run one case interactively and answer its question:
+**What these trajectories do not contain:** a `revise-N` step. The verifier returned `pass` on the
+first round for every case in the corpus, so the automatic revision loop never engaged. The loop is
+implemented (`src/workflow.ts`, capped at two rounds) and its feedback path is the same one visible
+in the `resolve` step — a prior pass's output plus structured criticism, fed back as input. No case
+in this corpus has needed it.
+
+To reproduce a checkpoint yourself:
 
 ```bash
 npm run studio          # → http://localhost:4321, pick jul-01, Run, answer the question
-npm run trajectories    # re-render; jul-01.adapter.md now carries `adapt → resolve`
+npm run trajectories    # re-render
 ```
